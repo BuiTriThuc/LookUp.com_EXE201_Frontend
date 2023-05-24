@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,7 +17,7 @@ const Form = ({ addItem }) => {
   };
 
   return (
-    <section className='section-center'>
+    <section className="section-center">
       <form onSubmit={handleSubmit}>
         <h4>Information about Company</h4>
         <br />
@@ -99,7 +97,8 @@ const Form = ({ addItem }) => {
           <div class="input-group-prepend">
             <div class="input-group-text">
               <input
-                type="checkbox" aria-label="Radio button for following text input"
+                type="checkbox"
+                aria-label="Radio button for following text input"
               />
             </div>
           </div>
