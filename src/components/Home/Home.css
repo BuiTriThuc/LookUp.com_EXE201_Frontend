@@ -1,0 +1,275 @@
+.body_top {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    background-color: #F3F3F3;
+    height: auto;
+}
+
+.body_left {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.search_partner {
+    display: flex;
+    justify-content: end;
+}
+
+.body_top_search {
+    outline: none;
+    width: 550px;
+    height: 44px;
+    border: none;
+    border-radius: 50px;
+    position: relative;
+}
+
+.search_icon {
+    border: none;
+    border-radius: 20px;
+    width: 111px;
+    height: 44px;
+    background-color: #2187FF;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body_top_item1 {
+    background-color: white;
+    width: 265px;
+    height: 261px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.body_top_item1_welcome {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.body_top_item1_lookup {
+    font-weight: bold;
+    font-size: 32px;
+    color: #073F82;
+    text-decoration: none;
+}
+
+.check_icon {
+    width: 27px;
+    height: 27px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.body_top_item1_detai {
+    display: flex;
+    font-size: 17px;
+}
+
+.body_top_button_register {
+    background-color: #2187FF;
+    border: none;
+    border-radius: 10px;
+    width: 115px;
+    height: 33px;
+    color: white;
+    margin-top: 10px;
+}
+
+.body_top_item2 {
+    width: 550px;
+    height: 183px;
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.have_account {
+    display: flex;
+    padding-top: 20px;
+}
+
+.body_top_item3 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+
+}
+
+.body_top_item3_img_ads {
+    width: 265px;
+    height: 291px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.body_top_item3_detail_ads {
+    width: 265px;
+    height: 100px;
+    background-color: #fff;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    padding-top: 10px;
+
+}
+
+.suport {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 200px;
+}
+
+.suport_left {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;
+}
+
+.suport_right {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+}
+
+.suport_detail {
+    text-decoration: none;
+    color: black;
+}
+
+.img_company {
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.img_company2 {
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.body_top_item4 {
+    width: 265px;
+    height: 647px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.title_event {
+    margin-left: 14px;
+    margin-top: 10px;
+}
+
+.envent_detail_more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.event_detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img_event {
+    margin-top: 10px;
+    width: 236px;
+    height: 68px;
+    border-radius: 10px;
+}
+
+.body_top_item5 {
+    width: 550px;
+    height: 549px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+.post_detail {
+    display: flex;
+}
+
+.post_title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    margin-left: 10px
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.img_post {
+    width: 550px;
+    height: 261px;
+}
+
+.total_like_cmt {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    border-bottom: 1px solid #B1B1B1;
+}
+
+.total_like {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.act_post {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 40px;
+}
+
+.item_act {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.item_like_cmt_send {
+    width: 20px;
+    height: 20px;
+}
+
+.item_act_post {
+    padding: 3px;
+}

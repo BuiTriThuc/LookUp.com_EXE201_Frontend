@@ -1,0 +1,44 @@
+.header_top {
+    width: auto;
+    height: 46px;
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.header_lookup {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.header_help {
+    font-weight: bold;
+    color: black;
+    margin-left: 20px;
+}
+
+
+.header_body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header_title {
+    position: absolute;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    text-align: center;
+}
+
+
+.header_img {
+    position: relative;
+    width: 1880px;
+    height: 180px;
+}

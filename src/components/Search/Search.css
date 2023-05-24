@@ -1,0 +1,79 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0;
+}
+
+.search_layout {
+    display: flex;
+    flex-direction: column;
+    background-color: #F3F3F3;
+    align-items: center;
+}
+
+
+.search_center_field {
+    width: 1120px;
+    height: 484px;
+    background-color: #fff;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search_suggest_company {
+    width: 1120px;
+    height: 218px;
+    background-color: #fff;
+    border-radius: 20px;
+    position: relative;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.avt_search_suggeset_company {
+    width: 45px;
+    height: 45px;
+    border-radius: 100px;
+}
+
+.search_detail_company {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+
+.title_search_center {
+    padding: 30px;
+}
+
+.search_title_company {
+    margin-left: 10px;
+}
+
+.detail_company_search {
+    width: 300px;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.search_suggest_company_img {
+    width: 226px;
+    height: 218px;
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.sd {
+    margin-left: 100px;
+}
