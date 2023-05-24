@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
-const Form = ({ addItem }) => {
+const FormRegister = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState("");
 
   const handleSubmit = (e) => {
@@ -123,4 +123,5 @@ const Form = ({ addItem }) => {
     </section>
   );
 };
-export default Form;
+
+export default FormRegister;
