@@ -24,6 +24,8 @@
     border: none;
     border-radius: 50px;
     position: relative;
+    font-family: sans-serif;
+
 }
 
 .search_icon {
