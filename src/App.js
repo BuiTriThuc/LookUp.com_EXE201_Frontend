@@ -18,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/NewFeed" element={<NewFeed />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
