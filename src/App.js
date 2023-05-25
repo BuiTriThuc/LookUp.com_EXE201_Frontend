@@ -1,6 +1,6 @@
 import "./App.scss";
 import Header from "./components/Layout/Header/Header";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./components/Layout/Error/NotFound";
 import Footer from "./components/Layout/Footer/Footer";
 import Home from "./components/Home/Home";
@@ -18,8 +18,10 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/form" element={<FormRegister />} />
+            <Route path="/register" element={<FormRegister />} />
+            <Route path="/newfeed" element={<NewFeed />} />
             <Route path="/login" element={<LoginForm />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />

@@ -9,7 +9,7 @@
 .body_left {
     display: flex;
     flex-direction: column;
-    margin-right: 20px;
+    margin-right: 60px;
 }
 
 .search_partner {
@@ -56,6 +56,7 @@
     padding-left: 10px;
     padding-right: 10px;
     font-weight: bold;
+    font-family: sans-serif;
     font-size: 28px;
 }
 
@@ -64,16 +65,21 @@
     font-size: 32px;
     color: #073F82;
     text-decoration: none;
+    font-family: sans-serif;
+
 }
 
 .check_icon {
     width: 27px;
     height: 27px;
     padding-right: 5px;
+    font-family: sans-serif;
+
     padding-left: 5px;
 }
 
 .body_top_item1_detai {
+
     display: flex;
     font-size: 17px;
 }
@@ -86,13 +92,24 @@
     height: 33px;
     color: white;
     margin-top: 10px;
+    font-family: sans-serif;
+
+}
+
+h3 {
+    font-family: sans-serif;
+
+}
+
+.home_title_center {
+    font-weight: bold;
 }
 
 .body_top_item2 {
     width: 550px;
     height: 183px;
     background-color: #fff;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 20px;
     display: flex;
     text-align: center;
@@ -109,7 +126,7 @@
 .body_top_item3 {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    margin-left: 60px;
 
 }
 
@@ -182,17 +199,29 @@
     display: flex;
     flex-direction: column;
     border-radius: 20px;
+    font-family: sans-serif;
+
+}
+
+.title_event_top {
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-left: 14px;
+    margin-top: 10px;
 }
 
 .title_event {
     margin-left: 14px;
-    margin-top: 10px;
+    font-family: sans-serif;
+
 }
 
 .envent_detail_more {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: sans-serif;
+
 }
 
 .event_detail {
@@ -202,18 +231,17 @@
 }
 
 .img_event {
-    margin-top: 10px;
+    margin-top: 30px;
     width: 236px;
     height: 68px;
-    border-radius: 10px;
 }
 
 .body_top_item5 {
     width: 550px;
-    height: 549px;
+    height: 497px;
     background-color: #fff;
     border-radius: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .post_detail {
@@ -224,7 +252,8 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    margin-left: 10px
+    font-family: sans-serif !important;
+    margin-left: 10px;
 }
 
 p {

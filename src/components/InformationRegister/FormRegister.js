@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
+import "./FormRegister.css";
+import { Link } from "react-router-dom";
 
 const FormRegister = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState("");
@@ -110,15 +111,17 @@ const FormRegister = ({ addItem }) => {
           </p>
         </div>
         <br />
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-        >
-          Register
-        </button>
+        <Link to="/newfeed">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+          >
+            Register
+          </button>
+        </Link>
       </form>
     </section>
   );

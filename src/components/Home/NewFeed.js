@@ -1,7 +1,5 @@
 import React from "react";
 import "./NewFeed.css";
-
-import "bootstrap/dist/css/bootstrap.min.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BsSearch } from "react-icons/bs";
 import HeaderPage from "../../images/HeaderPage.png";
@@ -85,10 +83,12 @@ function NewFeed() {
             type="text"
             placeholder="Bạn đang cần tìm đối tác?"
           />
-          <button className="search_icon">
-            <BsSearch />
-            <p>Tìm kiếm</p>
-          </button>
+          <Link to="/search">
+            <button className="search_icon">
+              <BsSearch />
+              <p>Tìm kiếm</p>
+            </button>
+          </Link>
         </div>
         <div className="create_post">
           <Example />
@@ -98,7 +98,11 @@ function NewFeed() {
         <div className="post_suggested">
           <div className="post_suggested_item">
             <div className="avt_name_company">
-              <img className="newfeed_left_avt_img" src={avt_company} alt="" />
+              <img
+                className="newfeed_left_avt_img_center"
+                src={avt_company}
+                alt=""
+              />
               <p>Tên công ty</p>
             </div>
             <h6>Mô tả ngắn về công ty </h6>
@@ -107,7 +111,11 @@ function NewFeed() {
           </div>
           <div className="post_suggested_item">
             <div className="avt_name_company">
-              <img className="newfeed_left_avt_img" src={avt_company} alt="" />
+              <img
+                className="newfeed_left_avt_img_center"
+                src={avt_company}
+                alt=""
+              />
               <p>Tên công ty</p>
             </div>
             <h6>Mô tả ngắn về công ty </h6>
@@ -210,7 +218,11 @@ function NewFeed() {
         <div className="newfeed_right_ads">
           <h4>Thêm vào bảng tin của bạn</h4>
           <div className="newfeed_company">
-            <img className="newfeed_left_avt_img" src={avt_company} alt="" />
+            <img
+              className="newfeed_left_avt_img_right"
+              src={avt_company}
+              alt=""
+            />
             <div className="newfeed_detail_company">
               <p>Công ty</p>
               <h6>Ngành nghề</h6>
@@ -219,14 +231,18 @@ function NewFeed() {
           <div className="newfeed_act_company">
             <div className="newfeed_icon_action1">
               <AiOutlinePlusCircle />
-              <h6>Theo dõi</h6>
+              <h6 className="newfeed_action_right">Theo dõi</h6>
             </div>
             <div className="newfeed_icon_action">
-              <h6>Tìm hiểu thêm</h6>
+              <h6 className="newfeed_action_right">Tìm hiểu thêm</h6>
             </div>
           </div>
           <div className="newfeed_company">
-            <img className="newfeed_left_avt_img" src={avt_company} alt="" />
+            <img
+              className="newfeed_left_avt_img_right"
+              src={avt_company}
+              alt=""
+            />
             <div className="newfeed_detail_company">
               <p>Công ty</p>
               <h6>Ngành nghề</h6>
@@ -235,10 +251,10 @@ function NewFeed() {
           <div className="newfeed_act_company">
             <div className="newfeed_icon_action1">
               <AiOutlinePlusCircle />
-              <h6>Theo dõi</h6>
+              <h6 className="newfeed_action_right">Theo dõi</h6>
             </div>
             <div className="newfeed_icon_action">
-              <h6>Tìm hiểu thêm</h6>
+              <h6 className="newfeed_action_right">Tìm hiểu thêm</h6>
             </div>
           </div>
         </div>

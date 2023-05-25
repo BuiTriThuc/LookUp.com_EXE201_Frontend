@@ -20,12 +20,12 @@ function Home() {
             <p>Trải nghiệm tính năng cao cấp với gói Premium miễn phí!</p>
           </div>
 
-          <Link to="/login">
+          <Link to="/register">
             <button className="body_top_button_register">Đăng ký ngay!</button>
           </Link>
         </div>
         <div className="body_top_item4">
-          <h6 className="title_event">
+          <h6 className="title_event_top">
             Sự kiện đang diễn ra <br /> có thể bạn quan tâm
           </h6>
           <div className="event_detail">
@@ -40,7 +40,7 @@ function Home() {
             <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
           </div>
           <div className="envent_detail_more">
-            <a href=""> Tìm hiểu thêm</a>
+            <Link to="/login">Tìm hiểu thêm</Link>
           </div>
 
           <div className="event_detail">
@@ -55,7 +55,7 @@ function Home() {
             <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
           </div>
           <div className="envent_detail_more">
-            <a href=""> Tìm hiểu thêm</a>
+            <Link to="/login">Tìm hiểu thêm</Link>
           </div>
           <div className="event_detail">
             <img
@@ -69,7 +69,7 @@ function Home() {
             <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
           </div>
           <div className="envent_detail_more">
-            <a href=""> Tìm hiểu thêm</a>
+            <Link to="/login">Tìm hiểu thêm</Link>
           </div>
         </div>
       </div>
@@ -87,11 +87,11 @@ function Home() {
         </div>
 
         <div className="body_top_item2">
-          <h3>
+          <h3 className="home_title_center">
             Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
             LookUp.com!
           </h3>
-          <Link to="/login">
+          <Link to="/register">
             <button className="body_top_button_register">Đăng ký ngay!</button>
           </Link>
           <div className="have_account">
