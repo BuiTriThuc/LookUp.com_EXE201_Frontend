@@ -1,9 +1,8 @@
-
-
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./index.css";
+import "./FormRegister.css";
+import { Link } from "react-router-dom";
 
 const FormRegister = ({ addItem }) => {
   const [newItemName, setNewItemName] = useState("");
@@ -19,7 +18,7 @@ const FormRegister = ({ addItem }) => {
   };
 
   return (
-    <section className='section-center'>
+    <section className="section-center">
       <form onSubmit={handleSubmit}>
         <h4>Information about Company</h4>
         <br />
@@ -99,7 +98,8 @@ const FormRegister = ({ addItem }) => {
           <div class="input-group-prepend">
             <div class="input-group-text">
               <input
-                type="checkbox" aria-label="Radio button for following text input"
+                type="checkbox"
+                aria-label="Radio button for following text input"
               />
             </div>
           </div>
@@ -111,17 +111,20 @@ const FormRegister = ({ addItem }) => {
           </p>
         </div>
         <br />
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="button"
-          aria-pressed="false"
-          autocomplete="off"
-        >
-          Register
-        </button>
+        <Link to="/newfeed">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+          >
+            Register
+          </button>
+        </Link>
       </form>
     </section>
   );
 };
+
 export default FormRegister;

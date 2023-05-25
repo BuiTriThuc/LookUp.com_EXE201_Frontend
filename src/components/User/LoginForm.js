@@ -3,6 +3,7 @@ import bgImg from "../assets/img1.jpg";
 import { useForm } from "react-hook-form";
 import { MDBCheckbox } from "mdb-react-ui-kit";
 import "./login.scss";
+import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   const {
@@ -107,9 +108,11 @@ export default function LoginForm() {
             <small id="passworderror" className="text-danger form-text">
               {passwordError}
             </small>
-            <button type="submit" className="btn">
-              Sign In
-            </button>
+            <Link to="/newfeed">
+              <button type="submit" className="btn">
+                Sign In
+              </button>
+            </Link>
 
             <div class="striped">
               <span class="striped-line">-----------------------------</span>
