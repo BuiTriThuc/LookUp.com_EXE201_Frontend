@@ -9,6 +9,7 @@ import { Fragment } from "react";
 import NewFeed from "./components/Home/NewFeed";
 import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
+import Chatbox from "./components/Chatbox/Chatbox";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Chatbox />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/register" element={<FormRegister />} />
             <Route path="/newfeed" element={<NewFeed />} />
             <Route path="/login" element={<LoginForm />} />

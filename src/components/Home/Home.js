@@ -80,10 +80,11 @@ function Home() {
             type="text"
             placeholder="Bạn đang cần tìm đối tác?"
           />
-          <button className="search_icon">
+
+          <Link to="/login" className="search_icon">
             <BsSearch />
             <p>Tìm kiếm</p>
-          </button>
+          </Link>
         </div>
 
         <div className="body_top_item2">
