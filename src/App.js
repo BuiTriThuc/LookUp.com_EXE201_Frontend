@@ -10,20 +10,22 @@ import NewFeed from "./components/Home/NewFeed";
 import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
+import Profile from "./components/User/Profile";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Fragment>
-          <Header />
+          {/* <Header /> */}
           <Routes>
-            <Route path="/" element={<Chatbox />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
             <Route path="/newfeed" element={<NewFeed />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
+            <Route path="/profile" element={<Profile />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />

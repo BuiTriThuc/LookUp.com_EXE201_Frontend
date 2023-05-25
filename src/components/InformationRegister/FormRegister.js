@@ -31,23 +31,31 @@ const FormRegister = ({ addItem }) => {
         </div>
         <br />
         <div>
-        <input 
-              type="password" id="pass" name="password"
-              placeholder="Mật khẩu"
-              className="form-input"
-              minlength="8" required />
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            placeholder="Mật khẩu"
+            className="form-input"
+            minlength="8"
+            required
+          />
         </div>
         <br />
         <div>
-          <input 
-              type="password" id="pass" name="password"
-              placeholder="Xác nhận Mật khẩu"
-              className="form-input"
-              minlength="8" required />
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            placeholder="Xác nhận Mật khẩu"
+            className="form-input"
+            minlength="8"
+            required
+          />
         </div>
         <br />
         <h4>Thông tin doanh nghiệp</h4>
-        
+
         <div>
           <input
             type="text "
@@ -71,7 +79,11 @@ const FormRegister = ({ addItem }) => {
             <input type="text " className="form-input" placeholder="Số nhà" />
           </div>
           <div className="col-8">
-            <input type="text " className="form-input" placeholder="Tên đường" />
+            <input
+              type="text "
+              className="form-input"
+              placeholder="Tên đường"
+            />
           </div>
         </div>
         <br />
@@ -101,13 +113,19 @@ const FormRegister = ({ addItem }) => {
         <div className="row">
           <div className="col-4">
             <select id="inputState" className="form-control">
-            
-              <option selected ><img src={flagVN} alt="" />+84</option>
+              <option selected>
+                <img src={flagVN} alt="" />
+                +84
+              </option>
               <option>......</option>
             </select>
           </div>
           <div className="col-6">
-            <input type="text " className="form-input" placeholder="Số điện thoại" />
+            <input
+              type="text "
+              className="form-input"
+              placeholder="Số điện thoại"
+            />
           </div>
         </div>
         <br />
@@ -131,7 +149,6 @@ const FormRegister = ({ addItem }) => {
             </div>
           </div>
           <p>
-            {" "}
             Trong Khi tạo một tài khoản trang web: Tôi đồng ý tuân thủ thuận
             thành viên Lookup.com sẵn sàng nhận email từ các thành viên và dịch
             vụ của Lookup.com
