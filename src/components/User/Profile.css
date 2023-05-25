@@ -1,0 +1,26 @@
+.profile {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+
+}
+
+.profile_top {
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_top_center_avt {
+    width: 130px;
+    height: 130px;
+    border-radius: 100px;
+    position: relative;
+}
+
+.profile_top_bgr {
+    width: 1220px;
+    height: 186px;
+    margin-bottom: 100px;
+    position: absolute;
+}
