@@ -83,11 +83,10 @@ function NewFeed() {
             type="text"
             placeholder="Bạn đang cần tìm đối tác?"
           />
-          <Link to="/search">
-            <button className="search_icon">
-              <BsSearch />
-              <p>Tìm kiếm</p>
-            </button>
+
+          <Link to="/search" className="search_icon">
+            <BsSearch />
+            <p>Tìm kiếm</p>
           </Link>
         </div>
         <div className="create_post">

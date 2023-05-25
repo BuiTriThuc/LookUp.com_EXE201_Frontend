@@ -7,7 +7,7 @@ import company_3 from "../../images/company_3.jpg";
 function Search() {
   return (
     <div className="search_layout">
-      <div className="search_center">
+      {/* <div className="search_center">
         <div className="search_partner">
           <input
             className="body_top_search"
@@ -19,7 +19,7 @@ function Search() {
             <p>Tìm kiếm</p>
           </button>
         </div>
-      </div>
+      </div> */}
       <div className="search_center_field">
         <h4>Bộ lọc</h4>
         <div>
