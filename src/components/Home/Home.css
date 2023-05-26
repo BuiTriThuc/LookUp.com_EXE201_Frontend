@@ -300,6 +300,7 @@ p {
 .item_like_cmt_send {
     width: 20px;
     height: 20px;
+    margin-bottom: 10px;
 }
 
 .item_act_post {

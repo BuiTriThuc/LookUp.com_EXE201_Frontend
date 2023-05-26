@@ -8,7 +8,7 @@ import "./Profile.css";
 import ProfileTab from "./ProfileTab";
 function Profile() {
   return (
-    <div>
+    <div className="profile">
       <div class="img_des">
         <div>
           <img class="img_bg" src={bgcompany} alt="" />
@@ -26,9 +26,10 @@ function Profile() {
             <div class="sendmess">Gui tin nhan</div>
           </div>
         </div>
+      </div>
+      <div className="profile_center_tab">
         <ProfileTab />
       </div>
-      <div className="profile_center_tab"></div>
     </div>
   );
 }
