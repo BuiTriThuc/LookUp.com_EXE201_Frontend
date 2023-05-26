@@ -1,8 +1,13 @@
+.profile {
+    background-color: #F3F3F3;
+
+}
+
 .img_des {
     display: flex;
     margin-left: 370px;
     width: 1120px;
-    height: 500px;
+    height: 380px;
     background-color: #F3F3F3;
     border-radius: 20px;
 }
@@ -50,5 +55,7 @@
 }
 
 .profile_center_tab {
-    margin-left: 400px !important;
+    margin-left: 370px !important;
+    margin-right: 370px;
+    margin-top: -50px;
 }
