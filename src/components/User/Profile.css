@@ -1,13 +1,16 @@
 .profile {
     display: flex;
-    align-items: center;
-    padding: 20px;
+    padding: 30px;
+    }
+    
+    .profile_top {
+        width: 100%;
+        display: flex;
     justify-content: center;
-
 }
 
-.profile_top {
-    align-items: center;
+.img_bg {
+    display: flex;
     justify-content: center;
 }
 
@@ -15,12 +18,13 @@
     width: 130px;
     height: 130px;
     border-radius: 100px;
-    position: relative;
+    position: absolute;
+        z-index: 2;
 }
 
 .profile_top_bgr {
-    width: 1220px;
     height: 186px;
     margin-bottom: 100px;
-    position: absolute;
+    position: relative;
+        width: 1122px;
 }

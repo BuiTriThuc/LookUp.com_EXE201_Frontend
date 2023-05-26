@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <Fragment>
-          {/* <Header /> */}
+          <Header /> 
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chatbox" element={<Chatbox />} />
