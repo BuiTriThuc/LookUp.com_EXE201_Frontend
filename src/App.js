@@ -11,13 +11,14 @@ import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
 import Profile from "./components/User/Profile";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Fragment>
-          {/* <Header /> */}
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chatbox" element={<Chatbox />} />
