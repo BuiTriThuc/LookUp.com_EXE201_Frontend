@@ -11,7 +11,7 @@ import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
 import Profile from "./components/User/Profile";
-import Premium from "./components/Premium/Premium";
+import { StyledEngineProvider } from "@mui/material/styles";
 
 function App() {
   return (
