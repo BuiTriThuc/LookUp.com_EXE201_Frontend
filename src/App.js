@@ -11,6 +11,7 @@ import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
 import Profile from "./components/User/Profile";
+import Premium from "./components/Premium/Premium";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/premium" element={<Premium />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
