@@ -27,7 +27,6 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/premium" element={<Premium />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
