@@ -14,21 +14,19 @@ function NewFeed() {
   return (
     <div className="newfeed">
       <div className="akjd">
-        <div className="newfeed_left">
-          <div className="verification">
-            <img
-              className="newfeed_left_bg_img"
-              src="https://images2.thanhnien.vn/uploaded/dieutrang.qc/2020_11_30/cp/cp-viet-nam-1_RNFL.jpg?width=500"
-              alt=""
-            />
-            <img className="newfeed_left_avt_img" src={avt_company} alt="" />
-            <p>Công ty TNHH Đức Thịnh</p>
-            <h7>Đã được xác minh</h7>
-          </div>
+        <div className="body_top_item1">
+          <div className="body_top_item1_welcome"> Chào mừng bạn đến với</div>
+          <a className="body_top_item1_lookup" href="">
+            LookUp.com
+          </a>
           <div className="body_top_item1_detai">
             <AiFillCheckCircle className="check_icon" />
             <p>Trải nghiệm tính năng cao cấp với gói Premium miễn phí!</p>
           </div>
+
+          <Link to="/premium">
+            <button className="body_top_button_register">Đăng ký ngay!</button>
+          </Link>
         </div>
         <div className="body_top_item4">
           <h6 className="title_event">
@@ -106,10 +104,10 @@ function NewFeed() {
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqTSLCBDqDPzNbLzX_-pT4McxmUnr2S81elQ&usqp=CAU"
                 alt=""
               />
-              <h5>Doanh nghiệp Thịnh Đ</h5>
+              <h5>Doanh nghiệp LookUp</h5>
             </div>
-            <h6>Doanh nghiệp sản xuất oto </h6>
-            <a href="">xem them</a>
+            <h6>Kết nối doanh nghiệp </h6>
+            <Link to="/profile">xem thêm</Link>
             <img
               className="img_detail_company"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmwNh3fg6RZTPcfVA5TtcxeVe_YMrc8a4Hmg&usqp=CAU"
