@@ -24,7 +24,7 @@ function Profile() {
         </div>
         <div class="profile_des">
           <div>
-            <h3>Công ty Bùi Thức</h3>
+            <h3>Công ty LookUp</h3>
             <p>Lập Trình</p>
             <p>Hồ Chí Minh</p>
             <Link>500 Lượt theo dõi </Link>

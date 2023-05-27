@@ -113,7 +113,7 @@ function Home() {
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
-          <p>
+          <p className="post_detail_home">
             Thành lập từ năm 1994, Công ty TNHH Tin Học Hoàng Nam là một trong
             những công ty hàng đầu tại Tp. HCM trong lĩnh vực bán lẻ phần cứng
             công nghệ thông tin.
@@ -160,7 +160,7 @@ function Home() {
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
-          <p>
+          <p className="post_detail_home">
             Công ty TNHH Đầu tư Phát triển Công nghệ Việt Thanh chuyên kinh
             doanh xe đạp điện, xe máy điện, linh kiện xe điện nhập khẩu trực
             tiếp từ các hãng nổi tiếng trên thế giới
@@ -207,7 +207,7 @@ function Home() {
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
-          <p>
+          <p className="post_detail_home">
             Doanh nghiệp Trọng Nhân được ra đời năm 1998 chúng tôi là một trong
             những doanh nghiệp đi đầu tiền về lĩnh vực áp dụng công nghệ vào đồ
             ăn thức uống

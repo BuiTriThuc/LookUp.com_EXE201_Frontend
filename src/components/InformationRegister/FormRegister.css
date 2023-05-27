@@ -211,10 +211,9 @@ ul {
 /* ============= PROJECT CSS =============== */
 
 .section-center {
-  width: 90vw;
+  width: 1000px !important;
   margin: 0 auto;
   margin-top: 8rem;
-  max-width: 30rem;
   background: var(--white);
   border-radius: var(--borderRadius);
   padding: 2rem;
@@ -223,7 +222,7 @@ ul {
 }
 
 .row .section-center-premium {
-  width: 90vw;
+  width: 1000px;
   margin: 0 auto;
   margin-top: 8rem;
   max-width: 66rem;

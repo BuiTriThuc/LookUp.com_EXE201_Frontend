@@ -1,0 +1,94 @@
+.premiumYear {
+    background-color: #F3F3F3;
+    display: flex;
+    justify-content: center;
+
+}
+
+.premiumyear_center {
+    width: 1120px;
+    height: 803px;
+    background-color: #ffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+.premiumyear_top {
+    width: 1032px;
+    height: 167px;
+    border: 2px solid orange;
+    border-radius: 20px;
+    box-shadow: 5px 10px #dcdada;
+}
+
+.premiumyear_top_item {
+    background-color: orange;
+    width: 1030px;
+    height: 91px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.premium_top_rule {
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.premiumyear_bottom {
+    width: 1032px;
+    height: 389px;
+    border: 2px solid orange;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+
+}
+
+.premiumyear_title {
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.premium_bottom_detail {
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+
+.premium_bottom_payment {
+    width: 900px;
+    height: 200px;
+    border: 0.5px solid black;
+    margin-left: 65px;
+    margin-top: 30px;
+}
+
+.premium_bottom_payment_paypel {
+    margin-left: 20px;
+    margin-top: 30px;
+
+
+}
+
+.arrow {
+    margin-left: 600px;
+}
+
+.line {
+    width: 899px;
+    height: 1px;
+    background-color: black;
+    margin-top: 50px;
+}
+
+.premium_bottom_payment_visa {
+    margin-left: 20px;
+    margin-top: 20px;
+}

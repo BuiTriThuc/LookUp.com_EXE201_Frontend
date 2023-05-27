@@ -52,7 +52,7 @@ export default function LoginForm() {
         <div className="col-1">
           <h2>Welcome Back</h2>
 
-          <button type="button" id="login-google-button">
+          <button className="logingg">
             <svg
               class="active"
               version="1.1"
@@ -124,7 +124,7 @@ export default function LoginForm() {
                 id="flexCheckDefault"
                 label="Remember me"
               />
-              <a href="!#">Forgot password?</a>
+              <Link to="/resetpassword">Forgot password?</Link>
             </div>
           </form>
 

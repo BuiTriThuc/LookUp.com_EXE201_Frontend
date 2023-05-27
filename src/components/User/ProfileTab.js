@@ -131,7 +131,7 @@ export default function BasicTabs() {
             <div className="profile_tab_post_left_detail">
               <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
               <p className="profile_tab_post_left_detail_des">
-                Công ty TNHH Thức Bùi thành lập vào 10-8-2001 tọa lạc tại thành
+                Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành
                 phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
               </p>
             </div>
@@ -168,7 +168,7 @@ export default function BasicTabs() {
                   alt=""
                 />
                 <div className="post_title">
-                  <h3>Thuc Bui</h3>
+                  <h3>LookUp</h3>
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
@@ -232,7 +232,7 @@ export default function BasicTabs() {
                   alt=""
                 />
                 <div className="post_title">
-                  <h3>Thuc Bui</h3>
+                  <h3>LookUp</h3>
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
@@ -298,7 +298,7 @@ export default function BasicTabs() {
                   alt=""
                 />
                 <div className="post_title">
-                  <h3>Thuc Bui</h3>
+                  <h3>LookUp</h3>
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
@@ -362,28 +362,28 @@ export default function BasicTabs() {
                   {" "}
                   <img
                     className="profile_right_img_product"
-                    src={xemaydien}
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-heCmZNipWZD1qXDCo8ZrhfCurDHGTIjGcg&usqp=CAU"
                     alt=""
                   />
-                  <p>Xe máy điện</p>
+                  <p>Tư vấn marketing</p>
                 </div>
                 <div className="product_item">
                   {" "}
                   <img
                     className="profile_right_img_product"
-                    src={xemaydien}
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq7zwLSbKAKVNEyAYULDjcBfNL0WfGPT2_-w&usqp=CAU"
                     alt=""
                   />
-                  <p>Xe máy điện</p>
+                  <p>Giải pháp marketing</p>
                 </div>
                 <div className="product_item">
                   {" "}
                   <img
                     className="profile_right_img_product"
-                    src={xemaydien}
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9ZGDMRdnXjSk9i1krkRAvSAexQUxqNYgjtw&usqp=CAU"
                     alt=""
                   />
-                  <p>Xe máy điện</p>
+                  <p>Marketing đúng hướng</p>
                 </div>
               </div>
               <Link className="profile_product_viewmore">Xem thêm</Link>
@@ -396,12 +396,12 @@ export default function BasicTabs() {
                   <div className="newfeed_company">
                     <img
                       className="newfeed_left_avt_img_right"
-                      src={avt_company}
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH4EaP_iIshxaOz4hAcaCmRR8dxG9ke5Eydg&usqp=CAU"
                       alt=""
                     />
                     <div className="newfeed_detail_company">
-                      <p>Công ty</p>
-                      <h6>Ngành nghề</h6>
+                      <p>Công ty TNHH Đại Phong</p>
+                      <h6>May mặc</h6>
                     </div>
                   </div>
                   <div className="newfeed_act_company">
@@ -416,12 +416,12 @@ export default function BasicTabs() {
                   <div className="newfeed_company">
                     <img
                       className="newfeed_left_avt_img_right"
-                      src={avt_company}
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA_9ZPougu6hdi2LFHqNOWQ_E_TTCk-Xt7rw&usqp=CAU"
                       alt=""
                     />
                     <div className="newfeed_detail_company">
-                      <p>Công ty</p>
-                      <h6>Ngành nghề</h6>
+                      <p>Doanh Nghiệp Duy</p>
+                      <h6>Nông Sản</h6>
                     </div>
                   </div>
                   <div className="newfeed_act_company">
@@ -436,12 +436,12 @@ export default function BasicTabs() {
                   <div className="newfeed_company">
                     <img
                       className="newfeed_left_avt_img_right"
-                      src={avt_company}
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxgLx1-Ypw2fli3wMk4cUcw4dLyALIggTlbw&usqp=CAU"
                       alt=""
                     />
                     <div className="newfeed_detail_company">
-                      <p>Công ty</p>
-                      <h6>Ngành nghề</h6>
+                      <p>Công ty Thái Thiện</p>
+                      <h6>Máy móc</h6>
                     </div>
                   </div>
                   <div className="newfeed_act_company">
@@ -470,7 +470,7 @@ export default function BasicTabs() {
                     />
                     <div className="profile_ads_detail_company">
                       <h6>Công ty Bùi Trí Thức</h6>
-                      <p>Ngành nghề</p>
+                      <p>Phương tiện</p>
                       <p>Được tài trợ</p>
                       <Link className="profile_right_bottom_ads_senmess">
                         Gửi tin nhắn!
@@ -488,18 +488,18 @@ export default function BasicTabs() {
           <div className="profile_introduction_text">
             <h4>Giới thiệu</h4>
             <p>
-              Kinh doanh cũng tốt. Quảng cáo cũng chẳng phải là xấu xa. Nhưng
-              đây không phải chỗ cho chúng. Wikipedia không dành cho quảng cáo.
-              Wikipedia là một thứ gì đó đặc biệt. Nó cũng giống như một thư
-              viện hay một công viên công cộng. Nó giống như một ngôi đền dành
-              cho tâm hồn. Đó là nơi để tất cả chúng ta có thể đến để suy nghĩ,
-              để học hỏi và chia sẻ kiến thức với người khác. Khi mới tạo ra
-              Wikipedia, tôi đã có thể biến nó thành một công ty thương mại với
-              các biểu ngữ quảng cáo, nhưng rồi tôi lại quyết định làm nên một
-              điều khác biệt. Chúng tôi đã luôn nỗ lực làm việc trong suốt những
-              năm tháng qua để giữ cho nó luôn tươm tất. Chúng tôi dùng toàn bộ
-              số tiền có được để phục vụ cho sứ mệnh của chúng ta, và không hề
-              để phí phạm một đồng nào.
+              Thân em như tấm lụa đào Giá tiền trăm triệu đố chàng nào mua. 👓
+              LookUp chỉ vài trăm nghìn, Nhanh tay thì nắm voucher của năm😌 🇻🇳
+              LookUp - Trang mạng xã hội đặc biệt chuyên giúp kết nối các doanh
+              nghiệp Việt Nam. Từ đó, doanh nghiệp có thể dễ dàng, thuận tiện
+              tìm kiếm đối tác làm ăn và khách hàng tiềm năng để phục vụ cho nhu
+              cầu công việc. 🇻🇳 Với đội ngũ thuần Việt, LookUp hiểu được những
+              khó khăn và thử thách các doanh nghiệp đang gặp phải trong việc
+              tìm kiếm thủ công nguồn khách hàng và đối tác uy tín. Chính vì
+              thế, với quy mô hệ thống thông tin dữ liệu đạt chuẩn quốc tế,
+              LookUp đã sẵn sàng phục vụ quý doanh nghiệp "mở rộng vòng tròn bạn
+              bè" trong giai đoạn phục hồi kinh tế hiện nay. 🇻🇳 Chào mừng và cảm
+              ơn bạn đã chọn LookUp👓!
             </p>
           </div>
           <div className="profile_introduction_infomation">
