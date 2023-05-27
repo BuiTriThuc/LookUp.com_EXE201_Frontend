@@ -131,8 +131,8 @@ export default function BasicTabs() {
             <div className="profile_tab_post_left_detail">
               <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
               <p className="profile_tab_post_left_detail_des">
-                Trong cuộc kháng chiến chống thực dân Pháp, những địa danh như
-                Dương Hòa, Hòa Mỹ... là nơi ghi dấu bao chiến công oanh liệt
+                Công ty TNHH Thức Bùi thành lập vào 10-8-2001 tọa lạc tại thành
+                phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
               </p>
             </div>
             <div className="profile_tab_post_left_contact">
@@ -164,7 +164,7 @@ export default function BasicTabs() {
               <div className="post_detail">
                 <img
                   className="img_company"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
                   alt=""
                 />
                 <div className="post_title">
@@ -172,13 +172,17 @@ export default function BasicTabs() {
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
-              <h6>Nội dung bài viết...</h6>
+              <h6>
+                LookUp - Trang mạng xã hội đặc biệt chuyên giúp kết nối các
+                doanh nghiệp Việt Nam. Từ đó, doanh nghiệp có thể dễ dàng, thuận
+                tiện tìm kiếm đối tác làm ăn và khách hàng tiềm năng
+              </h6>
 
               <Button onClick={handleOpen}>
                 {" "}
                 <img
                   className="img_post"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
                   alt=""
                 />
               </Button>
@@ -224,7 +228,7 @@ export default function BasicTabs() {
               <div className="post_detail">
                 <img
                   className="img_company"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
                   alt=""
                 />
                 <div className="post_title">
@@ -232,13 +236,17 @@ export default function BasicTabs() {
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
-              <h6>Nội dung bài viết...</h6>
+              <h6>
+                Với đội ngũ thuần Việt, LookUp hiểu được những khó khăn và thử
+                thách các doanh nghiệp đang gặp phải trong việc tìm kiếm thủ
+                công nguồn khách hàng và đối tác uy tín.
+              </h6>
 
               <Button onClick={handleOpen}>
                 {" "}
                 <img
                   className="img_post"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg57WQsbqxHOuGq_HsFx3PBEGOhTEt9D2xQ&usqp=CAU"
                   alt=""
                 />
               </Button>
@@ -286,7 +294,7 @@ export default function BasicTabs() {
               <div className="post_detail">
                 <img
                   className="img_company"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
                   alt=""
                 />
                 <div className="post_title">
@@ -294,13 +302,16 @@ export default function BasicTabs() {
                   <p>Được tài trợ</p>{" "}
                 </div>
               </div>
-              <h6>Nội dung bài viết...</h6>
+              <h6>
+                Thân em như tấm lụa đào Giá tiền trăm triệu đố chàng nào mua. 👓
+                LookUp chỉ vài trăm nghìn, Nhanh tay thì nắm voucher của năm😌
+              </h6>
 
               <Button onClick={handleOpen}>
                 {" "}
                 <img
                   className="img_post"
-                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  src="https://gumlet.assettype.com/theceo%2Fimport%2F2020%2F06%2FStartup-india-mission-empowering-entrepreneurs.jpg?w=1200&auto=format%2Ccompress&ogImage=true&enlarge=true"
                   alt=""
                 />
               </Button>

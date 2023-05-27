@@ -16,10 +16,14 @@ function NewFeed() {
       <div className="akjd">
         <div className="newfeed_left">
           <div className="verification">
-            <img className="newfeed_left_bg_img" src={HeaderPage} alt="" />
+            <img
+              className="newfeed_left_bg_img"
+              src="https://images2.thanhnien.vn/uploaded/dieutrang.qc/2020_11_30/cp/cp-viet-nam-1_RNFL.jpg?width=500"
+              alt=""
+            />
             <img className="newfeed_left_avt_img" src={avt_company} alt="" />
-            <p>Công ty TNHH Bùi Trí Thức</p>
-            <h6>Đã được xác minh</h6>
+            <p>Công ty TNHH Đức Thịnh</p>
+            <h7>Đã được xác minh</h7>
           </div>
           <div className="body_top_item1_detai">
             <AiFillCheckCircle className="check_icon" />
@@ -33,13 +37,13 @@ function NewFeed() {
           <div className="event_detail">
             <img
               className="img_event"
-              src="https://cdn.mos.cms.futurecdn.net/V6LCHNxfSPT2Sxpr4bAzD.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHS3ivXsR6GBX8bOUFarwsQUMhTLxqFUv72A&usqp=CAU"
               alt=""
             />
           </div>
           <div className="date_time_event">
-            <p className="title_event">Đồ ăn thức uống</p>
-            <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
+            <p className="title_event">Tudum của netflix</p>
+            <p className="title_event">Ngày 12 tháng 7 năm 2023</p>
           </div>
           <div className="envent_detail_more">
             <a href=""> Tìm hiểu thêm</a>
@@ -48,13 +52,13 @@ function NewFeed() {
           <div className="event_detail">
             <img
               className="img_event"
-              src="https://cdn.mos.cms.futurecdn.net/V6LCHNxfSPT2Sxpr4bAzD.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH2o0X6i3pbWOocBmTptM24V3ILJGibP0L4w&usqp=CAU"
               alt=""
             />
           </div>
           <div className="date_time_event">
-            <p className="title_event">Đồ ăn thức uống</p>
-            <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
+            <p className="title_event">Đổi mới sáng tạo tài chinh</p>
+            <p className="title_event">Ngày 21 tháng 9 năm 2023</p>
           </div>
           <div className="envent_detail_more">
             <a href=""> Tìm hiểu thêm</a>
@@ -62,13 +66,13 @@ function NewFeed() {
           <div className="event_detail">
             <img
               className="img_event"
-              src="https://cdn.mos.cms.futurecdn.net/V6LCHNxfSPT2Sxpr4bAzD.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRn7YVHeHuwahXJN2Vk2rKE0YuBs33GFyjBu5hO5-mjvfiGhPnOU3ypNhF4o-t61dpdtx0&usqp=CAU"
               alt=""
             />
           </div>
           <div className="date_time_event">
-            <p className="title_event">Đồ ăn thức uống</p>
-            <p className="title_event">Ngày 10 tháng 7 năm 2023</p>
+            <p className="title_event">Đặc quyền bất động sản</p>
+            <p className="title_event">Ngày 30 tháng 7 năm 2023</p>
           </div>
           <div className="envent_detail_more">
             <a href=""> Tìm hiểu thêm</a>
@@ -99,27 +103,35 @@ function NewFeed() {
             <div className="avt_name_company">
               <img
                 className="newfeed_left_avt_img_center"
-                src={avt_company}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqTSLCBDqDPzNbLzX_-pT4McxmUnr2S81elQ&usqp=CAU"
                 alt=""
               />
-              <p>Tên công ty</p>
+              <h5>Doanh nghiệp Thịnh Đ</h5>
             </div>
-            <h6>Mô tả ngắn về công ty </h6>
+            <h6>Doanh nghiệp sản xuất oto </h6>
             <a href="">xem them</a>
-            <img className="img_detail_company" src={avt_company} alt="" />
+            <img
+              className="img_detail_company"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmwNh3fg6RZTPcfVA5TtcxeVe_YMrc8a4Hmg&usqp=CAU"
+              alt=""
+            />
           </div>
           <div className="post_suggested_item">
             <div className="avt_name_company">
               <img
                 className="newfeed_left_avt_img_center"
-                src={avt_company}
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT569bIqU9eLZ5mjEzf0OIsPUW84G9nWO7OIg&usqp=CAU"
                 alt=""
               />
-              <p>Tên công ty</p>
+              <h5>Công ty TNHH Đạt</h5>
             </div>
             <h6>Mô tả ngắn về công ty </h6>
             <a href="">xem them</a>
-            <img className="img_detail_company" src={avt_company} alt="" />
+            <img
+              className="img_detail_company"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA9Wq_sT32keRA4HQ-EpBPBPlrPmo8DMMzLg&usqp=CAU"
+              alt=""
+            />
           </div>
         </div>
         <Link to="/login"> Xem them</Link>
@@ -128,28 +140,32 @@ function NewFeed() {
           <div className="post_detail">
             <img
               className="img_company"
-              src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPHRvtFUvNT9Rrpz2HE4gu05hPPg8m7DweCg&usqp=CAU"
               alt=""
             />
             <div className="post_title">
-              <h3>Thuc Bui</h3>
+              <h4>TNHH Quốc Định</h4>
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
-          <h6>Nội dung bài viết...</h6>
+          <h6>
+            Quốc Định - Nhà sản xuất & bán buôn Giày Dép thời trang nam/ nữ/ trẻ
+            em cho các công ty, cửa hàng, ki ốt, shop giày dép trên toàn quốc,..
+            gồm: Giày da, giày tây.
+          </h6>
 
           <img
             className="img_post"
-            src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-ZTH0-_ojyaKLm__wAvfBucJjWBP7iO1qZQ&usqp=CAU"
             alt=""
           />
           <div>
             <div className="total_like_cmt">
               <div className="total_like">
                 <AiFillLike />
-                <p>1.2k</p>
+                <p>1.7k</p>
               </div>
-              <p>50 Bình luận</p>
+              <p>56 Bình luận</p>
             </div>
             <div className="act_post">
               <div className="item_act">
@@ -171,11 +187,11 @@ function NewFeed() {
           <div className="post_detail">
             <img
               className="img_company"
-              src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJHLAn7aObzLlhQuB55mQIapxCOMFAMZNxrA&usqp=CAU"
               alt=""
             />
             <div className="post_title">
-              <h3>Thuc Bui</h3>
+              <h3>Lộc Trời</h3>
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
@@ -183,7 +199,7 @@ function NewFeed() {
 
           <img
             className="img_post"
-            src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3wzSYC3tWClXLUdWeuA6h-s9l8rWAp8wN_g&usqp=CAU"
             alt=""
           />
           <div>
@@ -219,12 +235,12 @@ function NewFeed() {
           <div className="newfeed_company">
             <img
               className="newfeed_left_avt_img_right"
-              src={avt_company}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzZSLkrGIH6PTfiVD0icqUsYBYpW1SyQBoFw&usqp=CAU"
               alt=""
             />
             <div className="newfeed_detail_company">
-              <p>Công ty</p>
-              <h6>Ngành nghề</h6>
+              <p>Thịnh Phát</p>
+              <h6>Nông sản</h6>
             </div>
           </div>
           <div className="newfeed_act_company">
@@ -239,12 +255,32 @@ function NewFeed() {
           <div className="newfeed_company">
             <img
               className="newfeed_left_avt_img_right"
-              src={avt_company}
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyuvWhw7O6a3N0TS-LB0bDH4kQSUwo7WbqGg&usqp=CAU"
               alt=""
             />
             <div className="newfeed_detail_company">
-              <p>Công ty</p>
-              <h6>Ngành nghề</h6>
+              <p>Gia Hân</p>
+              <h6>Máy móc</h6>
+            </div>
+          </div>
+          <div className="newfeed_act_company">
+            <div className="newfeed_icon_action1">
+              <AiOutlinePlusCircle />
+              <h6 className="newfeed_action_right">Theo dõi</h6>
+            </div>
+            <div className="newfeed_icon_action">
+              <h6 className="newfeed_action_right">Tìm hiểu thêm</h6>
+            </div>
+          </div>
+          <div className="newfeed_company">
+            <img
+              className="newfeed_left_avt_img_right"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROxOA4aOGZ6fZpGSdmGqewTwLdNLiJdLlcqw&usqp=CAU"
+              alt=""
+            />
+            <div className="newfeed_detail_company">
+              <p>Bảo Châu</p>
+              <h6>Công nghệ</h6>
             </div>
           </div>
           <div className="newfeed_act_company">
@@ -260,18 +296,18 @@ function NewFeed() {
         <div className="body_top_item44">
           <img
             className="body_top_item3_img_ads"
-            src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOmJ7O0aIvo4G-xH6ik4ireJk7vd2MkQwNDQ&usqp=CAU"
             alt=""
           />
           <div className="body_top_item3_detail_ads">
             <img
               className="img_company2"
-              src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4qN-71U4VcG1Jrf6BOOzLWnlzz4IcE9cPJg&usqp=CAU"
               alt=""
             />
             <div>
-              <h3>Công ty Thức Bùi</h3>
-              <p>Coder</p>
+              <h5>Công ty TNHH Thái Lộc</h5>
+              <p>Marketing</p>
             </div>
           </div>
           <div className="suport">

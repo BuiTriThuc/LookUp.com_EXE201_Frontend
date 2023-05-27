@@ -35,7 +35,9 @@
 .action {
     display: flex;
     margin-left: 801px;
-    margin-top: -106px;
+    margin-top: -58px;
+    margin-right: 50px;
+
 }
 
 .follow {
@@ -51,6 +53,7 @@
     height: 20px;
     border: 1px solid black;
     border-radius: 20px;
+    font-size: 14px;
 
 }
 
