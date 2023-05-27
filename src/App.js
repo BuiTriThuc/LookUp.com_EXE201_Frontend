@@ -12,7 +12,8 @@ import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
 import Profile from "./components/User/Profile";
 import { StyledEngineProvider } from "@mui/material/styles";
-
+import ForgotPassword from "./components/InformationRegister/ForgotPassword";
+import NewPassword from "./components/InformationRegister/NewPassword";
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/forgotpassword"  element={<NewPassword />}/>
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
