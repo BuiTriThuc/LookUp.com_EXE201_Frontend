@@ -36,7 +36,6 @@ const ReadMore = ({ text }) => {
     </div>
   );
 };
-
 // Animation Like button
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
@@ -44,7 +43,6 @@ const LikeButton = () => {
   const handleClick = () => {
     setLiked(!liked);
   };
-
   return (
     <button onClick={handleClick} className={liked ? "liked" : "like"}>
       <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
@@ -52,7 +50,6 @@ const LikeButton = () => {
     </button>
   );
 };
-
 function Home() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -161,7 +158,7 @@ function Home() {
               alt=""
             />
             <div className="post_title">
-              <h5>Công ty TNHH Hoàng Nam</h5>
+              <h5>Công ty TNHH Thức Bùi</h5>
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
@@ -178,8 +175,10 @@ function Home() {
           <div>
             <div className="total_like_cmt">
               <div className="total_like">
-                <AiFillLike />
-                <p>1.2k</p>
+                <p>
+                  {" "}
+                  <AiFillHeart /> 1.2k
+                </p>
               </div>
               <p>5 Bình luận</p>
             </div>
@@ -188,10 +187,9 @@ function Home() {
                 <LikeButton className="item_like_cmt_send" />
               </div>
               <div className="item_act">
-                <FaRegComment className="item_like_cmt_send" />
-                <h5 onClick={handleOpen} className="item_act_post">
-                  Bình luận
-                </h5>
+                <button onClick={handleOpen} className="item_act_post">
+                  <FaRegComment className="item_like_cmt_send" /> Bình luận
+                </button>
               </div>
 
               <Modal
@@ -209,7 +207,7 @@ function Home() {
                         alt=""
                       />
                       <div className="post_title">
-                        <h5>Công ty TNHH Hoàng Nam</h5>
+                        <h5>Công ty TNHH Thức Bùi</h5>
                         <p>Được tài trợ</p>{" "}
                       </div>
                     </div>
@@ -226,7 +224,7 @@ function Home() {
                     <div className="">
                       <div className="total_like_cmt">
                         <div className="total_like">
-                          <AiFillLike />
+                          <AiFillHeart />
                           <p>1.2k</p>
                         </div>
                         <p>5 Bình luận</p>
@@ -236,26 +234,36 @@ function Home() {
                           <LikeButton className="item_like_cmt_send" />
                         </div>
                         <div className="item_act">
-                          <FaRegComment className="item_like_cmt_send" />
-                          <h5 className="item_act_post">Bình luận</h5>
+                          <button className="item_act_post">
+                            {" "}
+                            <FaRegComment className="item_like_cmt_send" /> Bình
+                            luận
+                          </button>
                         </div>
 
                         <div className="item_act">
-                          <TbSend className="item_like_cmt_send" />
-                          <h5 className="item_act_post">Gửi tin nhắn</h5>
+                          <Link to="/chatbox">
+                            <button className="item_act_post">
+                              <TbSend className="item_like_cmt_send" /> Gửi tin
+                              nhắn
+                            </button>
+                          </Link>
                         </div>
                       </div>
-                      <div>
+                      {/* <div>
                         <input type="text" />
-                      </div>
+                      </div> */}
                     </div>
                   </div>
                 </Box>
               </Modal>
 
               <div className="item_act">
-                <TbSend className="item_like_cmt_send" />
-                <h5 className="item_act_post">Gửi tin nhắn</h5>
+                <Link to="/chatbox">
+                  <button className="item_act_post">
+                    <TbSend className="item_like_cmt_send" /> Gửi tin nhắn
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -370,7 +378,7 @@ function Home() {
             alt=""
           />
           <div>
-            <h5>Công ty Nam Tiến</h5>
+            <h5>Công ty Thức Bùi</h5>
             <p>Công nghệ thông tin</p>
           </div>
         </div>
@@ -399,7 +407,9 @@ function Home() {
             </a>
           </div>
         </div>
-        <a href="">LookUp.com</a>
+        <Link to="/" style={{ marginLeft: 90, marginTop: -25 }}>
+          LookUp.com
+        </Link>
       </div>
     </div>
   );

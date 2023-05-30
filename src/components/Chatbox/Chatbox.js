@@ -1,7 +1,9 @@
 function Chatbox() {
   return (
     <div>
-      <div></div>
+      <div>
+        <h1>This is chat box layout</h1>
+      </div>
     </div>
   );
 }
