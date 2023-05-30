@@ -1,12 +1,64 @@
-import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
+import {
+  AiFillCheckCircle,
+  AiFillLike,
+  AiOutlineLike,
+  AiOutlineHeart,
+  AiFillHeart,
+} from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
 import { Link } from "react-router-dom";
-import { BsSearch } from "react-icons/bs";
-import { Button, Container, Row, Col } from "react-bootstrap";
-
+import { BsPatchCheck, BsSearch } from "react-icons/bs";
 import "./Home.css";
+import { useState } from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+
+// ReadMore Text
+const ReadMore = ({ text }) => {
+  const [expanded, setExpanded] = useState(false);
+  const toggleReadMore = () => {
+    setExpanded(!expanded);
+  };
+  return (
+    <div>
+      {expanded ? (
+        <div>{text}</div>
+      ) : (
+        <div>
+          {text.slice(0, 100)}...{" "}
+          <button onClick={toggleReadMore}>Read More</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// Animation Like button
+const LikeButton = () => {
+  const [liked, setLiked] = useState(false);
+
+  const handleClick = () => {
+    setLiked(!liked);
+  };
+
+  return (
+    <button onClick={handleClick} className={liked ? "liked" : "like"}>
+      <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+      <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
+    </button>
+  );
+};
+
 function Home() {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const longText =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
   return (
     <div className="body_top">
       <div className="body_left">
@@ -15,13 +67,14 @@ function Home() {
           <a className="body_top_item1_lookup" href="">
             LookUp.com
           </a>
+
           <div className="body_top_item1_detai">
-            <AiFillCheckCircle className="check_icon" />
+            <BsPatchCheck className="check_icon" />
             <p>Trải nghiệm tính năng cao cấp với gói Premium miễn phí!</p>
           </div>
 
-          <Link to="/register">
-            <button className="body_top_button_register">Đăng ký ngay!</button>
+          <Link to="/register" className="body_top_button_register">
+            Đăng ký ngay!
           </Link>
         </div>
         <div className="body_top_item4">
@@ -82,8 +135,7 @@ function Home() {
           />
 
           <Link to="/login" className="search_icon">
-            <BsSearch />
-            <p>Tìm kiếm</p>
+            <BsSearch className="search_Home" /> <p> Tìm kiếm</p>
           </Link>
         </div>
 
@@ -92,8 +144,8 @@ function Home() {
             Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
             LookUp.com!
           </h3>
-          <Link to="/register">
-            <button className="body_top_button_register">Đăng ký ngay!</button>
+          <Link to="/register" className="body_top_button_register">
+            Đăng ký ngay!
           </Link>
           <div className="have_account">
             <p>Bạn đã có tài khoản?</p>
@@ -113,11 +165,10 @@ function Home() {
               <p>Được tài trợ</p>{" "}
             </div>
           </div>
-          <p className="post_detail_home">
-            Thành lập từ năm 1994, Công ty TNHH Tin Học Hoàng Nam là một trong
-            những công ty hàng đầu tại Tp. HCM trong lĩnh vực bán lẻ phần cứng
-            công nghệ thông tin.
-          </p>
+          <div className="post_detail_home">
+            {" "}
+            <ReadMore text={longText} />
+          </div>
 
           <img
             className="img_post"
@@ -134,13 +185,74 @@ function Home() {
             </div>
             <div className="act_post">
               <div className="item_act">
-                <AiOutlineLike className="item_like_cmt_send" />
-                <h5 className="item_act_post">yêu Thích</h5>
+                <LikeButton className="item_like_cmt_send" />
               </div>
               <div className="item_act">
                 <FaRegComment className="item_like_cmt_send" />
-                <h5 className="item_act_post">Bình luận</h5>
+                <h5 onClick={handleOpen} className="item_act_post">
+                  Bình luận
+                </h5>
               </div>
+
+              <Modal
+                open={open}
+                onClose={handleClose}
+                // aria-labelledby="modal-modal-title"
+                // aria-describedby="modal-modal-description"
+              >
+                <Box className="modal_cmt_post">
+                  <div className="body_top_item5">
+                    <div className="post_detail">
+                      <img
+                        className="img_company"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+                        alt=""
+                      />
+                      <div className="post_title">
+                        <h5>Công ty TNHH Hoàng Nam</h5>
+                        <p>Được tài trợ</p>{" "}
+                      </div>
+                    </div>
+                    <div className="post_detail_home">
+                      {" "}
+                      <ReadMore text={longText} />
+                    </div>
+
+                    <img
+                      className="img_post"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+                      alt=""
+                    />
+                    <div className="">
+                      <div className="total_like_cmt">
+                        <div className="total_like">
+                          <AiFillLike />
+                          <p>1.2k</p>
+                        </div>
+                        <p>5 Bình luận</p>
+                      </div>
+                      <div className="act_post">
+                        <div className="item_act">
+                          <LikeButton className="item_like_cmt_send" />
+                        </div>
+                        <div className="item_act">
+                          <FaRegComment className="item_like_cmt_send" />
+                          <h5 className="item_act_post">Bình luận</h5>
+                        </div>
+
+                        <div className="item_act">
+                          <TbSend className="item_like_cmt_send" />
+                          <h5 className="item_act_post">Gửi tin nhắn</h5>
+                        </div>
+                      </div>
+                      <div>
+                        <input type="text" />
+                      </div>
+                    </div>
+                  </div>
+                </Box>
+              </Modal>
+
               <div className="item_act">
                 <TbSend className="item_like_cmt_send" />
                 <h5 className="item_act_post">Gửi tin nhắn</h5>
@@ -181,8 +293,7 @@ function Home() {
             </div>
             <div className="act_post">
               <div className="item_act">
-                <AiOutlineLike className="item_like_cmt_send" />
-                <h5 className="item_act_post">yêu Thích</h5>
+                <LikeButton className="item_like_cmt_send" />
               </div>
               <div className="item_act">
                 <FaRegComment className="item_like_cmt_send" />
@@ -210,7 +321,11 @@ function Home() {
           <p className="post_detail_home">
             Doanh nghiệp Trọng Nhân được ra đời năm 1998 chúng tôi là một trong
             những doanh nghiệp đi đầu tiền về lĩnh vực áp dụng công nghệ vào đồ
-            ăn thức uống
+            ăn thức uống Thành lập từ năm 1994, Công ty TNHH Tin Học Hoàng Nam
+            là một trong những công ty hàng đầu tại Tp. HCM trong lĩnh vực bán
+            lẻ phần cứng công nghệ thông tin. Thành lập từ năm 1994, Công ty
+            TNHH Tin Học Hoàng Nam là một trong những công ty hàng đầu tại Tp.
+            HCM trong lĩnh vực bán lẻ phần cứng công nghệ thông tin.
           </p>
 
           <img
@@ -228,8 +343,7 @@ function Home() {
             </div>
             <div className="act_post">
               <div className="item_act">
-                <AiOutlineLike className="item_like_cmt_send" />
-                <h5 className="item_act_post">yêu Thích</h5>
+                <LikeButton className="item_like_cmt_send" />
               </div>
               <div className="item_act">
                 <FaRegComment className="item_like_cmt_send" />
