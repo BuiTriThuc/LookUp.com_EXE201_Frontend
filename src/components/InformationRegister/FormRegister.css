@@ -213,7 +213,8 @@ ul {
 .section-center {
   width: 1000px !important;
   margin: 0 auto;
-  margin-top: 8rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   background: var(--white);
   border-radius: var(--borderRadius);
   padding: 2rem;
