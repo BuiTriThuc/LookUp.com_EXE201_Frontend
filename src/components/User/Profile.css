@@ -1,30 +1,54 @@
-.profile {
+.img_des {
     display: flex;
-    padding: 30px;
-    }
-    
-    .profile_top {
-        width: 100%;
-        display: flex;
-    justify-content: center;
+    margin-left: 370px;
+    width: 1120px;
+    height: 500px;
+    background-color: #F3F3F3;
+    border-radius: 20px;
+}
+
+.profile_des {
+    margin-top: 191px;
+    margin-left: 20px;
 }
 
 .img_bg {
-    display: flex;
-    justify-content: center;
-}
-
-.profile_top_center_avt {
-    width: 130px;
-    height: 130px;
-    border-radius: 100px;
     position: absolute;
-        z-index: 2;
+    width: 1120px;
+    height: 186px;
 }
 
-.profile_top_bgr {
-    height: 186px;
-    margin-bottom: 100px;
+.img_avt {
     position: relative;
-        width: 1122px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    margin-left: 40px;
+    margin-top: 160px;
+}
+
+.action {
+    display: flex;
+    margin-left: 801px;
+    margin-top: -106px;
+}
+
+.follow {
+    width: 80px;
+    height: 20px;
+    border: 1px solid black;
+    margin-right: 10px;
+    border-radius: 20px;
+}
+
+.sendmess {
+    width: 80px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+
+}
+
+.profile_center_tab {
+    margin-left: 400px !important;
 }

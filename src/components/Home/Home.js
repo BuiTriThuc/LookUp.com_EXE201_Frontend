@@ -1,12 +1,33 @@
 import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import { Button, Container, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { clearErrors, getPost, getOwnerPost } from "../actions/postActions";
 
 import "./Home.css";
 function Home() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { loading, error, posts } = useSelector((state) => state.posts);
+  const { user, loading: userLoading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+
+  console.log(user);
+
+
+  useEffect(() => {
+    if (error) {
+      dispatch(clearErrors());
+    }
+    dispatch(getPost());
+  }, [dispatch, error]);
+
+
   return (
     <div className="body_top">
       <div className="body_left">
@@ -87,63 +108,75 @@ function Home() {
           </Link>
         </div>
 
-        <div className="body_top_item2">
-          <h3 className="home_title_center">
-            Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
-            LookUp.com!
-          </h3>
-          <Link to="/register">
-            <button className="body_top_button_register">Đăng ký ngay!</button>
-          </Link>
-          <div className="have_account">
-            <p>Bạn đã có tài khoản?</p>
-            <Link to="/login">Đăng nhập</Link>
+        {isAuthenticated && isAuthenticated === false ? (
+          <div className="body_top_item2">
+            <h3 className="home_title_center">
+              Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
+              LookUp.com!
+            </h3>
+            <Link to="/register">
+              <button className="body_top_button_register">
+                Đăng ký ngay!
+              </button>
+            </Link>
+            <div className="have_account">
+              <p>Bạn đã có tài khoản?</p>
+              <Link to="/login">Đăng nhập</Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          ""
+        )}
 
-        <div className="body_top_item5">
-          <div className="post_detail">
-            <img
-              className="img_company"
-              src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
-              alt=""
-            />
-            <div className="post_title">
-              <h3>Thuc Bui</h3>
-              <p>Được tài trợ</p>{" "}
-            </div>
-          </div>
-          <h6>Nội dung bài viết...</h6>
+        {/* Post card */}
 
-          <img
-            className="img_post"
-            src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
-            alt=""
-          />
-          <div>
-            <div className="total_like_cmt">
-              <div className="total_like">
-                <AiFillLike />
-                <p>1.2k</p>
+        {posts &&
+          posts.map((post) => (
+            <div className="body_top_item5" key={post._id}>
+              <div className="post_detail">
+                <img
+                  className="img_company"
+                  src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                  alt=""
+                />
+                <div className="post_title">
+                  <h3>{post.user?.name}</h3>
+                  <p>Được tài trợ</p>{" "}
+                </div>
               </div>
-              <p>50 Bình luận</p>
+              <h6>{post.content}</h6>
+
+              <img
+                className="img_post"
+                src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                alt=""
+              />
+              <div>
+                <div className="total_like_cmt">
+                  <div className="total_like">
+                    <AiFillLike />
+                    <p>1.2k</p>
+                  </div>
+                  <p>50 Bình luận</p>
+                </div>
+                <div className="act_post">
+                  <div className="item_act">
+                    <AiOutlineLike className="item_like_cmt_send" />
+                    <h5 className="item_act_post">Yêu thích</h5>
+                  </div>
+                  <div className="item_act">
+                    <FaRegComment className="item_like_cmt_send" />
+                    <h5 className="item_act_post">Bình luận</h5>
+                  </div>
+                  <div className="item_act">
+                    <TbSend className="item_like_cmt_send" />
+                    <h5 className="item_act_post">Gửi tin nhắn</h5>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="act_post">
-              <div className="item_act">
-                <AiOutlineLike className="item_like_cmt_send" />
-                <h5 className="item_act_post">yêu Thích</h5>
-              </div>
-              <div className="item_act">
-                <FaRegComment className="item_like_cmt_send" />
-                <h5 className="item_act_post">Bình luận</h5>
-              </div>
-              <div className="item_act">
-                <TbSend className="item_like_cmt_send" />
-                <h5 className="item_act_post">Gửi tin nhắn</h5>
-              </div>
-            </div>
-          </div>
-        </div>
+          ))}
+        {/* Post card */}
       </div>
       <div className="body_top_item3">
         <img

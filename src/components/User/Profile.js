@@ -1,18 +1,34 @@
 import bgcompany from "../../images/bgcompany.jpg";
 import avt_company from "../../images/avt_company.jpg";
+import { Link } from "react-router-dom";
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import { TbMessages } from "react-icons/tb";
 
 import "./Profile.css";
+import ProfileTab from "./ProfileTab";
 function Profile() {
   return (
-    <div className="profile">
-      <div className="profile_top">
-        <div className="img_profile">
-
-          <img className="profile_top_center_avt" src={avt_company} alt="" />
-          <img className="profile_top_bgr" src={bgcompany} alt="" />
+    <div>
+      <div class="img_des">
+        <div>
+          <img class="img_bg" src={bgcompany} alt="" />
+          <img class="img_avt" src={avt_company} alt="" />
         </div>
-        <div className="profile_top_center"></div>
+        <div class="profile_des">
+          <div>
+            <h3>Công ty Bùi Thức</h3>
+            <p>Ngành nghề</p>
+            <p>Tỉnh, thành phố, quận huyện</p>
+            <Link>500 Lượt theo dõi </Link>
+          </div>
+          <div class="action">
+            <div class="follow">Theo doi</div>
+            <div class="sendmess">Gui tin nhan</div>
+          </div>
+        </div>
+        <ProfileTab />
       </div>
+      <div className="profile_center_tab"></div>
     </div>
   );
 }

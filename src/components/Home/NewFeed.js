@@ -9,8 +9,11 @@ import Example from "./CreatePost/CreatePost";
 import { Link } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
+import { useSelector } from "react-redux";
 
 function NewFeed() {
+
+  const { loading, isAuthenticated, user } = useSelector((state) => state.user)
   return (
     <div className="newfeed">
       <div className="akjd">
