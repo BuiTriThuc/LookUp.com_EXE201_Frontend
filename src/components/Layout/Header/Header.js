@@ -4,6 +4,7 @@ import "./Header.css";
 import { AiFillHome } from "react-icons/ai";
 import { MdWorkspacePremium } from "react-icons/md";
 import Dropdown from "./Dropdown";
+import Badges from "./Badge";
 
 function Header() {
   return (
@@ -20,6 +21,10 @@ function Header() {
         <Link>
           {" "}
           <MdWorkspacePremium className="icon_header" />
+        </Link>
+        <Link>
+          {""}
+          <Badges />
         </Link>
         <div>
           <Dropdown />
