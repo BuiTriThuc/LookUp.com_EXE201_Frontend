@@ -13,7 +13,6 @@ import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
 import xemaydien from "../../images/xemaydien.jpg";
-
 import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FaSortAmountDownAlt } from "react-icons/fa";
