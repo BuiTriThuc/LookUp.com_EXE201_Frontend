@@ -15,7 +15,10 @@ function Premium() {
           </h3>
         </div>
         <div className="premium_btn">
-          <Link className="premium_more"> Tìm hiểu thêm</Link>
+          <Link to="/morepremium" className="premium_more">
+            {" "}
+            Tìm hiểu thêm
+          </Link>
           <Link className="premium_regis"> Đăng ký ngay</Link>
         </div>
       </div>

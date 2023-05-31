@@ -1,0 +1,148 @@
+.morepremium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.morepremium_title {
+    font-weight: bold !important;
+    margin-top: 30px;
+    margin-bottom: 20px !important;
+}
+
+.morepremium_top {
+    display: flex;
+    flex-direction: column;
+    width: 1120px;
+    height: 167px;
+    border-radius: 20px;
+    box-shadow: 3px 5px #dcdada;
+    color: white;
+    background-color: white;
+}
+
+.morepremium_free {
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.morepremium_top_rule {
+    color: black;
+    margin: 30px 50px 30px
+}
+
+.morepremium_top_item {
+    background-color: #666666;
+    width: 1120px;
+    height: 91px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.morepremium_bottom {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.morepremium_bottom_left {
+    width: 550px;
+    height: 559px;
+    background-color: #fff;
+    margin-right: 20px;
+    border-radius: 20px;
+    border: 2px solid blue;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.morepremium_bottom_right {
+    width: 550px;
+    height: 559px;
+    background-color: #fff;
+    border: 2px solid orange;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.morepremium_bottom_left_item {
+    width: 548px;
+    background-color: blue;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.morepremium_bottom_right_item {
+    width: 548px;
+    background-color: orange;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.morepremium_title_bottom {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    margin-left: 20px;
+}
+
+.morepremium_benefit {
+    font-size: 30px;
+    margin-top: 30px;
+}
+
+.morepremium_benefit p {
+    padding: 5px;
+}
+
+.morepremium_free_month {
+    margin-left: -150px;
+    font-size: 20px;
+    margin-top: 10px;
+    border-bottom: 0.3px solid black;
+}
+
+.morepremium_btn_regis {
+    width: 454px;
+    height: 57px;
+    background-color: blue;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.morepremium_title_bottom_right {
+    font-size: 30px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    color: white;
+    margin-left: 20px;
+    padding-top: 30px;
+}
+
+.morepremium_btn_regis_right {
+    width: 454px;
+    height: 57px;
+    background-color: orange;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.morepremium_price {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.morepremium_right_bottom_apply {
+    font-size: 15px;
+    width: 365px;
+    margin-left: -120px;
+}

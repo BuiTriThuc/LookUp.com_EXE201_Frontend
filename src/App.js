@@ -16,6 +16,7 @@ import NewPassword from "./components/InformationRegister/NewPassword";
 import Help from "./components/Layout/help";
 import Premium from "./components/Premium/Premium";
 import PremiumYear from "./components/Premium/PremiumYear";
+import MorePremium from "./components/Premium/MorePremium";
 function App() {
   return (
     <div className="App">
@@ -35,6 +36,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/premium" element={<Premium />} />
             <Route path="/premiumyear" element={<PremiumYear />} />
+            <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>
           <Footer />
