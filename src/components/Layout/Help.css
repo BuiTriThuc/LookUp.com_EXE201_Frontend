@@ -7,6 +7,20 @@ body {
     font-weight: 400;
 }
 
+.icon_header {
+    background-color: #edebeb;
+    width: 80px;
+    height: 30px;
+    color: #374d78;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 2px;
+}
+
+.icon_header:hover {
+    background-color: #5f7db6;
+}
+
 div,
 textarea,
 input {
@@ -66,8 +80,8 @@ h3 {
 .btn {
     font-size: 1.0625em;
     display: inline-block;
-    padding: 0.74em 1.5em;
-    margin: 1.5em 0 0;
+    /* padding: 0.74em 1.5em;
+    margin: 1.5em 0 0; */
     color: #fff;
     border-width: 0 0 0 0;
     font-family: 'Lato', sans-serif;
