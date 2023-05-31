@@ -1,10 +1,8 @@
 import React from "react";
 import "./NewFeed.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import avt_company from "../../images/avt_company.jpg";
 import { BsSearch } from "react-icons/bs";
-import HeaderPage from "../../images/HeaderPage.png";
-import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
+import { AiFillCheckCircle } from "react-icons/ai";
 import Example from "./CreatePost/CreatePost";
 import { Link } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
