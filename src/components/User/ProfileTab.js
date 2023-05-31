@@ -128,13 +128,12 @@ export default function BasicTabs() {
       <TabPanel value={value} index={0}>
         <div className="profile_tab_post">
           <div className="profile_tab_post_left">
-            <div className="profile_tab_post_left_detail">
-              <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
-              <p className="profile_tab_post_left_detail_des">
-                Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành
-                phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
-              </p>
-            </div>
+            <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
+            <p className="profile_tab_post_left_detail_des">
+              Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành phố
+              Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
+            </p>
+
             <div className="profile_tab_post_left_contact">
               <h4>Thông tin liên hệ</h4>
               <MdPublic />

@@ -22,23 +22,32 @@ function Example() {
           onClick={handleShow}
         ></input>
         <div className="create_post_icon">
-          <div className="create_post_icon_detail">
-            <MdOutlinePhotoCamera
-              style={{ width: "20px", height: "20px", color: "blue" }}
-            />
-            <p>Hình ảnh </p>
+          <div onClick={handleShow} className="create_post_icon_detail">
+            <p>
+              {" "}
+              <MdOutlinePhotoCamera
+                style={{ width: "20px", height: "20px", color: "blue" }}
+              />{" "}
+              Hình ảnh{" "}
+            </p>
           </div>
-          <div className="create_post_icon_detail">
-            <MdPhotoCameraFront
-              style={{ width: "20px", height: "20px", color: "green" }}
-            />
-            <p>Video</p>
+          <div onClick={handleShow} className="create_post_icon_detail">
+            <p>
+              {" "}
+              <MdPhotoCameraFront
+                style={{ width: "20px", height: "20px", color: "green" }}
+              />{" "}
+              Video
+            </p>
           </div>
-          <div className="create_post_icon_detail">
-            <CgDetailsMore
-              style={{ width: "20px", height: "20px", color: "red" }}
-            />
-            <p>Bài viết</p>
+          <div onClick={handleShow} className="create_post_icon_detail">
+            <p>
+              {" "}
+              <CgDetailsMore
+                style={{ width: "20px", height: "20px", color: "red" }}
+              />{" "}
+              Bài viết
+            </p>
           </div>
         </div>
       </div>
