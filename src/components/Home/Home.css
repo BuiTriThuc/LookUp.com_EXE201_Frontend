@@ -163,6 +163,7 @@ h3 {
     border-bottom-right-radius: 20px;
     display: flex;
     padding-top: 10px;
+    color: black;
 
 }
 
@@ -292,6 +293,11 @@ h6 {
     font-family: sans-serif !important;
     margin-left: 10px;
     margin-top: 10px;
+    color: black;
+}
+
+.home_name_company:hover {
+    border-bottom: 1px solid black;
 }
 
 p {
@@ -382,9 +388,25 @@ button:hover {
     margin-bottom: 20px;
     margin-left: 630px;
     border: none !important;
-    margin-top: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
 
+}
+
+.modal_img_post {
+    width: 600px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    margin-left: 630px;
+    border: none !important;
+    margin-top: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_post_modal {
+    width: 600px;
+    height: 400px;
 }

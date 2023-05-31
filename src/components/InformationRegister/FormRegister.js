@@ -155,7 +155,7 @@ const FormRegister = ({ addItem }) => {
           </p>
         </div>
         <br />
-        <Link to="/newfeed">
+        <Link to="/login">
           <button
             type="button"
             class="btn btn-primary"
