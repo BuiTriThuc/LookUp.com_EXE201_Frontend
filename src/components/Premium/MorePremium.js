@@ -7,7 +7,7 @@ export default function MorePremium() {
   return (
     <div className="morepremium">
       <div>
-        <h4 className="morepremium_title">Gói hiện tại</h4>
+        <h4 className="premiumyear_top_title">Gói hiện tại</h4>
         <div className="morepremium_top">
           <div className="morepremium_top_item">
             <h2 className="morepremium_free">Gói miễn phí</h2>
@@ -18,7 +18,7 @@ export default function MorePremium() {
           </p>
         </div>
         <div>
-          <h4 className="morepremium_title">Các gói có sẵn</h4>
+          <h4 className="premiumyear_top_title">Các gói có sẵn</h4>
         </div>
       </div>
 
@@ -49,7 +49,10 @@ export default function MorePremium() {
             Miễn phí 01 tháng trong năm đầu tiên!
           </p>
           <h3 className="morepremium_price">259.000 vnđ / tháng</h3>
-          <button className="morepremium_btn_regis"> Đăng ký ngay </button>
+          <Link to="/premiummonth">
+            {" "}
+            <button className="morepremium_btn_regis"> Đăng ký ngay </button>
+          </Link>
         </div>
 
         <div className="morepremium_bottom_right">

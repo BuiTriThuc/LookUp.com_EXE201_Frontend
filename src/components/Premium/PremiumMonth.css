@@ -1,0 +1,28 @@
+.premiummonth_top {
+    width: 1032px;
+    height: 167px;
+    border: 2px solid blue;
+    border-radius: 20px;
+    box-shadow: 5px 10px #dcdada;
+}
+
+.premiummonth_top_item {
+    background-color: blue;
+    width: 1030px;
+    height: 91px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.premiummonth_bottom {
+    width: 1032px;
+    height: 389px;
+    border: 2px solid blue;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}

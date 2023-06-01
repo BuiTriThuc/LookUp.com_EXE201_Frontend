@@ -19,7 +19,10 @@ function Premium() {
             {" "}
             Tìm hiểu thêm
           </Link>
-          <Link className="premium_regis"> Đăng ký ngay</Link>
+          <Link to="/morepremium" className="premium_regis">
+            {" "}
+            Đăng ký ngay
+          </Link>
         </div>
       </div>
       <h3 className="premium_title">Lý do dùng gói Premium?</h3>
@@ -75,8 +78,11 @@ function Premium() {
         <div className="premium_bottom_left">
           <div className="premium_bottom_left_item">
             <h4 className="premium_title_center_thang">Gói Premium tháng*</h4>
-            <h6>259.000 vnđ / tháng**</h6>
-            <button className="btn_premium">Đăng ký ngay</button>
+            <h3>259.000 vnđ / tháng**</h3>
+            <Link to="/premiummonth">
+              {" "}
+              <button className="btn_premium">Đăng ký ngay</button>
+            </Link>
           </div>
           <p className="premium_detail">
             *Miễn phí 01 tháng trong năm đầu tiên kể từ lúc đăng ký<br></br>
