@@ -34,6 +34,11 @@
     padding: 5px;
 }
 
+.Icon_Detail {
+    font-size: 30px;
+    padding-left: 10px;
+}
+
 .Footer_Contact {
     display: flex;
     padding: 10px;
@@ -44,3 +49,21 @@
     justify-content: center;
     align-items: center;
 }
+
+.footer-menu ul {
+    margin: 0px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.footer-menu ul li {
+    list-style: none;
+}
+
+.footer-menu ul li a {
+    padding: 0.5rem 1rem;
+    display: block;
+    color: #8c8c8c;
+  }

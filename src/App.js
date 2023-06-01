@@ -18,6 +18,10 @@ import Help from "./components/Layout/help";
 import Premium from "./components/Premium/Premium";
 import PremiumYear from "./components/Premium/PremiumYear";
 import MorePremium from "./components/Premium/MorePremium";
+import store from "./store";
+import { useDispatch, useSelector } from "react-redux";
+import { loadUser } from "./components/actions/userActions";
+import PremiumMonth from "./components/Premium/PremiumMonth";
 // <<<<<<< Thuc
 // import PremiumMonth from "./components/Premium/PremiumMonth";
 // =======
