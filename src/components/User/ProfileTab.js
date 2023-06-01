@@ -13,7 +13,6 @@ import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
 import xemaydien from "../../images/xemaydien.jpg";
-
 import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FaSortAmountDownAlt } from "react-icons/fa";
@@ -28,11 +27,6 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
 
 const style = {
   position: "absolute",
@@ -41,7 +35,7 @@ const style = {
   transform: "translate(-50%, -50%)",
 };
 
-function TabPanel(props: TabPanelProps) {
+function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
@@ -61,7 +55,7 @@ function TabPanel(props: TabPanelProps) {
   );
 }
 
-function a11yProps(index: number) {
+function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     "aria-controls": `simple-tabpanel-${index}`,
@@ -108,7 +102,7 @@ export default function BasicTabs() {
   };
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
@@ -125,7 +119,7 @@ export default function BasicTabs() {
           <Tab label="Sản phẩm" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
         <div className="profile_tab_post">
           <div className="profile_tab_post_left">
             <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>

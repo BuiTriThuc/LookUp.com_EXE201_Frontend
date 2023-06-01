@@ -155,6 +155,7 @@ export default function LoginForm() {
           </form>
 
           <p>Bạn chưa có tài khoản?</p>
+          <Link to="/register">Đăng ký </Link>
         </div>
         <div className="col-2">
           <img src={bgImg} alt="" />

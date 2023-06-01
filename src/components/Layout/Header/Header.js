@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import HeaderPage from "../../../images/HeaderPage.png";
 import "./Header.css";
-import { HiTranslate } from "react-icons/hi";
+import { AiFillHome } from "react-icons/ai";
+import { MdWorkspacePremium } from "react-icons/md";
+import Dropdown from "./Dropdown";
+import Badges from "./Badge";
 
 function Header() {
   return (
@@ -10,11 +13,21 @@ function Header() {
         <a className="header_lookup" href="">
           LookUp.com
         </a>
+        <Link>
+          {" "}
+          <AiFillHome className="icon_header" />
+        </Link>
+
+        <Link>
+          {" "}
+          <MdWorkspacePremium className="icon_header" />
+        </Link>
+        <Link>
+          {""}
+          <Badges />
+        </Link>
         <div>
-          <HiTranslate />
-          <Link className="header_help" to="/help">
-            Trợ giúp
-          </Link>
+          <Dropdown />
         </div>
         <div>
         <Link className="header_help" to="/newfeed">

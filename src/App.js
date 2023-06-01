@@ -34,25 +34,9 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            {/* <Route
-              path="/"
-              element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                  <Home />
-                </ProtectedRoute>
-              }
-            /> */}
+            <Route path="/" element={<Home />} />
             <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
-            {/* <Route
-              exact
-              path="/newfeed"
-              element={
-                <ProtectedRoute isAuthenticated={isAuthenticated}>
-                  <NewFeed />
-                </ProtectedRoute>
-              }
-            /> */}
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/resetpassword" element={<NewPassword />} />
@@ -67,7 +51,6 @@ function App() {
             <Route
               element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
             >
-              <Route path="/" element={<Home />} />
               <Route path="/newfeed" element={<NewFeed />} />
             </Route>
           </Routes>
