@@ -18,9 +18,13 @@ import Help from "./components/Layout/help";
 import Premium from "./components/Premium/Premium";
 import PremiumYear from "./components/Premium/PremiumYear";
 import MorePremium from "./components/Premium/MorePremium";
-import { useDispatch, useSelector } from "react-redux";
-import store from "./store";
-import { loadUser } from "./components/actions/userActions";
+// <<<<<<< Thuc
+// import PremiumMonth from "./components/Premium/PremiumMonth";
+// =======
+// import { useDispatch, useSelector } from "react-redux";
+// import store from "./store";
+// import { loadUser } from "./components/actions/userActions";
+// >>>>>>> main
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -46,6 +50,7 @@ function App() {
             <Route path="/premium" element={<Premium />} />
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
+            <Route path="/premiummonth" element={<PremiumMonth />} />
             <Route path="/*" element={<NotFound />} />
 
             <Route
