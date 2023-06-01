@@ -19,11 +19,11 @@ import Premium from "./components/Premium/Premium";
 import PremiumYear from "./components/Premium/PremiumYear";
 import MorePremium from "./components/Premium/MorePremium";
 // <<<<<<< Thuc
-// import PremiumMonth from "./components/Premium/PremiumMonth";
+import PremiumMonth from "./components/Premium/PremiumMonth";
 // =======
-// import { useDispatch, useSelector } from "react-redux";
-// import store from "./store";
-// import { loadUser } from "./components/actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import store from "./store";
+import { loadUser } from "./components/actions/userActions";
 // >>>>>>> main
 function App() {
   useEffect(() => {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PopupMenu } from "react-simple-widgets";
 import "./Dropdown.css";
+import { Link } from "react-router-dom";
 
 function Dropdown() {
   return (
@@ -25,22 +26,22 @@ function Dropdown() {
               />
             </div>
 
-            <h5 className="text-center mb-0">John Doe</h5>
-            <p className="text-center mb-2">jd@gmail.com</p>
+            <h5 className="text-center mb-0">Thức Bùi</h5>
+            <p className="text-center mb-2">ThứcBùi@gmail.com</p>
 
             <hr />
 
-            <p
+            {/* <p
               className="mb-0"
               style={{ color: "#bebebe", fontWeight: "bold", fontSize: 12 }}
             >
               ROLES
-            </p>
-            <p style={{ fontSize: 12 }}>
+            </p> */}
+            {/* <p style={{ fontSize: 12 }}>
               {["Submitter", "Project manager", "Change control board"].join(
                 ", "
               )}
-            </p>
+            </p> */}
 
             <hr className="mb-0" style={{ margin: "0 -24px 0" }} />
 
@@ -48,15 +49,25 @@ function Dropdown() {
               className="list-group list-group-flush"
               style={{ margin: "0 -24px 0" }}
             >
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Change Requests</small>
-              </button>
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Pending Requests</small>
-              </button>
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Other Requests</small>
-              </button>
+              <Link to="/profile">
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Profile</small>
+                </button>{" "}
+              </Link>
+              <Link>
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Chưa biết để gì</small>
+                </button>
+              </Link>
+
+              <Link>
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Language</small>
+                </button>
+              </Link>
             </div>
 
             <hr style={{ margin: "0 -24px 24px" }} />
