@@ -10,9 +10,9 @@ function Header() {
   return (
     <div>
       <div className="header_top">
-        <a className="header_lookup" href="">
+        <Link className="header_lookup" to="/">
           LookUp.com
-        </a>
+        </Link>
         <Link>
           {" "}
           <AiFillHome className="icon_header" />
