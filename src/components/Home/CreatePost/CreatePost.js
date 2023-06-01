@@ -10,7 +10,7 @@ import { clearErrors, createPost } from "../../actions/postActions";
 import { useNavigate } from "react-router-dom";
 import { CREATE_POST_RESET } from "../../contants/postContants";
 
-function Example() {
+function CreatePost() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error, success } = useSelector((state) => state.createPost);
@@ -119,4 +119,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default CreatePost;
