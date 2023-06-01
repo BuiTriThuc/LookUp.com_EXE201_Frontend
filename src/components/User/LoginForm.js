@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import bgImg from "../assets/img1.jpg";
 import { useForm } from "react-hook-form";
 import { MDBCheckbox } from "mdb-react-ui-kit";
 import "./login.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../actions/userActions";
+import { clearErrors } from "../reducers/userReducers";
 
 export default function LoginForm() {
   const {
     formState: {},
   } = useForm();
+
+  const { error, loading, isAuthenticated } = useSelector(
+    (state) => state.user
+  );
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [passwordError, setpasswordError] = useState("");
@@ -17,7 +30,7 @@ export default function LoginForm() {
   const handleValidation = (event) => {
     let formIsValid = true;
 
-    if (!email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
+    if (!loginEmail.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/)) {
       formIsValid = false;
       setemailError("Email Not Valid");
       return false;
@@ -26,10 +39,10 @@ export default function LoginForm() {
       formIsValid = true;
     }
 
-    if (!password.match(/^[a-zA-Z]{8,22}$/)) {
+    if (!loginPassword.match(/^[a-zA-Z]{6,22}$/)) {
       formIsValid = false;
       setpasswordError(
-        "Only Letters and length must best min 8 Chracters and Max 22 Chracters"
+        "Only Letters and length must best min 6 Chracters and Max 22 Chracters"
       );
       return false;
     } else {
@@ -42,10 +55,23 @@ export default function LoginForm() {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    handleValidation();
+    dispatch(login(loginEmail, loginPassword))
+    // handleValidation();
   };
 
-  // console.log(watch('username'));
+  console.log('Check co vao login ko: ', location.pathname);
+
+  const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  useEffect(() => {
+    if (error) {
+      dispatch(clearErrors());
+    }
+
+    if (isAuthenticated === true) {
+      navigate(redirect)
+    }
+  }, [dispatch, error, isAuthenticated, navigate, redirect])
   return (
     <section>
       <div className="register">
@@ -54,7 +80,7 @@ export default function LoginForm() {
 
           <button className="logingg">
             <svg
-              class="active"
+              className="active"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               width="35px"
@@ -93,7 +119,8 @@ export default function LoginForm() {
               name="EmailInput"
               aria-describedby="emailHelp"
               placeholder="Enter email"
-              onChange={(event) => setEmail(event.target.value)}
+              value={loginEmail}
+              onChange={(event) => setLoginEmail(event.target.value)}
             />
             <small id="passworderror" className="text-danger form-text">
               {emailError}
@@ -103,19 +130,18 @@ export default function LoginForm() {
               className="form-control"
               id="exampleInputPassword1"
               placeholder="Password"
-              onChange={(event) => setPassword(event.target.value)}
+              value={loginPassword}
+              onChange={(event) => setLoginPassword(event.target.value)}
             />
             <small id="passworderror" className="text-danger form-text">
               {passwordError}
             </small>
-            <Link to="/newfeed">
-              <button type="submit" className="btn">
-                Sign In
-              </button>
-            </Link>
+        
+              <input type="submit" value="Login" className="btn" />
+    
 
-            <div class="striped">
-              <span class="striped-line">-----------------------------</span>
+            <div className="striped">
+              <span className="striped-line">-----------------------------</span>
             </div>
             <div className="d-flex justify-content-between mx-4 mb-4">
               <MDBCheckbox

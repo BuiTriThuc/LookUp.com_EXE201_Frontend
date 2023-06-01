@@ -29,6 +29,11 @@ function Header() {
         <div>
           <Dropdown />
         </div>
+        <div>
+        <Link className="header_help" to="/newfeed">
+            New Feed
+          </Link>
+        </div>
       </div>
       <div className="header_body">
         <img className="header_img" src={HeaderPage} alt="" />

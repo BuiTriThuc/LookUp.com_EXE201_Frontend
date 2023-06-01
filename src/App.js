@@ -1,11 +1,12 @@
 import "./App.scss";
 import Header from "./components/Layout/Header/Header";
+import ProtectedRoute from "./components/Route/ProtectedRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./components/Layout/Error/NotFound";
 import Footer from "./components/Layout/Footer/Footer";
 import Home from "./components/Home/Home";
 import LoginForm from "./components/User/LoginForm";
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import NewFeed from "./components/Home/NewFeed";
 import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
@@ -17,8 +18,20 @@ import Help from "./components/Layout/help";
 import Premium from "./components/Premium/Premium";
 import PremiumYear from "./components/Premium/PremiumYear";
 import MorePremium from "./components/Premium/MorePremium";
-import PremiumMonth from "./components/Premium/PremiumMonth";
+// <<<<<<< Thuc
+// import PremiumMonth from "./components/Premium/PremiumMonth";
+// =======
+// import { useDispatch, useSelector } from "react-redux";
+// import store from "./store";
+// import { loadUser } from "./components/actions/userActions";
+// >>>>>>> main
 function App() {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
+  const { isAuthenticated } = useSelector((state) => state.user);
+
   return (
     <div className="App">
       <Router>
@@ -28,7 +41,6 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
-            <Route path="/newfeed" element={<NewFeed />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/resetpassword" element={<NewPassword />} />
@@ -40,6 +52,12 @@ function App() {
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
             <Route path="/*" element={<NotFound />} />
+
+            <Route
+              element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
+            >
+              <Route path="/newfeed" element={<NewFeed />} />
+            </Route>
           </Routes>
           <Footer />
         </Fragment>
