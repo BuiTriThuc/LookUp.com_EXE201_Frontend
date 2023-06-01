@@ -1,8 +1,13 @@
+.profile {
+    background-color: #F3F3F3;
+
+}
+
 .img_des {
     display: flex;
     margin-left: 370px;
     width: 1120px;
-    height: 500px;
+    height: 380px;
     background-color: #F3F3F3;
     border-radius: 20px;
 }
@@ -30,7 +35,9 @@
 .action {
     display: flex;
     margin-left: 801px;
-    margin-top: -106px;
+    margin-top: -58px;
+    margin-right: 50px;
+
 }
 
 .follow {
@@ -46,9 +53,12 @@
     height: 20px;
     border: 1px solid black;
     border-radius: 20px;
+    font-size: 14px;
 
 }
 
 .profile_center_tab {
-    margin-left: 400px !important;
+    margin-left: 370px !important;
+    margin-right: 370px;
+    margin-top: -50px;
 }

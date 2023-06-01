@@ -59,6 +59,8 @@ export default function LoginForm() {
     // handleValidation();
   };
 
+  console.log('Check co vao login ko: ', location.pathname);
+
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
@@ -76,9 +78,9 @@ export default function LoginForm() {
         <div className="col-1">
           <h2>Welcome Back</h2>
 
-          <button type="button" id="login-google-button">
+          <button className="logingg">
             <svg
-              class="active"
+              className="active"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
               width="35px"
@@ -138,8 +140,8 @@ export default function LoginForm() {
               <input type="submit" value="Login" className="btn" />
     
 
-            <div class="striped">
-              <span class="striped-line">-----------------------------</span>
+            <div className="striped">
+              <span className="striped-line">-----------------------------</span>
             </div>
             <div className="d-flex justify-content-between mx-4 mb-4">
               <MDBCheckbox
@@ -148,7 +150,7 @@ export default function LoginForm() {
                 id="flexCheckDefault"
                 label="Remember me"
               />
-              <a href="!#">Forgot password?</a>
+              <Link to="/resetpassword">Forgot password?</Link>
             </div>
           </form>
 

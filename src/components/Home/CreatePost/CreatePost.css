@@ -5,6 +5,7 @@
     border-radius: 20px;
     border: 1px solid #C2C2C2;
     outline: none;
+    padding-left: 10px;
 }
 
 .create_post_icon {
@@ -17,4 +18,10 @@
     display: flex;
     margin-bottom: 0px;
     justify-content: center;
+    align-items: center;
+    background-color: #F3F3F3;
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    cursor: pointer;
 }

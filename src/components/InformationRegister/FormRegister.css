@@ -211,13 +211,38 @@ ul {
 /* ============= PROJECT CSS =============== */
 
 .section-center {
-  width: 90vw;
+  width: 1000px !important;
   margin: 0 auto;
   margin-top: 8rem;
-  max-width: 30rem;
   background: var(--white);
   border-radius: var(--borderRadius);
   padding: 2rem;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+}
+
+.row .section-center-premium {
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 8rem;
+  max-width: 66rem;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  padding: 2rem;
+  box-shadow: var(--shadow-1);
+  transition: var(--transition);
+}
+
+.box1-premium {
+  width: 90vw;
+  margin-right: 100px;
+  margin-left: 250px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-width: 30rem;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  padding: 1rem;
   box-shadow: var(--shadow-1);
   transition: var(--transition);
 }

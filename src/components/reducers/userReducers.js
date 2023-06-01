@@ -7,8 +7,12 @@ import {
   LOAD_USER_FAIL,
   CLEAR_ERROR,
 } from "../contants/userContants";
+import { REHYDRATE } from "redux-persist";
 
-export const userReducer = (state = { user: {} }, action) => {
+export const userReducer = (
+  state = { loading: false, isAuthenticated: false, user: {} },
+  action
+) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case LOAD_USER_REQUEST:

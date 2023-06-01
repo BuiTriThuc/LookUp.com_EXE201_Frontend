@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import HeaderPage from "../../../images/HeaderPage.png";
 import "./Header.css";
 import { HiTranslate } from "react-icons/hi";
@@ -10,11 +11,15 @@ function Header() {
           LookUp.com
         </a>
         <div>
-          {" "}
           <HiTranslate />
-          <a className="header_help" href="">
+          <Link className="header_help" to="/help">
             Trợ giúp
-          </a>
+          </Link>
+        </div>
+        <div>
+        <Link className="header_help" to="/newfeed">
+            New Feed
+          </Link>
         </div>
       </div>
       <div className="header_body">

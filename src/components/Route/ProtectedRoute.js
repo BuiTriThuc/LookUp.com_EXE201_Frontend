@@ -1,15 +1,12 @@
 import React, { Fragment } from "react";
 import { useSelector } from "react-redux";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 
-const ProtectedRoute = ({ isAdmin, component: Component}) => {
-  const { loading, isAuthenticated, user } = useSelector((state) => state.user);
-
-  console.log('Check is Authentication ', isAuthenticated);
-  if (isAuthenticated && isAuthenticated === false ) {
-    return <Navigate to="/login" replace />
+const ProtectedRoute = ({ isAuthenticated, children, redirect = '/login' }) => {
+  if (!isAuthenticated) {
+    return <Navigate to={redirect} />
   }
-  return <Component />
+  return children ? children : <Outlet />;
 };
 
 export default ProtectedRoute;
