@@ -1,13 +1,22 @@
-import { AiFillLike, AiOutlineHeart, AiFillHeart, AiOutlineLike } from "react-icons/ai";
+import {
+  AiFillLike,
+  AiOutlineHeart,
+  AiFillHeart,
+  AiOutlineLike,
+} from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { BsPatchCheck, BsSearch } from "react-icons/bs";
 import "./Home.css";
 import { useState } from "react";
-import * as React from "react";
+import {useEffect} from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import CreatePost from "./CreatePost/CreatePost";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, getPost } from "../actions/postActions";
+import ScrollList from "./scroll";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -18,13 +27,17 @@ const ReadMore = ({ text }) => {
 
   return (
     <div>
-      {expanded ? (
-        <div>{text}</div>
+      {text.length > 200 ? (
+        expanded ? (
+          <div>{text}</div>
+        ) : (
+          <div>
+            {text.slice(0, 200)}...{" "}
+            <button onClick={toggleReadMore}>Read More</button>
+          </div>
+        )
       ) : (
-        <div>
-          {text.slice(0, 100)}...{" "}
-          <button onClick={toggleReadMore}>Read More</button>
-        </div>
+        <div>{text}</div>
       )}
     </div>
   );
@@ -45,15 +58,26 @@ const LikeButton = () => {
 };
 function Home() {
 
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
+
+  const { isAuthenticated } = useSelector((state) => state.user);
+  const { error, posts } = useSelector((state) => state.posts);
+
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const [openPic, setOpenPic] = React.useState(false);
+  const [openPic, setOpenPic] = useState(false);
   const handleOpenPic = () => setOpenPic(true);
   const handleClosePic = () => setOpenPic(false);
 
-  
+  useEffect(() => {
+    if (error) {
+      dispatch(clearErrors(error))
+    }
+
+    dispatch(getPost())
+  }, [dispatch, error])
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -137,153 +161,172 @@ function Home() {
           </Link>
         </div>
 
-        <div className="body_top_item2">
-          <h3 className="home_title_center">
-            Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
-            LookUp.com!
-          </h3>
-          <Link to="/register" className="body_top_button_register">
-            Đăng ký ngay!
-          </Link>
-          <div className="have_account">
-            <p>Bạn đã có tài khoản?</p>
-            <Link to="/login">Đăng nhập</Link>
+        {isAuthenticated && isAuthenticated === true ? (
+          <div className="create_post">
+            <CreatePost />
           </div>
-        </div>
-
-        <div className="body_top_item5">
-          <Link to="/login" className="post_detail">
-            <img
-              className="img_company"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
-              alt=""
-            />
-            <div to="/login" className="post_title">
-              <h5 className="home_name_company">Công ty TNHH Thức Bùi</h5>
-              <p>Được tài trợ</p>{" "}
+        ) : (
+          <div className="body_top_item2">
+            <h3 className="home_title_center">
+              Bạn đang cần tìm đối tác, khách hàng? Đăng ký miễn phí ngay tại
+              LookUp.com!
+            </h3>
+            <Link to="/register" className="body_top_button_register">
+              Đăng ký ngay!
+            </Link>
+            <div className="have_account">
+              <p>Bạn đã có tài khoản?</p>
+              <Link to="/login">Đăng nhập</Link>
             </div>
-          </Link>
-          <div className="post_detail_home">
-            {" "}
-            <ReadMore text={longText} />
           </div>
+        )}
 
-          <img
-            onClick={handleOpenPic}
-            className="img_post"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
-            alt=""
-          />
+        {posts &&
+          posts.map((post) => (
+            <div className="body_top_item5">
+              <Link to="/login" className="post_detail">
+                <img
+                  className="img_company"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+                  alt=""
+                />
+                <div to="/login" className="post_title">
+                  <h5 className="home_name_company">{post.user?.name}</h5>
+                  <p>Được tài trợ</p>{" "}
+                </div>
+              </Link>
+              <div className="post_detail_home">
+                {" "}
+                <ReadMore text={post?.content} />
+              </div>
 
-          <Modal open={openPic} onClose={handleClosePic}>
-            <Box className="modal_img_post">
               <img
-                className="img_post_modal"
+                onClick={handleOpenPic}
+                className="img_post"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
                 alt=""
               />
-            </Box>
-          </Modal>
 
-          <div>
-            <div className="total_like_cmt">
-              <div className="total_like">
-                <p>
-                  {" "}
-                  <AiFillHeart /> 1.2k
-                </p>
-              </div>
-              <p>5 Bình luận</p>
-            </div>
-            <div className="act_post">
-              <div className="item_act">
-                <LikeButton className="item_like_cmt_send" />
-              </div>
-              <div className="item_act">
-                <button onClick={handleOpen} className="item_act_post">
-                  <FaRegComment className="item_like_cmt_send" /> Bình luận
-                </button>
-              </div>
-
-              <Modal
-                open={open}
-                onClose={handleClose}
-                // aria-labelledby="modal-modal-title"
-                // aria-describedby="modal-modal-description"
-              >
-                <Box className="modal_cmt_post">
-                  <div className="body_top_item5">
-                    <Link to="/login" className="post_detail">
-                      <img
-                        className="img_company"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
-                        alt=""
-                      />
-                      <div className="post_title">
-                        <h5 className="home_name_company">
-                          Công ty TNHH Thức Bùi
-                        </h5>
-                        <p>Được tài trợ</p>{" "}
-                      </div>
-                    </Link>
-                    <div className="post_detail_home">
-                      {" "}
-                      <ReadMore text={longText} />
-                    </div>
-
-                    <img
-                      className="img_post"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
-                      alt=""
-                    />
-                    <div className="">
-                      <div className="total_like_cmt">
-                        <div className="total_like">
-                          <AiFillHeart />
-                          <p>1.2k</p>
-                        </div>
-                        <p>5 Bình luận</p>
-                      </div>
-                      <div className="act_post">
-                        <div className="item_act">
-                          <LikeButton className="item_like_cmt_send" />
-                        </div>
-                        <div className="item_act">
-                          <button className="item_act_post">
-                            {" "}
-                            <FaRegComment className="item_like_cmt_send" /> Bình
-                            luận
-                          </button>
-                        </div>
-
-                        <div className="item_act">
-                          <Link to="/chatbox">
-                            <button className="item_act_post">
-                              <TbSend className="item_like_cmt_send" /> Gửi tin
-                              nhắn
-                            </button>
-                          </Link>
-                        </div>
-                      </div>
-                      {/* <div>
-                        <input type="text" />
-                      </div> */}
-                    </div>
-                  </div>
+              <Modal open={openPic} onClose={handleClosePic}>
+                <Box className="modal_img_post">
+                  <img
+                    className="img_post_modal"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+                    alt=""
+                  />
                 </Box>
               </Modal>
 
-              <div className="item_act">
-                <Link to="/chatbox">
-                  <button className="item_act_post">
-                    <TbSend className="item_like_cmt_send" /> Gửi tin nhắn
-                  </button>
-                </Link>
+              <div>
+                <div className="total_like_cmt">
+                  <div className="total_like">
+                    <p>
+                      {" "}
+                      <AiFillHeart /> 1.2k
+                    </p>
+                  </div>
+                  <p>5 Bình luận</p>
+                </div>
+                <div className="act_post">
+                  <div className="item_act">
+                    <LikeButton className="item_like_cmt_send" />
+                  </div>
+                  <div className="item_act">
+                    <button onClick={handleOpen} className="item_act_post">
+                      <FaRegComment className="item_like_cmt_send" /> Bình luận
+                    </button>
+                  </div>
+
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    // aria-labelledby="modal-modal-title"
+                    // aria-describedby="modal-modal-description"
+                  >
+                    <Box className="modal_cmt_post">
+                      <div className="body_top_item5">
+                        <Link to="/login" className="post_detail">
+                          <img
+                            className="img_company"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+                            alt=""
+                          />
+                          <div className="post_title">
+                            <h5 className="home_name_company">
+                              Công ty TNHH Thức Bùi
+                            </h5>
+                            <p>Được tài trợ</p>{" "}
+                          </div>
+                        </Link>
+                        <div className="post_detail_home">
+                          {" "}
+                          <ReadMore text={longText} />
+                        </div>
+
+                        <img
+                          className="img_post"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+                          alt=""
+                        />
+                        <div className="">
+                          <div className="total_like_cmt">
+                            <div className="total_like">
+                              <AiFillHeart />
+                              <p>1.2k</p>
+                            </div>
+                            <p>5 Bình luận</p>
+                          </div>
+                          <div className="act_post">
+                            <div className="item_act">
+                              <LikeButton className="item_like_cmt_send" />
+                            </div>
+                            <div className="item_act">
+                              <button className="item_act_post">
+                                {" "}
+                                <FaRegComment className="item_like_cmt_send" />{" "}
+                                Bình luận
+                              </button>
+                            </div>
+
+                            <div className="item_act">
+                              <Link to="/chatbox">
+                                <button className="item_act_post">
+                                  <TbSend className="item_like_cmt_send" /> Gửi
+                                  tin nhắn
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                        <ScrollList />
+                        <div className="newfeed_input_cmt">
+                          <img
+                            className="newfeed_avt_cmt"
+                            src="https://www.w3schools.com/howto/img_avatar2.png"
+                            alt=""
+                          />
+                          <input
+                            className="newfeed_input_cmt_detail"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                    </Box>
+                  </Modal>
+
+                  <div className="item_act">
+                    <Link to="/chatbox">
+                      <button className="item_act_post">
+                        <TbSend className="item_like_cmt_send" /> Gửi tin nhắn
+                      </button>
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="body_top_item5">
+          ))}
+
+        {/* <div className="body_top_item5">
           <Link to="/login" className="post_detail">
             <img
               className="img_company"
@@ -328,7 +371,7 @@ function Home() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="body_top_item3">
         <img

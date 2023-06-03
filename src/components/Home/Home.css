@@ -386,9 +386,11 @@ button:hover {
     border-radius: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 630px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 25px;
     border: none !important;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
 
@@ -397,11 +399,11 @@ button:hover {
 .modal_img_post {
     width: 600px;
     border-radius: 20px;
-    margin-bottom: 20px;
-    margin-left: 630px;
+    margin-right: auto;
+    margin-left: auto;
     border: none !important;
     margin-top: 250px;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
 }
