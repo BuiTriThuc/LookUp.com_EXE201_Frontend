@@ -22,6 +22,7 @@ import store from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./components/actions/userActions";
 import PremiumMonth from "./components/Premium/PremiumMonth";
+
 // <<<<<<< Thuc
 // import PremiumMonth from "./components/Premium/PremiumMonth";
 // =======
@@ -55,6 +56,7 @@ function App() {
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
+            <Route path="/newFeed" element={<NewFeed />} />
             <Route path="/*" element={<NotFound />} />
 
             <Route
