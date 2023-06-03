@@ -5,12 +5,13 @@ import {
   LOAD_USER_REQUEST,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
   CLEAR_ERROR,
 } from "../contants/userContants";
-import { REHYDRATE } from "redux-persist";
 
 export const userReducer = (
-  state = { loading: false, isAuthenticated: false, user: {} },
+  state = { user: {} },
   action
 ) => {
   switch (action.type) {
@@ -38,6 +39,14 @@ export const userReducer = (
         user: null,
         error: action.payload,
       };
+
+    case LOGOUT_SUCCESS:
+      return {
+        loading: false,
+        user: null,
+        isAuthenticated: false
+      }
+
     case LOAD_USER_FAIL:
       return {
         loading: false,
@@ -45,11 +54,19 @@ export const userReducer = (
         user: null,
         error: action.payload,
       };
+    
+    case LOGOUT_FAIL: 
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
     case CLEAR_ERROR:
       return {
         ...state,
         error: null,
       };
+
     default:
       return state;
   }

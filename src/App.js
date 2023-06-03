@@ -42,7 +42,7 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route exact path="/" element={<Home />} />
             <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
             <Route path="/login" element={<LoginForm />} />
@@ -61,6 +61,7 @@ function App() {
               element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
             >
               <Route path="/newfeed" element={<NewFeed />} />
+              
             </Route>
           </Routes>
           <Footer />

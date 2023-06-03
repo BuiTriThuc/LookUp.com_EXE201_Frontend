@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import { PopupMenu } from "react-simple-widgets";
 import "./Dropdown.css";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../actions/userActions";
 
 function Dropdown() {
+
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.user);
+
+  const logout = () => {
+    dispatch(logoutUser());
+  }
+
   return (
     <div className="text-end">
       <PopupMenu>
@@ -25,8 +35,8 @@ function Dropdown() {
               />
             </div>
 
-            <h5 className="text-center mb-0">John Doe</h5>
-            <p className="text-center mb-2">jd@gmail.com</p>
+            <h5 className="text-center mb-0">{user?.name}</h5>
+            <p className="text-center mb-2">{user?.email}</p>
 
             <hr />
 
@@ -62,7 +72,7 @@ function Dropdown() {
             <hr style={{ margin: "0 -24px 24px" }} />
 
             <div className="d-grid">
-              <button className="btn btn-secondary">
+              <button className="btn btn-secondary" onClick={logout}>
                 <small>Logout</small>
               </button>
             </div>

@@ -5,11 +5,15 @@ import { AiFillHome } from "react-icons/ai";
 import { MdWorkspacePremium } from "react-icons/md";
 import Dropdown from "./Dropdown";
 import Badges from "./Badge";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const { isAuthenticated } = useSelector((state) => state.user);
+  
   return (
     <div>
-      <div className="header_top">
+      {isAuthenticated && isAuthenticated === true ? (
+        <div className="header_top">
         <Link className="header_lookup" to="/">
           LookUp.com
         </Link>
@@ -29,12 +33,9 @@ function Header() {
         <div>
           <Dropdown />
         </div>
-        <div>
-        <Link className="header_help" to="/newfeed">
-            New Feed
-          </Link>
-        </div>
+        <div></div>
       </div>
+      ) : ""}
       <div className="header_body">
         <img className="header_img" src={HeaderPage} alt="" />
         <h3 className="header_title">

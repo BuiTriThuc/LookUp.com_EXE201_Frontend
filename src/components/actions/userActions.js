@@ -6,6 +6,8 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_REQUEST,
   LOAD_USER_FAIL,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAIL,
   CLEAR_ERROR,
 } from "../contants/userContants";
 
@@ -33,8 +35,23 @@ export const loadUser = () => async (dispatch) => {
 
     const { data } = await axios.get(`/user`);
 
-    dispatch({ type: LOAD_USER_SUCCESS, payload: data.user });
+    dispatch({ type: LOAD_USER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: LOAD_USER_FAIL, payload: error.response.data.message });
   }
+};
+
+export const logoutUser = () => async (dispatch) => {
+  try {
+    await axios.get('/auth/logout');
+
+    dispatch({ type: LOGOUT_SUCCESS })
+
+  } catch (error) {
+    dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
+  }
+}
+
+export const clearErrors = () => async (dispatch) => {
+  dispatch({ type: CLEAR_ERROR });
 };

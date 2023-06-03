@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, createPost } from "../../actions/postActions";
 import { useNavigate } from "react-router-dom";
 import { CREATE_POST_RESET } from "../../contants/postContants";
+import toast, { Toaster } from 'react-hot-toast';
 
 function CreatePost() {
   const dispatch = useDispatch();
@@ -17,9 +18,20 @@ function CreatePost() {
 
   const [show, setShow] = useState(false);
   const [content, setContent] = useState("");
+  const [images, setImages] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const notifySuccess = () => {
+    toast.success("Create post success!", {
+      position: "top-center",
+      duration: 2000
+    });
+    setTimeout(() => {
+      window.location.reload(true);
+    }, 2000); // Reload the page after 5 seconds (5000 milliseconds)
+  };
 
   useEffect(() => {
     if (error) {
@@ -27,7 +39,7 @@ function CreatePost() {
     }
 
     if (success) {
-      navigate("/");
+      notifySuccess()
       dispatch({ type: CREATE_POST_RESET });
     }
   }, [dispatch, success, error, navigate]);
@@ -38,7 +50,29 @@ function CreatePost() {
     const myForm = new FormData();
 
     myForm.set("content", content);
+    images.forEach((image) => {
+      myForm.append("images", image)
+    });
+
     dispatch(createPost(myForm));
+  };
+
+  const createPostsImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+
+    setImages([]);
+
+    files.forEach((file) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        if (reader.readyState === 2) {
+          setImages((old) => [...old, reader.result]);
+        }
+      };
+
+      reader.readAsDataURL(file);
+    });
   };
 
   return (
@@ -102,7 +136,13 @@ function CreatePost() {
             </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Hình ảnh</Form.Label>
-              <Form.Control type="file" placeholder="ví dụ: " autoFocus />
+              <Form.Control 
+                type="file" 
+                name="images" 
+                accept="image/*"
+                onChange={createPostsImagesChange}
+                multiple 
+                autoFocus />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>

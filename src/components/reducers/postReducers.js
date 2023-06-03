@@ -73,13 +73,15 @@ export const createPostReducer = (state = { post: {} }, action) => {
         case CREATE_POST_REQUEST:
             return {
                 ...state,
+                success: false,
                 loading: true,
             }
 
         case CREATE_POST_SUCCESS:
             return {
+                success: true,
                 loading: false,
-                post: action.payload.post
+                post: action.payload
             }
 
         case CREATE_POST_FAIL:
