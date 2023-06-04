@@ -318,6 +318,10 @@ p {
     border-bottom: 1px solid #B1B1B1;
 }
 
+.act_post_item_scroll {
+    display: flex;
+}
+
 .total_like {
     display: flex;
     justify-content: center;
@@ -326,6 +330,7 @@ p {
 
 .act_post {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     margin-left: 5px;
     margin-right: 5px;
@@ -381,7 +386,7 @@ button:hover {
 }
 
 .modal_cmt_post {
-    width: 600px;
+    width: 610px;
     background-color: #fff;
     border-radius: 20px;
     margin-top: 20px;

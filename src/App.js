@@ -23,13 +23,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./components/actions/userActions";
 import PremiumMonth from "./components/Premium/PremiumMonth";
 
-// <<<<<<< Thuc
-// import PremiumMonth from "./components/Premium/PremiumMonth";
-// =======
-// import { useDispatch, useSelector } from "react-redux";
-// import store from "./store";
-// import { loadUser } from "./components/actions/userActions";
-// >>>>>>> main
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
