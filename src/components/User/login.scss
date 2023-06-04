@@ -27,7 +27,7 @@
   border-radius: 5px;
   box-shadow: 1px 3px 10px #e9ecef;
   background-color: white;
-  margin-left: 500px;
+  margin-left: 350px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -88,4 +88,11 @@
   .register .col-2 img {
     display: initial;
   }
+}
+
+.btn_google {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2rem;
 }
