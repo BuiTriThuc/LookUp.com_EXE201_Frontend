@@ -1,22 +1,28 @@
+import { AiOutlinePlusCircle } from "react-icons/ai";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import { FaRegComment } from "react-icons/fa";
+import { TbSend } from "react-icons/tb";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useState, useEffect } from "react";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import ScrollList from "../Home/scroll";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, getPost } from "../actions/postActions";
 import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 import avt_company from "../../images/avt_company.jpg";
 import certificate from "../../images/certificate.jpg";
-import Box from "@mui/material/Box";
 import { MdPublic } from "react-icons/md";
 import { BiPhone } from "react-icons/bi";
-import { AiFillCheckCircle, AiFillLike, AiOutlineLike } from "react-icons/ai";
-import { FaRegComment } from "react-icons/fa";
-import { TbSend } from "react-icons/tb";
 import xemaydien from "../../images/xemaydien.jpg";
 import { MdOutlineEmail } from "react-icons/md";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { FaSortAmountDownAlt } from "react-icons/fa";
-import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
 
 import "./ProfileTab.css";
@@ -91,15 +97,62 @@ function ChildModal() {
     </React.Fragment>
   );
 }
+const ReadMore = ({ text }) => {
+  const [expanded, setExpanded] = useState(false);
+  const toggleReadMore = () => {
+    setExpanded(!expanded);
+  };
+  return (
+    <div>
+      {expanded ? (
+        <div>{text}</div>
+      ) : (
+        <div>
+          {text.slice(0, 100)}...{" "}
+          <button onClick={toggleReadMore}>Read More</button>
+        </div>
+      )}
+    </div>
+  );
+};
+// Animation Like button333333
+const LikeButton = () => {
+  const [liked, setLiked] = useState(false);
+
+  const handleClick = () => {
+    setLiked(!liked);
+  };
+  return (
+    <button onClick={handleClick} className={liked ? "liked" : "like"}>
+      <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+      <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
+    </button>
+  );
+};
 
 export default function BasicTabs() {
+  const dispatch = useDispatch();
+  const { loading, error, posts } = useSelector((state) => state.posts);
+
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [openPic, setOpenPic] = React.useState(false);
+  const handleOpenPic = () => setOpenPic(true);
+  const handleClosePic = () => setOpenPic(false);
+
+  useEffect(() => {
+    if (error) {
+      dispatch(clearErrors());
+    }
+
+    dispatch(getPost());
+  }, [dispatch, error]);
+
+  const longText =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
+
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -119,7 +172,11 @@ export default function BasicTabs() {
           <Tab label="Sản phẩm" {...a11yProps(2)} />
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} sx={{ display: 'flex', justifyContent: 'center' }}>
+      <TabPanel
+        value={value}
+        index={0}
+        sx={{ display: "flex", justifyContent: "center" }}
+      >
         <div className="profile_tab_post">
           <div className="profile_tab_post_left">
             <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
@@ -153,195 +210,146 @@ export default function BasicTabs() {
                 Lọc <FaSortAmountDownAlt />
               </p>
             </div>
-            <div className="profile_tab_post_center_post">
-              <div className="post_detail">
+
+            <div className="body_top_item5">
+              <Link to="/profile" className="post_detail">
                 <img
                   className="img_company"
-                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
                   alt=""
                 />
+
                 <div className="post_title">
-                  <h3>LookUp</h3>
+                  <h5 className="home_name_company">Công ty TNHH Thức Bùi</h5>
                   <p>Được tài trợ</p>{" "}
                 </div>
-              </div>
-              <h6>
-                LookUp - Trang mạng xã hội đặc biệt chuyên giúp kết nối các
-                doanh nghiệp Việt Nam. Từ đó, doanh nghiệp có thể dễ dàng, thuận
-                tiện tìm kiếm đối tác làm ăn và khách hàng tiềm năng
-              </h6>
+              </Link>
 
-              <Button onClick={handleOpen}>
+              <div className="post_detail_home">
                 {" "}
-                <img
-                  className="img_post"
-                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
-                  alt=""
-                />
-              </Button>
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="parent-modal-title"
-                aria-describedby="parent-modal-description"
-              >
-                <Box sx={{ ...style, width: 400 }}>
+                <ReadMore text={longText} />
+              </div>
+
+              <img
+                onClick={handleOpenPic}
+                className="img_post"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+                alt=""
+              />
+
+              <Modal open={openPic} onClose={handleClosePic}>
+                <Box className="modal_img_post">
                   <img
-                    className="img_popup"
-                    src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
+                    className="img_post_modal"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
                     alt=""
                   />
                 </Box>
               </Modal>
-              <div>
-                <div className="total_like_cmt">
-                  <div className="total_like">
-                    <AiFillLike />
-                    <p>1.2k</p>
-                  </div>
-                  <p>50 Bình luận</p>
-                </div>
-                <div className="act_post">
-                  <div className="item_act">
-                    <AiOutlineLike className="item_like_cmt_send" />
-                    <h5 className="item_act_post">yêu Thích</h5>
-                  </div>
-                  <div className="item_act">
-                    <FaRegComment className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Bình luận</h5>
-                  </div>
-                  <div className="item_act">
-                    <TbSend className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Gửi tin nhắn</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="profile_tab_post_center_post">
-              <div className="post_detail">
-                <img
-                  className="img_company"
-                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
-                  alt=""
-                />
-                <div className="post_title">
-                  <h3>LookUp</h3>
-                  <p>Được tài trợ</p>{" "}
-                </div>
-              </div>
-              <h6>
-                Với đội ngũ thuần Việt, LookUp hiểu được những khó khăn và thử
-                thách các doanh nghiệp đang gặp phải trong việc tìm kiếm thủ
-                công nguồn khách hàng và đối tác uy tín.
-              </h6>
 
-              <Button onClick={handleOpen}>
-                {" "}
-                <img
-                  className="img_post"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShg57WQsbqxHOuGq_HsFx3PBEGOhTEt9D2xQ&usqp=CAU"
-                  alt=""
-                />
-              </Button>
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="parent-modal-title"
-                aria-describedby="parent-modal-description"
-              >
-                <Box sx={{ ...style, width: 400 }}>
-                  <img
-                    className="img_popup"
-                    src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
-                    alt=""
-                  />
-                </Box>
-              </Modal>
               <div>
                 <div className="total_like_cmt">
                   <div className="total_like">
                     <p>
-                      <AiFillLike /> 1.2k
+                      {" "}
+                      <AiFillHeart /> 1.2k
                     </p>
                   </div>
-                  <p>50 Bình luận</p>
+                  <p>5 Bình luận</p>
                 </div>
                 <div className="act_post">
                   <div className="item_act">
-                    <h5 className="item_act_post">
-                      <AiOutlineLike className="item_like_cmt_send" /> yêu Thích
-                    </h5>
+                    <LikeButton className="item_like_cmt_send" />
                   </div>
                   <div className="item_act">
-                    <FaRegComment className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Bình luận</h5>
+                    <button onClick={handleOpen} className="item_act_post">
+                      <FaRegComment className="item_like_cmt_send" /> Bình luận
+                    </button>
                   </div>
-                  <div className="item_act">
-                    <TbSend className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Gửi tin nhắn</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="profile_tab_post_center_post">
-              <div className="post_detail">
-                <img
-                  className="img_company"
-                  src="https://scontent.fsgn2-8.fna.fbcdn.net/v/t39.30808-6/349309855_773882454349006_3774558434519076602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=730e14&_nc_ohc=f8vJ21Sx9DYAX_k9gHj&_nc_ht=scontent.fsgn2-8.fna&oh=00_AfC3DQwGWpuGWOEm6pOxMIZd9AywbOszDIyhGD95jiO6WQ&oe=6475843D"
-                  alt=""
-                />
-                <div className="post_title">
-                  <h3>LookUp</h3>
-                  <p>Được tài trợ</p>{" "}
-                </div>
-              </div>
-              <h6>
-                Thân em như tấm lụa đào Giá tiền trăm triệu đố chàng nào mua. 👓
-                LookUp chỉ vài trăm nghìn, Nhanh tay thì nắm voucher của năm😌
-              </h6>
 
-              <Button onClick={handleOpen}>
-                {" "}
-                <img
-                  className="img_post"
-                  src="https://gumlet.assettype.com/theceo%2Fimport%2F2020%2F06%2FStartup-india-mission-empowering-entrepreneurs.jpg?w=1200&auto=format%2Ccompress&ogImage=true&enlarge=true"
-                  alt=""
-                />
-              </Button>
-              <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="parent-modal-title"
-                aria-describedby="parent-modal-description"
-              >
-                <Box sx={{ ...style, width: 400 }}>
-                  <img
-                    className="img_popup"
-                    src="https://i.pinimg.com/originals/39/88/85/398885df3f6e523828d80cf867a77039.jpg"
-                    alt=""
-                  />
-                </Box>
-              </Modal>
-              <div>
-                <div className="total_like_cmt">
-                  <div className="total_like">
-                    <AiFillLike />
-                    <p>1.2k</p>
-                  </div>
-                  <p>50 Bình luận</p>
-                </div>
-                <div className="act_post">
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    // aria-labelledby="modal-modal-title"
+                    // aria-describedby="modal-modal-description"
+                  >
+                    <Box className="modal_cmt_post">
+                      <div className="body_top_item5">
+                        <Link to="/login" className="post_detail">
+                          <img
+                            className="img_company"
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+                            alt=""
+                          />
+                          <div className="post_title">
+                            <h5 className="home_name_company">
+                              Công ty TNHH Thức Bùi
+                            </h5>
+                            <p>Được tài trợ</p>{" "}
+                          </div>
+                        </Link>
+                        <div className="post_detail_home">
+                          {" "}
+                          <ReadMore text={longText} />
+                        </div>
+
+                        <img
+                          className="img_post"
+                          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+                          alt=""
+                        />
+                        <div className="">
+                          <div className="total_like_cmt">
+                            <div className="total_like">
+                              <AiFillHeart />
+                              <p>1.2k</p>
+                            </div>
+                            <p>5 Bình luận</p>
+                          </div>
+                          <div className="act_post">
+                            <div className="item_act">
+                              <LikeButton className="item_like_cmt_send" />
+                            </div>
+                            <div className="item_act">
+                              <button className="item_act_post">
+                                {" "}
+                                <FaRegComment className="item_like_cmt_send" />{" "}
+                                Bình luận
+                              </button>
+                            </div>
+
+                            <div className="item_act">
+                              <Link to="/chatbox">
+                                <button className="item_act_post">
+                                  <TbSend className="item_like_cmt_send" /> Gửi
+                                  tin nhắn
+                                </button>
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                        <ScrollList />
+                        <div className="newfeed_input_cmt">
+                          <img
+                            className="newfeed_avt_cmt"
+                            src="https://www.w3schools.com/howto/img_avatar2.png"
+                            alt=""
+                          />
+                          <input
+                            className="newfeed_input_cmt_detail"
+                            type="text"
+                          />
+                        </div>
+                      </div>
+                    </Box>
+                  </Modal>
+
                   <div className="item_act">
-                    <AiOutlineLike className="item_like_cmt_send" />
-                    <h5 className="item_act_post">yêu Thích</h5>
-                  </div>
-                  <div className="item_act">
-                    <FaRegComment className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Bình luận</h5>
-                  </div>
-                  <div className="item_act">
-                    <TbSend className="item_like_cmt_send" />
-                    <h5 className="item_act_post">Gửi tin nhắn</h5>
+                    <Link to="/chatbox">
+                      <button className="item_act_post">
+                        <TbSend className="item_like_cmt_send" /> Gửi tin nhắn
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>

@@ -1,3 +1,8 @@
 .scroll_cmt {
     border: none !important;
 }
+
+.act_post_item_scroll {
+    display: flex;
+    justify-content: space-between;
+}

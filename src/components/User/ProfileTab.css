@@ -4,13 +4,23 @@
 
 .profile_tab_post_left {
     width: 265px;
-    height: 402px;
+    height: 352px;
     background-color: #ffff;
     border-radius: 20px;
     padding-left: 10px;
-    padding-right: 40px;
     padding-top: 10px;
-    margin-right: 25px;
+    margin-right: 40px;
+}
+
+
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
 }
 
 .profile_tab_post_left_detail_title {}
@@ -33,7 +43,6 @@
     height: 37px;
     background-color: #fff;
     border-radius: 20px;
-    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
