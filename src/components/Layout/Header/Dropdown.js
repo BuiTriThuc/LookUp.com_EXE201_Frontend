@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { PopupMenu } from "react-simple-widgets";
 import "./Dropdown.css";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../actions/userActions";
 
@@ -40,17 +41,17 @@ function Dropdown() {
 
             <hr />
 
-            <p
+            {/* <p
               className="mb-0"
               style={{ color: "#bebebe", fontWeight: "bold", fontSize: 12 }}
             >
               ROLES
-            </p>
-            <p style={{ fontSize: 12 }}>
+            </p> */}
+            {/* <p style={{ fontSize: 12 }}>
               {["Submitter", "Project manager", "Change control board"].join(
                 ", "
               )}
-            </p>
+            </p> */}
 
             <hr className="mb-0" style={{ margin: "0 -24px 0" }} />
 
@@ -58,15 +59,25 @@ function Dropdown() {
               className="list-group list-group-flush"
               style={{ margin: "0 -24px 0" }}
             >
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Change Requests</small>
-              </button>
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Pending Requests</small>
-              </button>
-              <button className="list-group-item list-group-item-action px-4">
-                <small>Other Requests</small>
-              </button>
+              <Link to="/profile">
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Profile</small>
+                </button>{" "}
+              </Link>
+              <Link>
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Chưa biết để gì</small>
+                </button>
+              </Link>
+
+              <Link>
+                {" "}
+                <button className="list-group-item list-group-item-action px-4">
+                  <small>Language</small>
+                </button>
+              </Link>
             </div>
 
             <hr style={{ margin: "0 -24px 24px" }} />

@@ -10,6 +10,7 @@ import { clearErrors, createPost } from "../../actions/postActions";
 import { useNavigate } from "react-router-dom";
 import { CREATE_POST_RESET } from "../../contants/postContants";
 import toast, { Toaster } from 'react-hot-toast';
+import io, { Socket } from 'socket.io-client';
 
 function CreatePost() {
   const dispatch = useDispatch();
@@ -19,27 +20,24 @@ function CreatePost() {
   const [show, setShow] = useState(false);
   const [content, setContent] = useState("");
   const [images, setImages] = useState([]);
+  const [socket, setSocket] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const notifySuccess = () => {
-    toast.success("Create post success!", {
-      position: "top-center",
-      duration: 2000
-    });
-    setTimeout(() => {
-      window.location.reload(true);
-    }, 2000); // Reload the page after 5 seconds (5000 milliseconds)
-  };
+  useEffect(() => {
+    const newSocket = io('http://localhost:8001');
+    setSocket(newSocket);
+  }, [setSocket])
 
   useEffect(() => {
+    
+
     if (error) {
       dispatch(clearErrors());
     }
 
     if (success) {
-      notifySuccess()
       dispatch({ type: CREATE_POST_RESET });
     }
   }, [dispatch, success, error, navigate]);
@@ -55,6 +53,8 @@ function CreatePost() {
     });
 
     dispatch(createPost(myForm));
+
+    socket.emit('postCreate', { myForm });
   };
 
   const createPostsImagesChange = (e) => {

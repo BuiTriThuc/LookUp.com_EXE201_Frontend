@@ -17,12 +17,12 @@ function Header() {
         <Link className="header_lookup" to="/">
           LookUp.com
         </Link>
-        <Link>
+        <Link to="/newfeed">
           {" "}
           <AiFillHome className="icon_header" />
         </Link>
 
-        <Link>
+        <Link to="/premium">
           {" "}
           <MdWorkspacePremium className="icon_header" />
         </Link>
@@ -33,7 +33,11 @@ function Header() {
         <div>
           <Dropdown />
         </div>
-        <div></div>
+        <div>
+          <Link className="header_help" to="/newfeed">
+            New Feed
+          </Link>
+        </div>
       </div>
       ) : ""}
       <div className="header_body">

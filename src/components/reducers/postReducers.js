@@ -9,6 +9,9 @@ import {
     CREATE_POST_SUCCESS,
     CREATE_POST_FAIL,
     CREATE_POST_RESET,
+    GET_POST_DETAIL_REQUEST,
+    GET_POST_DETAIL_SUCCESS,
+    GET_POST_DETAIL_FAIL,
     CLEAR_ERROR, 
 } from '../contants/postContants';
 
@@ -94,6 +97,40 @@ export const createPostReducer = (state = { post: {} }, action) => {
             return {
                 ...state,
                 success: false,
+            }
+        
+        case CLEAR_ERROR:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+
+export const getPostDetailReducer = (state = { postDetail: {} }, action) => {
+    switch (action.type) {
+        case GET_POST_DETAIL_REQUEST:
+            return {
+                ...state,
+                success: false,
+                loading: true,
+            }
+
+        case GET_POST_DETAIL_SUCCESS:
+            return {
+                success: true,
+                loading: false,
+                postDetail: action.payload
+            }
+
+        case GET_POST_DETAIL_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
             }
         
         case CLEAR_ERROR:

@@ -7,6 +7,7 @@ import storage from "redux-persist/lib/storage";
 
 import {
   createPostReducer,
+  getPostDetailReducer,
   ownerPostReducer,
   postsReducer,
 } from "./components/reducers/postReducers";
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   ownerPost: ownerPostReducer,
   user: userReducer,
   createPost: createPostReducer,
+  postDetail: getPostDetailReducer,
 });
 
 const store = configureStore({

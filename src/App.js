@@ -7,7 +7,6 @@ import Footer from "./components/Layout/Footer/Footer";
 import Home from "./components/Home/Home";
 import LoginForm from "./components/User/LoginForm";
 import { Fragment, useEffect } from "react";
-import NewFeed from "./components/Home/NewFeed";
 import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
 import Chatbox from "./components/Chatbox/Chatbox";
@@ -22,13 +21,8 @@ import store from "./store";
 import { useDispatch, useSelector } from "react-redux";
 import { loadUser } from "./components/actions/userActions";
 import PremiumMonth from "./components/Premium/PremiumMonth";
-// <<<<<<< Thuc
-// import PremiumMonth from "./components/Premium/PremiumMonth";
-// =======
-// import { useDispatch, useSelector } from "react-redux";
-// import store from "./store";
-// import { loadUser } from "./components/actions/userActions";
-// >>>>>>> main
+import ScrollList from "./components/Home/ScrollList";
+
 function App() {
   useEffect(() => {
     store.dispatch(loadUser());
@@ -42,7 +36,7 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            
             <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
             <Route path="/login" element={<LoginForm />} />
@@ -60,9 +54,9 @@ function App() {
             <Route
               element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
             >
-              <Route path="/newfeed" element={<NewFeed />} />
+              <Route exact path="/" element={<Home />} />
               
-            </Route>
+            </Route>  
           </Routes>
           <Footer />
         </Fragment>
