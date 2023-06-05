@@ -51,7 +51,7 @@ const LikeButton = () => {
   );
 };
 
-const ScrollList = () => {
+const ScrollListCmt = () => {
   const listRef = useRef(null);
 
   const dispatch = useDispatch();
@@ -64,10 +64,6 @@ const ScrollList = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
-  const [openPic, setOpenPic] = React.useState(false);
-  const handleOpenPic = () => setOpenPic(true);
-  const handleClosePic = () => setOpenPic(false);
 
   useEffect(() => {
     if (error) {
@@ -86,7 +82,6 @@ const ScrollList = () => {
           height: "580px",
           overflowY: "scroll",
           marginBottom: "20px",
-          overflow: "scroll",
         }}
       >
         <div className="body_top_item5">
@@ -105,28 +100,6 @@ const ScrollList = () => {
             {" "}
             <ReadMore text={postDetail?.content} />
           </div>
-
-          {postDetail?.images?.map((image) => (
-            <img
-              onClick={handleOpenPic}
-              className="img_post"
-              src={image}
-              alt=""
-            />
-          ))}
-
-          <Modal open={openPic} onClose={handleClosePic}>
-            <Box className="modal_img_post">
-              {postDetail?.images?.map((image) => (
-                <img
-                  onClick={handleOpenPic}
-                  className="img_post_modal"
-                  src={image}
-                  alt=""
-                />
-              ))}
-            </Box>
-          </Modal>
 
           <div>
             <div className="total_like_cmt">
@@ -197,6 +170,40 @@ const ScrollList = () => {
                   </p>
                 </div>
               </div>
+              <div className="newfeed_list_cmt">
+                <img
+                  className="newfeed_avt_cmt"
+                  src="https://www.w3schools.com/howto/img_avatar2.png"
+                  alt=""
+                />
+                <div className="newfeed_cmt_content">
+                  <h5>Công ty Thức</h5>
+                  <p>
+                    ine 458:11: The href attribute requires a valid value to be
+                    accessible. Provide a valid, navigable address as the href
+                    value. If you cannot provide a valid href, but still need
+                    the element to resemble a link, use a button and change it
+                    with appropriate styles. Learn more:
+                  </p>
+                </div>
+              </div>
+              <div className="newfeed_list_cmt">
+                <img
+                  className="newfeed_avt_cmt"
+                  src="https://www.w3schools.com/howto/img_avatar2.png"
+                  alt=""
+                />
+                <div className="newfeed_cmt_content">
+                  <h5>Công ty Thức</h5>
+                  <p>
+                    ine 458:11: The href attribute requires a valid value to be
+                    accessible. Provide a valid, navigable address as the href
+                    value. If you cannot provide a valid href, but still need
+                    the element to resemble a link, use a button and change it
+                    with appropriate styles. Learn more:
+                  </p>
+                </div>
+              </div>
               <div className="newfeed_input_cmt">
                 <img
                   className="newfeed_avt_cmt"
@@ -213,4 +220,4 @@ const ScrollList = () => {
   );
 };
 
-export default ScrollList;
+export default ScrollListCmt;

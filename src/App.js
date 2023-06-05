@@ -21,6 +21,7 @@ import store from "./store";
 import { useSelector } from "react-redux";
 import { loadUser } from "./components/actions/userActions";
 import PremiumMonth from "./components/Premium/PremiumMonth";
+import ViewImages from "./components/Home/ViewImages/ViewImages";
 
 function App() {
   useEffect(() => {
@@ -35,7 +36,6 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            
             <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
             <Route path="/login" element={<LoginForm />} />
@@ -48,6 +48,7 @@ function App() {
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
+            <Route path="/viewimage" element={<ViewImages />} />
             <Route path="/*" element={<NotFound />} />
 
             <Route

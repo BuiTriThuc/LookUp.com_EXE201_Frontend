@@ -1,0 +1,32 @@
+.view_image_item {
+    width: 800px;
+    height: 560px;
+}
+
+.viewimages {
+    display: flex;
+    align-items: center;
+}
+
+.viewimages_main {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_back_image_item {}
+
+.btn_next_image_item {}
+
+.viewimage_btn_backhome {
+    background-color: #E6E6E6;
+    display: flex;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+.viewimage_btn_backhome:hover {
+    background-color: #ffffff;
+    cursor: pointer;
+}
