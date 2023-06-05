@@ -1,7 +1,7 @@
 import {
   AiFillLike,
   AiOutlineHeart,
-  AiFillHeart,
+  AiFillHeart, 
   AiOutlineLike,
 } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -15,7 +15,13 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import CreatePost from "./CreatePost/CreatePost";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, getPost, getPostDetail } from "../actions/postActions";
+import {
+  clearErrors,
+  dislikePost,
+  getPost,
+  getPostDetail,
+  likePost,
+} from "../actions/postActions";
 import ScrollList from "./ScrollList";
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
@@ -45,26 +51,31 @@ const ReadMore = ({ text }) => {
   );
 };
 // Animation Like button333333
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
+// <<<<<<< Thuc
+// const LikeButton = () => {
+//   const [liked, setLiked] = useState(false);
 
-  const handleClick = () => {
-    setLiked(!liked);
-  };
-  return (
-    <button onClick={handleClick} className={liked ? "liked" : "like"}>
-      <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-      <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
-    </button>
-  );
-};
+//   const handleClick = () => {
+//     setLiked(!liked);
+//   };
+//   return (
+//     <button onClick={handleClick} className={liked ? "liked" : "like"}>
+//       <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+//       <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
+//     </button>
+//   );
+// };
+// =======
+// >>>>>>> main
 
 function Home() {
   const dispatch = useDispatch();
 
-  const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated, user } = useSelector((state) => state.user);
   const { error, posts } = useSelector((state) => state.posts);
   const [socket, setSocket] = useState();
+
+  
 
   const notifySuccess = () => {
     toast.success("Create post success!", {
@@ -104,9 +115,43 @@ function Home() {
         dispatch(getPost());
         notifySuccess();
       });
+      socket.on("likedPost", () => {
+        dispatch(getPost());
+      });
+      socket.on("dislikedPost", () => {
+        dispatch(getPost());
+      })
     }
     dispatch(getPost());
   }, [dispatch, error, socket]);
+
+  const LikeButton = ({ postId }) => {
+    const [liked, setLiked] = useState(false);
+
+    const handleClick = () => {
+      posts?.map((post) => (
+        post.likes.includes(user._id) ? dislikePostSubmit(postId, user._id) : likePostSubmit(postId, user._id)
+      ))
+      
+    };
+    return (
+      <button onClick={handleClick} className={posts && posts.map((post) => ( post.likes.includes(user._id) ? "liked" : "like"))}>
+        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <div className="item_act_post">
+          {" "}
+          {liked ? "Yêu thích" : "Yêu thích"}
+        </div>
+      </button>
+    );
+  };
+
+  const likePostSubmit = (postId, userId) => {
+    dispatch(likePost(postId, userId));
+  };
+
+  const dislikePostSubmit = (postId, userId) => {
+    dispatch(dislikePost(postId, userId));
+  }
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -220,7 +265,7 @@ function Home() {
                   alt=""
                 />
                 <div to="/login" className="post_title">
-                  <h5 className="home_name_company">{post.user.name}</h5>
+                  <h5 className="home_name_company">{post.user?.name}</h5>
                   <p>Được tài trợ</p>{" "}
                 </div>
               </Link>
@@ -243,11 +288,14 @@ function Home() {
 
               <Modal open={openPic} onClose={handleClosePic}>
                 <Box className="modal_img_post">
-                  <img
-                    className="img_post_modal"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
-                    alt=""
-                  />
+                  {post.images.map((image) => (
+                    <img
+                      onClick={handleOpenPic}
+                      className="img_post_modal"
+                      src={image}
+                      alt=""
+                    />
+                  ))}
                 </Box>
               </Modal>
 
@@ -264,8 +312,12 @@ function Home() {
                 <div className="act_post">
                   <div className="act_post_item_scroll">
                     <div className="item_act">
-                      <LikeButton className="item_like_cmt_send" />
+                      <LikeButton
+                        className="item_like_cmt_send liked" 
+                        postId={post._id}
+                      />
                     </div>
+
                     <div className="item_act">
                       <button
                         onClick={() => handleOpen(post._id)}

@@ -1,30 +1,77 @@
-import { useState } from "react";
-import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./FormRegister.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import flagVN from "../assets/vietnam.png";
+import { useDispatch, useSelector } from "react-redux";
+import { clearErrors, register } from "../actions/userActions";
+import toast, { Toaster } from 'react-hot-toast';
 
 const FormRegister = ({ addItem }) => {
-  const [newItemName, setNewItemName] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated, error } = useSelector((state) => state.user)
 
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
+  const [categoryBusiness, setCategoryBusiness] = useState("");
+  const [city, setCity] = useState("");
+  const [district, setDistrict] = useState("");
+  const [ward, setWard] = useState("");
+  const [address, setAddress] = useState("");
+
+  const notifySuccess = () => {
+    toast.success("Register success", {
+      duration: 3000,
+      position: "top-center"
+    })
+    setTimeout(() => {
+      navigate("/")
+    }, 3000)
+  }
+
+  const registerSubmit = (e) => {
     e.preventDefault();
-    if (!newItemName) {
-      toast.error("please provide value");
-      return;
+
+    const formData = new FormData();
+    formData.set("email", email);
+    formData.set("password", password);
+    formData.set("confirmPassword", confirmPassword);
+    formData.set("phoneNumber", phoneNumber);
+    formData.set("description", description);
+    formData.set("name", name);
+    formData.set("categoryBusiness", categoryBusiness);
+    formData.set("city", city);
+    formData.set("district", district);
+    formData.set("ward", ward);
+    formData.set("address", address);
+    dispatch(register(formData)); 
+  }
+
+  useEffect(() => {
+    if (error) {
+      clearErrors(error)
     }
-    addItem(newItemName);
-    setNewItemName("");
-  };
+
+    if (isAuthenticated) {
+      notifySuccess()
+    }
+  }, [error, notifySuccess, isAuthenticated])
 
   return (
     <section className="section-center">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={registerSubmit}>
         <h4>Tạo tài khoản</h4>
         <div>
           <input
-            type="text "
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="form-input"
             placeholder="Địa chỉ Email"
           />
@@ -35,6 +82,8 @@ const FormRegister = ({ addItem }) => {
             type="password"
             id="pass"
             name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Mật khẩu"
             className="form-input"
             minlength="8"
@@ -46,10 +95,12 @@ const FormRegister = ({ addItem }) => {
           <input
             type="password"
             id="pass"
-            name="password"
+            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Xác nhận Mật khẩu"
             className="form-input"
-            minlength="8"
+            minlength={6}
             required
           />
         </div>
@@ -59,10 +110,11 @@ const FormRegister = ({ addItem }) => {
         <div>
           <input
             type="text "
+            name="nameBusiness"
             className="form-input"
             placeholder="Tên doanh nghiệp"
-            value={newItemName}
-            onChange={(event) => setNewItemName(event.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
         </div>
         <br />
@@ -70,40 +122,42 @@ const FormRegister = ({ addItem }) => {
           <input
             type="text "
             className="form-input"
+            name="categoryBusiness"
+            value={categoryBusiness}
+            onChange={(e) => setCategoryBusiness(e.target.value)}
             placeholder="Lĩnh vực kinh doanh"
           />
         </div>
         <br />
         <div className="row">
-          <div className="col-4">
-            <input type="text " className="form-input" placeholder="Số nhà" />
-          </div>
-          <div className="col-8">
-            <input
-              type="text "
-              className="form-input"
-              placeholder="Tên đường"
-            />
+          <div className="col-12">
+            <input 
+              type="text"
+              name="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)} 
+              className="form-input" 
+              placeholder="Số nhà, tên đường" />
           </div>
         </div>
         <br />
         <div className="row">
           <div className="col-4">
-            <select id="inputState" class="form-control">
+            <select id="inputState" class="form-control" name="city" onChange={(e) => setCity(e.target.value)}>
               <option selected>Tỉnh</option>
-              <option>Ho Chi Minh City</option>
+              <option value="Ho Chi Minh City">Ho Chi Minh City</option>
             </select>
           </div>
           <div className="col-4">
-            <select id="inputState" class="form-control">
-              <option selected>Thành phố</option>
-              <option>Ho Chi Minh City</option>
+            <select id="inputState" class="form-control" name="district" onChange={(e) => setDistrict(e.target.value)}>
+              <option selected>Quận, huyện</option>
+              <option value="Quan 3">Quan 3</option>
             </select>
           </div>
           <div className="col-4">
-            <select id="inputState" class="form-control">
-              <option selected>Quận&huyện</option>
-              <option>Ho Chi Minh City</option>
+            <select id="inputState" class="form-control" name="ward" onChange={(e) => setWard(e.target.value)}>
+              <option selected>Phường, xã</option>
+              <option value="Phuong 2">Phuong 2</option>
             </select>
           </div>
         </div>
@@ -122,7 +176,10 @@ const FormRegister = ({ addItem }) => {
           </div>
           <div className="col-6">
             <input
-              type="text "
+              type="text"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
               className="form-input"
               placeholder="Số điện thoại"
             />
@@ -134,6 +191,9 @@ const FormRegister = ({ addItem }) => {
             class="form-control"
             id="exampleFormControlTextarea1"
             placeholder="Mô tả doanh nghiệp"
+            name="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             rows="3"
           ></textarea>
         </div>
@@ -155,18 +215,18 @@ const FormRegister = ({ addItem }) => {
           </p>
         </div>
         <br />
-        <Link to="/login">
-          <button
-            type="button"
-            class="btn btn-primary"
-            data-toggle="button"
-            aria-pressed="false"
-            autocomplete="off"
-          >
-            Đăng ký
-          </button>
-        </Link>
+
+        <button
+          type="submit"
+          class="btn btn-primary"
+          data-toggle="button"
+          aria-pressed="false"
+          autocomplete="off"
+        >
+          Đăng ký
+        </button>
       </form>
+      <Toaster />
     </section>
   );
 };

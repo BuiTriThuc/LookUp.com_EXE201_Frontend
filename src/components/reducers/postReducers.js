@@ -12,7 +12,15 @@ import {
     GET_POST_DETAIL_REQUEST,
     GET_POST_DETAIL_SUCCESS,
     GET_POST_DETAIL_FAIL,
-    CLEAR_ERROR, 
+    CLEAR_ERROR,
+    LIKE_POST_REQUEST,
+    LIKE_POST_SUCCESS,
+    LIKE_POST_FAIL, 
+    LIKE_POST_RESET,
+    DISLIKE_POST_REQUEST,
+    DISLIKE_POST_SUCCESS,
+    DISLIKE_POST_FAIL,
+    DISLIKE_POST_RESET,
 } from '../contants/postContants';
 
 export const postsReducer = (state = { posts: [] }, action) => {
@@ -143,5 +151,67 @@ export const getPostDetailReducer = (state = { postDetail: {} }, action) => {
             return state;
     }
 }
+
+export const likePostReducer = (state = { postLike: {} }, action) => {
+    switch (action.type) {
+        case LIKE_POST_REQUEST:
+            return {
+                ...state,
+                success: false,
+                loading: true,
+            }
+        case LIKE_POST_SUCCESS:
+            return {
+                success: true,
+                loading: false,
+                postLike: action.payload
+            }
+        case LIKE_POST_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case LIKE_POST_RESET:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state;
+    }
+}
+
+export const dislikePostReducer = (state = { postDislike: {} }, action) => {
+    switch (action.type) {
+        case DISLIKE_POST_REQUEST:
+            return {
+                ...state,
+                success: false,
+                loading: true,
+            }
+        case DISLIKE_POST_SUCCESS:
+            return {
+                success: true,
+                loading: false,
+                postDislike: action.payload
+            }
+        case DISLIKE_POST_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+        case DISLIKE_POST_RESET:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state;
+    }
+}
+
+
 
 

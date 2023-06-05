@@ -12,6 +12,13 @@ import {
   GET_POST_DETAIL_REQUEST,
   GET_POST_DETAIL_SUCCESS,
   GET_POST_DETAIL_FAIL,
+  LIKE_POST_REQUEST,
+  LIKE_POST_SUCCESS,
+  LIKE_POST_FAIL,
+  DISLIKE_POST_REQUEST,
+  DISLIKE_POST_SUCCESS,
+  DISLIKE_POST_FAIL,
+  DISLIKE_POST_RESET,
   CLEAR_ERROR,
 } from "../contants/postContants";
 
@@ -90,6 +97,30 @@ export const getPostDetail = (postId) => async (dispatch) => {
       type: GET_POST_DETAIL_FAIL,
       payload: error.response.data.message,
     })
+  }
+}
+
+export const likePost = (postId, userId) => async (dispatch) => {
+  try {
+    dispatch({ type: LIKE_POST_REQUEST });
+
+    const { data } = await axios.post(`/post/like/like/${postId}`, userId);
+
+    dispatch({ type: LIKE_POST_SUCCESS, payload: data});
+  } catch (error) {
+    dispatch({ type: LIKE_POST_FAIL, payload: error.response.data.message });
+  }
+}
+
+export const dislikePost = (postId, userId) => async (dispatch) => {
+  try {
+    dispatch({ type: DISLIKE_POST_REQUEST });
+
+    const { data } = await axios.post(`/post/like/unlike/${postId}`, userId);
+
+    dispatch({ type: DISLIKE_POST_SUCCESS, payload: data});
+  } catch (error) {
+    dispatch({ type: DISLIKE_POST_FAIL, payload: error.response.data.message });
   }
 }
 
