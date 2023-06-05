@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getPost, getPostDetail } from "../actions/postActions";
 import ScrollList from "./ScrollList";
 import io, { Socket } from "socket.io-client";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -47,9 +47,6 @@ const ReadMore = ({ text }) => {
 // Animation Like button333333
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
-  
-
-  
 
   const handleClick = () => {
     setLiked(!liked);
@@ -62,7 +59,6 @@ const LikeButton = () => {
   );
 };
 
-
 function Home() {
   const dispatch = useDispatch();
 
@@ -73,9 +69,9 @@ function Home() {
   const notifySuccess = () => {
     toast.success("Create post success!", {
       position: "top-center",
-      duration: 5000
+      duration: 5000,
     });
-  }
+  };
 
   useEffect(() => {
     const newSocket = io("http://localhost:8001");
@@ -103,13 +99,13 @@ function Home() {
     }
 
     if (socket) {
-      socket.on('postCreated', (newPost) => {
+      socket.on("postCreated", (newPost) => {
         // Dispatch the getPost action to update the posts
         dispatch(getPost());
         notifySuccess();
       });
     }
-    dispatch(getPost())
+    dispatch(getPost());
   }, [dispatch, error, socket]);
 
   const longText =
@@ -234,12 +230,15 @@ function Home() {
               </div>
 
               {post.images.map((image) => (
-                <img
-                  onClick={handleOpenPic}
-                  className="img_post"
-                  src={image}
-                  alt=""
-                />
+                <Link to="/viewimage">
+                  {" "}
+                  <img
+                    onClick={handleOpenPic}
+                    className="img_post"
+                    src={image}
+                    alt=""
+                  />
+                </Link>
               ))}
 
               <Modal open={openPic} onClose={handleClosePic}>
