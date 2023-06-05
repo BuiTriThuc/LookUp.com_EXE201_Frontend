@@ -34,9 +34,7 @@ function Header() {
           <Dropdown />
         </div>
         <div>
-          <Link className="header_help" to="/newfeed">
-            New Feed
-          </Link>
+          
         </div>
       </div>
       ) : ""}
