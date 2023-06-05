@@ -1,7 +1,7 @@
 import {
   AiFillLike,
   AiOutlineHeart,
-  AiFillHeart, 
+  AiFillHeart,
   AiOutlineLike,
 } from "react-icons/ai";
 import { FaRegComment } from "react-icons/fa";
@@ -57,9 +57,10 @@ function Home() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { error, posts } = useSelector((state) => state.posts);
-  const [socket, setSocket] = useState();
 
-  
+  const [socket, setSocket] = useState();
+  const [liked, setLiked] = useState(false);
+  const [likedPost, setLikedPost] = useState([]);
 
   const notifySuccess = () => {
     toast.success("Create post success!", {
@@ -104,27 +105,36 @@ function Home() {
       });
       socket.on("dislikedPost", () => {
         dispatch(getPost());
-      })
+      });
     }
     dispatch(getPost());
   }, [dispatch, error, socket]);
 
+  useEffect(() => {
+    if (isAuthenticated && posts.length > 0) {
+      const likedPostsData = posts.filter((post) =>
+        post.likes.includes(user._id)
+      );
+      setLikedPost(likedPostsData.map((post) => post._id));
+    }
+  }, [isAuthenticated, posts, user]);
+
   const LikeButton = ({ postId }) => {
-    const [liked, setLiked] = useState(false);
 
     const handleClick = () => {
-      posts?.map((post) => (
-        post.likes.includes(user._id) ? dislikePostSubmit(postId, user._id) : likePostSubmit(postId, user._id)
-      ))
-      
+      if (likedPost.includes(postId)) {
+        dislikePostSubmit(postId, user._id);
+      } else {
+        likePostSubmit(postId, user._id);
+      }
     };
     return (
-      <button onClick={handleClick} className={posts && posts.map((post) => ( post.likes.includes(user._id) ? "liked" : "like"))}>
+      <button
+        onClick={handleClick}
+        className={likedPost.includes(postId) ? "liked" : "like"}
+      >
         <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-        <div className="item_act_post">
-          {" "}
-          {liked ? "Yêu thích" : "Yêu thích"}
-        </div>
+        <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
       </button>
     );
   };
@@ -135,7 +145,7 @@ function Home() {
 
   const dislikePostSubmit = (postId, userId) => {
     dispatch(dislikePost(postId, userId));
-  }
+  };
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -294,7 +304,7 @@ function Home() {
                   <div className="act_post_item_scroll">
                     <div className="item_act">
                       <LikeButton
-                        className="item_like_cmt_send liked" 
+                        className="item_like_cmt_send liked"
                         postId={post._id}
                       />
                     </div>

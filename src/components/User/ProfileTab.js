@@ -257,7 +257,7 @@ export default function BasicTabs() {
                   </div>
                   <p>5 Bình luận</p>
                 </div>
-                <div className="act_post">
+                <div className="act_post_profile">
                   <div className="item_act">
                     <LikeButton className="item_like_cmt_send" />
                   </div>
