@@ -11,7 +11,15 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, getPost, getPostDetail } from "../actions/postActions";
+import {
+  clearErrors,
+  dislikePost,
+  getPost,
+  getPostDetail,
+  likePost,
+} from "../actions/postActions";
+import io, { Socket } from "socket.io-client";
+import toast, { Toaster } from "react-hot-toast";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -36,20 +44,6 @@ const ReadMore = ({ text }) => {
     </div>
   );
 };
-// Animation Like button333333
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
-
-  const handleClick = () => {
-    setLiked(!liked);
-  };
-  return (
-    <button onClick={handleClick} className={liked ? "liked" : "like"}>
-      <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-      <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
-    </button>
-  );
-};
 
 const ScrollList = () => {
   const listRef = useRef(null);
@@ -58,16 +52,56 @@ const ScrollList = () => {
   const { loading, success, postDetail, error } = useSelector(
     (state) => state.postDetail
   );
+  const { user } = useSelector((state) => state.user);
 
   console.log(postDetail);
 
   const [open, setOpen] = React.useState(false);
+  const [socket, setSocket] = useState();
+  const [liked, setLiked] = useState(false);
+  const [likedPost, setLikedPost] = useState([]);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const [openPic, setOpenPic] = React.useState(false);
   const handleOpenPic = () => setOpenPic(true);
   const handleClosePic = () => setOpenPic(false);
+
+  useEffect(() => {
+    if (postDetail.likes.includes(user._id)) {
+      setLikedPost(postDetail);
+    }
+  }, [postDetail, user]);
+
+  const LikeButton = ({ postId }) => {
+    const handleClick = () => {
+      if (likedPost === postDetail) {
+        dislikePostSubmit(postId, user._id);
+      } else {
+        likePostSubmit(postId, user._id);
+      }
+    };
+    return (
+      <button
+        onClick={handleClick}
+        className={likedPost === postDetail ? "liked" : "like"}
+      >
+        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
+      </button>
+    );
+  };
+
+  // New comment
+
+  const likePostSubmit = (postId, userId) => {
+    dispatch(likePost(postId, userId));
+  };
+
+  const dislikePostSubmit = (postId, userId) => {
+    dispatch(dislikePost(postId, userId));
+  };
 
   useEffect(() => {
     if (error) {
@@ -133,15 +167,18 @@ const ScrollList = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> 1.2k
+                  <AiFillHeart /> {postDetail.likes.length}
                 </p>
               </div>
-              <p>5 Bình luận</p>
+              <p>{postDetail.comments?.length} Bình luận</p>
             </div>
             <div className="act_post">
               <div className="act_post_item_scroll">
                 <div className="item_act">
-                  <LikeButton className="item_like_cmt_send" />
+                  <LikeButton
+                    className="item_like_cmt_send"
+                    postId={postDetail._id}
+                  />
                 </div>
                 <div className="item_act">
                   <button onClick={handleOpen} className="item_act_post">
@@ -158,45 +195,19 @@ const ScrollList = () => {
                 </div>
               </div>
 
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>alo cmt đê aloasdsadsa</p>
+              {postDetail.comments.map((comment) => (
+                <div className="newfeed_list_cmt">
+                  <img
+                    className="newfeed_avt_cmt"
+                    src="https://www.w3schools.com/howto/img_avatar2.png"
+                    alt=""
+                  />
+                  <div className="newfeed_cmt_content">
+                    <h5>Công ty Thức</h5>
+                    <p>{comment.content}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>Provide a valid, navigable address as the href value</p>
-                </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>
-                    ine 458:11: The href attribute requires a valid value to be
-                    accessible. Provide a valid, navigable address as the href
-                    value. If you cannot provide a valid href, but still need
-                    the element to resemble a link, use a button and change it
-                    with appropriate styles. Learn more:
-                  </p>
-                </div>
-              </div>
+              ))}
               <div className="newfeed_input_cmt">
                 <img
                   className="newfeed_avt_cmt"
