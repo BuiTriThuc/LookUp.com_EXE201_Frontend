@@ -50,23 +50,7 @@ const ReadMore = ({ text }) => {
     </div>
   );
 };
-// Animation Like button333333
-// <<<<<<< Thuc
-// const LikeButton = () => {
-//   const [liked, setLiked] = useState(false);
 
-//   const handleClick = () => {
-//     setLiked(!liked);
-//   };
-//   return (
-//     <button onClick={handleClick} className={liked ? "liked" : "like"}>
-//       <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-//       <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
-//     </button>
-//   );
-// };
-// =======
-// >>>>>>> main
 
 function Home() {
   const dispatch = useDispatch();

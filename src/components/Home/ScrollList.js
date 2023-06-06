@@ -167,7 +167,7 @@ const ScrollList = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> {postDetail.likes.length}
+                  <AiFillHeart /> {postDetail.likes?.length}
                 </p>
               </div>
               <p>{postDetail.comments?.length} Bình luận</p>
