@@ -25,6 +25,10 @@ import {
 import ScrollList from "./ScrollList";
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
+import PostPictures_10 from "./Post/PostPictures_10";
+import PostPictures_2 from "./Post/PostPictures_2";
+import PostPictures_3 from "./Post/PostPictures_3";
+import PostPictures_4 from "./Post/PostPictures_4";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -50,7 +54,6 @@ const ReadMore = ({ text }) => {
     </div>
   );
 };
-
 
 function Home() {
   const dispatch = useDispatch();
@@ -113,16 +116,15 @@ function Home() {
   useEffect(() => {
     if (isAuthenticated && posts.length > 0) {
       const likedPostsData = posts.filter((post) =>
-        post.likes.includes(user._id)
+        post.likes?.includes(user._id)
       );
       setLikedPost(likedPostsData.map((post) => post._id));
     }
   }, [isAuthenticated, posts, user]);
 
   const LikeButton = ({ postId }) => {
-
     const handleClick = () => {
-      if (likedPost.includes(postId)) {
+      if (likedPost?.includes(postId)) {
         dislikePostSubmit(postId, user._id);
       } else {
         likePostSubmit(postId, user._id);
@@ -131,7 +133,7 @@ function Home() {
     return (
       <button
         onClick={handleClick}
-        className={likedPost.includes(postId) ? "liked" : "like"}
+        className={likedPost?.includes(postId) ? "liked" : "like"}
       >
         <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
         <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
@@ -163,7 +165,7 @@ function Home() {
             <p>Trải nghiệm tính năng cao cấp với gói Premium miễn phí!</p>
           </div>
 
-          <Link to="/register" className="body_top_button_register">
+          <Link to="/premium" className="body_top_button_register">
             Đăng ký ngay!
           </Link>
         </div>
@@ -340,6 +342,10 @@ function Home() {
               </div>
             </div>
           ))}
+        <PostPictures_10 />
+        <PostPictures_2 />
+        <PostPictures_3 />
+        <PostPictures_4 />
       </div>
       <div className="body_top_item3">
         <img

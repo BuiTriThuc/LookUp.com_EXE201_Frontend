@@ -29,7 +29,9 @@ function Profile() {
           </div>
           <div class="action">
             <div class="follow">Theo dõi </div>
-            <div class="sendmess">Gửi tin nhắn</div>
+            <Link to="/chatbox">
+              <div class="sendmess">Gửi tin nhắn</div>
+            </Link>
           </div>
         </div>
       </div>
