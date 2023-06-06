@@ -9,35 +9,34 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const { isAuthenticated } = useSelector((state) => state.user);
-  
+
   return (
     <div>
       {isAuthenticated && isAuthenticated === true ? (
         <div className="header_top">
-        <Link className="header_lookup" to="/">
-          LookUp.com
-        </Link>
-        <Link to="/">
-          {" "}
-          <AiFillHome className="icon_header" />
-        </Link>
+          <Link className="header_lookup" to="/">
+            LookUp.com
+          </Link>
+          <Link to="/">
+            {" "}
+            <AiFillHome className="icon_header" />
+          </Link>
 
-        <Link to="/premium">
-          {" "}
-          <MdWorkspacePremium className="icon_header" />
-        </Link>
-        <Link>
-          {""}
-          <Badges />
-        </Link>
-        <div>
-          <Dropdown />
+          <Link to="/premium">
+            {" "}
+            <MdWorkspacePremium className="icon_header" />
+          </Link>
+          <Link>
+            {""}
+            <Badges className="icon_header" />
+          </Link>
+          <div>
+            <Dropdown />
+          </div>
         </div>
-        <div>
-          
-        </div>
-      </div>
-      ) : ""}
+      ) : (
+        ""
+      )}
       <div className="header_body">
         <img className="header_img" src={HeaderPage} alt="" />
         <h3 className="header_title">
