@@ -21,21 +21,27 @@ import {
     DISLIKE_POST_SUCCESS,
     DISLIKE_POST_FAIL,
     DISLIKE_POST_RESET,
+    GET_POST_PROFILE_REQUEST,
+    GET_POST_PROFILE_SUCCESS,
+    GET_POST_PROFILE_FAIL,
 } from '../contants/postContants';
 
 export const postsReducer = (state = { posts: [] }, action) => {
     switch (action.type) {
         case ALL_POST_REQUEST:
+        case GET_POST_PROFILE_REQUEST:
             return {
                 loading: true,
                 posts: []
             }
         case ALL_POST_SUCCESS:
+        case GET_POST_PROFILE_SUCCESS:
             return {
                 loading: false,
                 posts: action.payload
             }
         case ALL_POST_FAIL:
+        case GET_POST_PROFILE_FAIL:
             return {
                 loading: false,
                 error: action.payload

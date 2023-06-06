@@ -1,12 +1,10 @@
-import bgcompany from "../../images/bgcompany.jpg";
-import avt_company from "../../images/avt_company.jpg";
 import { Link } from "react-router-dom";
-import { AiOutlinePlusCircle } from "react-icons/ai";
-import { TbMessages } from "react-icons/tb";
-
+import { useSelector } from "react-redux";
 import "./Profile.css";
 import ProfileTab from "./ProfileTab";
+
 function Profile() {
+  const { user } = useSelector((state) => state.user);
   return (
     <div className="profile">
       <div class="img_des">
@@ -24,9 +22,9 @@ function Profile() {
         </div>
         <div class="profile_des">
           <div>
-            <h3>Công ty LookUp</h3>
-            <p>Lập Trình</p>
-            <p>Hồ Chí Minh</p>
+            <h3>{user.name}</h3>
+            <p>{user.categoryBusiness}</p>
+            <p>{user.city}</p>
             <Link>500 Lượt theo dõi </Link>
           </div>
           <div class="action">
