@@ -7,6 +7,7 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import ScrollList from "../ScrollList";
+import "./PostPictures.css";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -41,7 +42,7 @@ const LikeButton = () => {
   );
 };
 
-export default function PostPictures() {
+export default function PostPictures_10() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -69,12 +70,43 @@ export default function PostPictures() {
           {" "}
           <ReadMore text={longText} />
         </div>
-
-        <img
-          className="img_post"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
-          alt=""
-        />
+        <Link to="/viewimage">
+          {" "}
+          <div className="postpicture_group_top">
+            <img
+              className="img_post_1"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
+              alt=""
+            />
+            <img
+              className="img_post_2"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCfPWjM7SRUUpf-zeunqc5YwlPQGDypqQaoA&usqp=CAU"
+              alt=""
+            />
+          </div>
+          <div className="postpicture_group_bottom">
+            {" "}
+            <img
+              className="img_post_3"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnes0D8Q0gL6C0CxLdwlMl-rwC_YusGP279A&usqp=CAU"
+              alt=""
+            />
+            <img
+              className="img_post_4"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEt-Zzd7ulpOEbP9TsQj5f1xcD9kZEIC9kuA&usqp=CAU"
+              alt=""
+            />
+            <div className="the_last_pic_group">
+              {" "}
+              <img
+                className="img_post_5"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfxA-4bIafCS7agMrHpDhsP9-hJGQip5yEBA&usqp=CAU"
+                alt=""
+              />
+              <div className="number_pictures">+6 </div>
+            </div>
+          </div>
+        </Link>
 
         <Modal open={openPic} onClose={handleClosePic}>
           <Box className="modal_img_post">
@@ -96,7 +128,7 @@ export default function PostPictures() {
             </div>
             <p>5 Bình luận</p>
           </div>
-          <div className="act_post">
+          <div className="act_post_postpictures">
             <div className="item_act">
               <LikeButton className="item_like_cmt_send" />
             </div>

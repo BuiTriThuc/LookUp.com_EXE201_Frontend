@@ -40,6 +40,11 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
+import PostPictures_10 from "../Home/Post/PostPictures_10";
+import PostPictures_2 from "../Home/Post/PostPictures_2";
+import PostPictures_3 from "../Home/Post/PostPictures_3";
+import PostPictures_4 from "../Home/Post/PostPictures_4";
+import CreatePost from "../Home/CreatePost/CreatePost";
 
 const style = {
   position: "absolute",
@@ -267,7 +272,9 @@ export default function BasicTabs() {
                 Lọc <FaSortAmountDownAlt />
               </p>
             </div>
-
+            <div className="create_post">
+              <CreatePost />
+            </div>
             {posts &&
               posts.map((post) => (
                 <div className="body_top_item5" key={post._id}>
@@ -348,6 +355,10 @@ export default function BasicTabs() {
                   </div>
                 </div>
               ))}
+            <PostPictures_10 />
+            <PostPictures_2 />
+            <PostPictures_3 />
+            <PostPictures_4 />
           </div>
           <div className="profile_right">
             <div className="profile_right_top">

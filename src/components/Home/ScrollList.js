@@ -227,7 +227,9 @@ const ScrollList = () => {
                 </div>
               </div>
 
-              {postDetail?.comments?.map((comment) => (
+
+              {postDetail.comments?.map((comment) => (
+
                 <div className="newfeed_list_cmt">
                   <img
                     className="newfeed_avt_cmt"
