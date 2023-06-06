@@ -5,6 +5,7 @@
 p {
     margin-bottom: 0px !important;
 }
+
 .body_top {
     display: flex;
     padding-top: 20px;
@@ -424,6 +425,7 @@ button:hover {
     width: 600px;
     height: 400px;
 }
+
 .newfeed {
     display: flex;
     padding: 20px;

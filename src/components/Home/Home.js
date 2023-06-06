@@ -25,6 +25,7 @@ import {
 import ScrollList from "./ScrollList";
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
+import PostPictures from "./Post/PostPictures";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -74,10 +75,13 @@ function Home() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { error, posts } = useSelector((state) => state.posts);
 
-  const [socket, setSocket] = useState();
-  const [liked, setLiked] = useState(false);
-  const [likedPost, setLikedPost] = useState([]);
+// <<<<<<< Thuc
+// =======
+//   const [socket, setSocket] = useState();
+//   const [liked, setLiked] = useState(false);
+//   const [likedPost, setLikedPost] = useState([]);
 
+// >>>>>>> main
   const notifySuccess = () => {
     toast.success("Create post success!", {
       position: "top-center",
@@ -138,16 +142,33 @@ function Home() {
   const LikeButton = ({ postId }) => {
 
     const handleClick = () => {
-      if (likedPost.includes(postId)) {
-        dislikePostSubmit(postId, user._id);
-      } else {
-        likePostSubmit(postId, user._id);
-      }
+// <<<<<<< Thuc
+//       posts?.map((post) =>
+//         post.likes.includes(user._id)
+//           ? dislikePostSubmit(postId, user._id)
+//           : likePostSubmit(postId, user._id)
+//       );
+// =======
+//       if (likedPost.includes(postId)) {
+//         dislikePostSubmit(postId, user._id);
+//       } else {
+//         likePostSubmit(postId, user._id);
+//       }
+// >>>>>>> main
     };
     return (
       <button
         onClick={handleClick}
-        className={likedPost.includes(postId) ? "liked" : "like"}
+// <<<<<<< Thuc
+//         className={
+//           posts &&
+//           posts.map((post) =>
+//             post.likes.includes(user._id) ? "liked" : "like"
+//           )
+//         }
+// =======
+//         className={likedPost.includes(postId) ? "liked" : "like"}
+// >>>>>>> main
       >
         <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
         <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
@@ -356,6 +377,7 @@ function Home() {
               </div>
             </div>
           ))}
+        <PostPictures />
       </div>
       <div className="body_top_item3">
         <img
