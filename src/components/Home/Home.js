@@ -74,8 +74,14 @@ function Home() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { error, posts } = useSelector((state) => state.posts);
-  const [socket, setSocket] = useState();
 
+// <<<<<<< Thuc
+// =======
+//   const [socket, setSocket] = useState();
+//   const [liked, setLiked] = useState(false);
+//   const [likedPost, setLikedPost] = useState([]);
+
+// >>>>>>> main
   const notifySuccess = () => {
     toast.success("Create post success!", {
       position: "top-center",
@@ -124,31 +130,48 @@ function Home() {
     dispatch(getPost());
   }, [dispatch, error, socket]);
 
+  useEffect(() => {
+    if (isAuthenticated && posts.length > 0) {
+      const likedPostsData = posts.filter((post) =>
+        post.likes.includes(user._id)
+      );
+      setLikedPost(likedPostsData.map((post) => post._id));
+    }
+  }, [isAuthenticated, posts, user]);
+
   const LikeButton = ({ postId }) => {
-    const [liked, setLiked] = useState(false);
 
     const handleClick = () => {
-      posts?.map((post) =>
-        post.likes.includes(user._id)
-          ? dislikePostSubmit(postId, user._id)
-          : likePostSubmit(postId, user._id)
-      );
+// <<<<<<< Thuc
+//       posts?.map((post) =>
+//         post.likes.includes(user._id)
+//           ? dislikePostSubmit(postId, user._id)
+//           : likePostSubmit(postId, user._id)
+//       );
+// =======
+//       if (likedPost.includes(postId)) {
+//         dislikePostSubmit(postId, user._id);
+//       } else {
+//         likePostSubmit(postId, user._id);
+//       }
+// >>>>>>> main
     };
     return (
       <button
         onClick={handleClick}
-        className={
-          posts &&
-          posts.map((post) =>
-            post.likes.includes(user._id) ? "liked" : "like"
-          )
-        }
+// <<<<<<< Thuc
+//         className={
+//           posts &&
+//           posts.map((post) =>
+//             post.likes.includes(user._id) ? "liked" : "like"
+//           )
+//         }
+// =======
+//         className={likedPost.includes(postId) ? "liked" : "like"}
+// >>>>>>> main
       >
         <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-        <div className="item_act_post">
-          {" "}
-          {liked ? "Yêu thích" : "Yêu thích"}
-        </div>
+        <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
       </button>
     );
   };

@@ -19,6 +19,9 @@ import {
   DISLIKE_POST_SUCCESS,
   DISLIKE_POST_FAIL,
   DISLIKE_POST_RESET,
+  GET_POST_PROFILE_REQUEST,
+  GET_POST_PROFILE_SUCCESS,
+  GET_POST_PROFILE_FAIL,
   CLEAR_ERROR,
 } from "../contants/postContants";
 
@@ -121,6 +124,18 @@ export const dislikePost = (postId, userId) => async (dispatch) => {
     dispatch({ type: DISLIKE_POST_SUCCESS, payload: data});
   } catch (error) {
     dispatch({ type: DISLIKE_POST_FAIL, payload: error.response.data.message });
+  }
+}
+
+export const getPostProfile = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_POST_PROFILE_REQUEST });
+
+    const { data } = await axios.get(`/post/profile/${userId}`)
+
+    dispatch({ type: GET_POST_PROFILE_SUCCESS, payload: data })
+  } catch (error) {
+    dispatch({ type: GET_POST_PROFILE_FAIL, payload: error.response.data.message })
   }
 }
 

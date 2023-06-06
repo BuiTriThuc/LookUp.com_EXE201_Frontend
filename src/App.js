@@ -43,7 +43,7 @@ function App() {
             <Route path="/resetpassword" element={<NewPassword />} />
             <Route path="/resetpasswordsuccess" element={<Profile />} />
             <Route path="/help" element={<Help />} />
-            <Route path="/profile" element={<Profile />} />
+            
             <Route path="/premium" element={<Premium />} />
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
@@ -55,7 +55,8 @@ function App() {
               element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
             >
               <Route exact path="/" element={<Home />} />
-            </Route>
+              <Route path="/profile" element={<Profile />} />
+            </Route>  
           </Routes>
           <Footer />
         </Fragment>

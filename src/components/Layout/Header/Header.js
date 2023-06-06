@@ -17,7 +17,7 @@ function Header() {
         <Link className="header_lookup" to="/">
           LookUp.com
         </Link>
-        <Link to="/newfeed">
+        <Link to="/">
           {" "}
           <AiFillHome className="icon_header" />
         </Link>
