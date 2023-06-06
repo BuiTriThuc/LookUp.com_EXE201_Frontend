@@ -235,7 +235,7 @@ const ScrollList = () => {
                     alt=""
                   />
                   <div className="newfeed_cmt_content">
-                    <h5>Công ty Thức</h5>
+                    <h5>{comment.author.name}</h5>
                     <p>{comment.content}</p>
                   </div>
                 </div>
