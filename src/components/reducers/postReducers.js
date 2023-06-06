@@ -24,6 +24,10 @@ import {
     GET_POST_PROFILE_REQUEST,
     GET_POST_PROFILE_SUCCESS,
     GET_POST_PROFILE_FAIL,
+    CREATE_COMMENT_REQUEST,
+    CREATE_COMMENT_SUCCESS,
+    CREATE_COMMENT_FAIL,
+    CREATE_COMMENT_RESET,
 } from '../contants/postContants';
 
 export const postsReducer = (state = { posts: [] }, action) => {
@@ -209,6 +213,36 @@ export const dislikePostReducer = (state = { postDislike: {} }, action) => {
                 error: action.payload
             }
         case DISLIKE_POST_RESET:
+            return {
+                ...state,
+                error: null
+            }
+        default:
+            return state;
+    }
+};
+
+export const addCommentReducer = (state = { postComment: {} }, action) => {
+    switch (action.type) {
+        case CREATE_COMMENT_REQUEST:
+            return {
+                ...state,
+                success: false,
+                loading: true,
+            }
+        case CREATE_COMMENT_SUCCESS:
+            return {
+                success: true,
+                loading: false,
+                postComment: action.payload
+            }
+        case CREATE_COMMENT_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            }
+        case CREATE_COMMENT_RESET:
             return {
                 ...state,
                 error: null

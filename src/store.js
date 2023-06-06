@@ -6,6 +6,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import {
+  addCommentReducer,
   createPostReducer,
   dislikePostReducer,
   getPostDetailReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   postDetail: getPostDetailReducer,
   postLike: likePostReducer,
   postDislike: dislikePostReducer,
+  addComment: addCommentReducer
 });
 
 const store = configureStore({

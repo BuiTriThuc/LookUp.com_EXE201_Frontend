@@ -22,6 +22,9 @@ import {
   GET_POST_PROFILE_REQUEST,
   GET_POST_PROFILE_SUCCESS,
   GET_POST_PROFILE_FAIL,
+  CREATE_COMMENT_REQUEST,
+  CREATE_COMMENT_SUCCESS,
+  CREATE_COMMENT_FAIL,
   CLEAR_ERROR,
 } from "../contants/postContants";
 
@@ -136,6 +139,24 @@ export const getPostProfile = (userId) => async (dispatch) => {
     dispatch({ type: GET_POST_PROFILE_SUCCESS, payload: data })
   } catch (error) {
     dispatch({ type: GET_POST_PROFILE_FAIL, payload: error.response.data.message })
+  }
+};
+
+export const createComment = (userId, postId, content) => async (dispatch) => {
+  try {
+    dispatch({ type: CREATE_COMMENT_REQUEST });
+
+    const config = { headers: {"Content-Type": "application/json" } };
+
+    const { data } = await axios.post(
+      `/post/comment/${postId}`,
+      {userId, postId, content},
+      config 
+    );
+
+    dispatch({ type: CREATE_COMMENT_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: CREATE_COMMENT_FAIL, payload: error.response.data.message })
   }
 }
 
