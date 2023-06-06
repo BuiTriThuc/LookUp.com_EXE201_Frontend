@@ -337,80 +337,9 @@ export default function BasicTabs() {
                         </button>
                       </div>
 
-                      <Modal
-                        open={open}
-                        onClose={handleClose}
-                        // aria-labelledby="modal-modal-title"
-                        // aria-describedby="modal-modal-description"
-                      >
+                      <Modal open={open} onClose={handleClose}>
                         <Box className="modal_cmt_post">
-                          <div className="body_top_item5">
-                            <Link to="/login" className="post_detail">
-                              <img
-                                className="img_company"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
-                                alt=""
-                              />
-                              <div className="post_title">
-                                <h5 className="home_name_company">
-                                  Công ty TNHH Thức Bùi
-                                </h5>
-                                <p>Được tài trợ</p>{" "}
-                              </div>
-                            </Link>
-                            <div className="post_detail_home">
-                              {" "}
-                              <ReadMore text={longText} />
-                            </div>
-
-                            <img
-                              className="img_post"
-                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbVAfrqNk2EtEhre_GStV9vvqw4FUoMJ3ygpMqHdmtgt3TRztRIMULhzTH9qr5Zq2AIes&usqp=CAU"
-                              alt=""
-                            />
-                            <div className="">
-                              <div className="total_like_cmt">
-                                <div className="total_like">
-                                  <AiFillHeart />
-                                  <p>1.2k</p>
-                                </div>
-                                <p>5 Bình luận</p>
-                              </div>
-                              <div className="act_post">
-                                <div className="item_act">
-                                  <LikeButton className="item_like_cmt_send" />
-                                </div>
-                                <div className="item_act">
-                                  <button className="item_act_post">
-                                    {" "}
-                                    <FaRegComment className="item_like_cmt_send" />{" "}
-                                    Bình luận
-                                  </button>
-                                </div>
-
-                                <div className="item_act">
-                                  <Link to="/chatbox">
-                                    <button className="item_act_post">
-                                      <TbSend className="item_like_cmt_send" />{" "}
-                                      Gửi tin nhắn
-                                    </button>
-                                  </Link>
-                                </div>
-                              </div>
-                            </div>
-                            <ScrollList />
-                            <div className="newfeed_input_cmt">
-                              <img
-                                className="newfeed_avt_cmt"
-                                src="https://www.w3schools.com/howto/img_avatar2.png"
-                                alt=""
-                              />
-                              <input
-                                className="newfeed_input_cmt_detail"
-                                type="text"
-                              />
-                            </div>
-                          </div>
+                          <ScrollList />
                         </Box>
                       </Modal>
 

@@ -13,6 +13,7 @@ import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,
+  createComment,
   dislikePost,
   getPost,
   getPostDetail,
@@ -20,6 +21,7 @@ import {
 } from "../actions/postActions";
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
+import { addComment } from "./../reducers/postReducers";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -53,13 +55,25 @@ const ScrollList = () => {
     (state) => state.postDetail
   );
   const { user } = useSelector((state) => state.user);
+  const { postComment, success: addSuccess } = useSelector((state) => state.addComment);
 
-  console.log(postDetail);
+  
 
   const [open, setOpen] = React.useState(false);
   const [socket, setSocket] = useState();
   const [liked, setLiked] = useState(false);
   const [likedPost, setLikedPost] = useState([]);
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    const newSocket = io("http://localhost:8001");
+    setSocket(newSocket);
+  
+
+    return () => {
+      newSocket.disconnect(); // Clean up the socket connection when the component unmounts
+    };
+  }, [setSocket, postDetail, dispatch]);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -69,7 +83,7 @@ const ScrollList = () => {
   const handleClosePic = () => setOpenPic(false);
 
   useEffect(() => {
-    if (postDetail.likes.includes(user._id)) {
+    if (postDetail?.likes?.includes(user._id)) {
       setLikedPost(postDetail);
     }
   }, [postDetail, user]);
@@ -103,11 +117,29 @@ const ScrollList = () => {
     dispatch(dislikePost(postId, userId));
   };
 
+  const addCommentSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+
+    formData.set("content", content);
+    dispatch(createComment(user._id, postDetail._id, content))
+  };
+
   useEffect(() => {
     if (error) {
       dispatch(clearErrors());
     }
-  }, [dispatch, error]);
+
+    if (addSuccess) {
+      setContent("")
+    }
+
+    if (socket) {
+      socket.on("addComment", () => {
+        dispatch(getPostDetail(postDetail._id))
+      })
+    }
+  }, [dispatch, error, postDetail, socket]);
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -167,10 +199,10 @@ const ScrollList = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> {postDetail.likes?.length}
+                  <AiFillHeart /> {postDetail?.likes?.length}
                 </p>
               </div>
-              <p>{postDetail.comments?.length} Bình luận</p>
+              <p>{postDetail?.comments?.length} Bình luận</p>
             </div>
             <div className="act_post">
               <div className="act_post_item_scroll">
@@ -195,7 +227,9 @@ const ScrollList = () => {
                 </div>
               </div>
 
+
               {postDetail.comments?.map((comment) => (
+
                 <div className="newfeed_list_cmt">
                   <img
                     className="newfeed_avt_cmt"
@@ -214,7 +248,15 @@ const ScrollList = () => {
                   src="https://www.w3schools.com/howto/img_avatar2.png"
                   alt=""
                 />
-                <input className="newfeed_input_cmt_detail" type="text" />
+                <form onSubmit={addCommentSubmit}>
+                  <input
+                    className="newfeed_input_cmt_detail"
+                    name="content"
+                    type="text"
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                  />
+                </form>
               </div>
             </div>
           </div>
