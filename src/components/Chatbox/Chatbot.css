@@ -1,14 +1,14 @@
 
 
-.home {
+.home_chat {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    .container {
+    .container_chat {
       border: 1px solid white;
       border-radius: 10px;
-      width: 150%;
+      width: 65%;
       height: 80%;
       display: flex;
       overflow: hidden;
@@ -107,12 +107,48 @@
           color: lightgray;
         }
 
+        .type_chat {
+          height: 110px;
+          background-color: white;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .input_chat {
+          width: 100%;
+          border: none;
+          outline: none;
+          color: #2f2d52;
+          font-size: 18px;
+          display: flex;
+        }
+
+        .placeholder_chat {
+          color: lightgray;
+        }
+
+        .btn_chat {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          background-color: cadetblue;
+        }
+
+        .send_chat{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        
+
         .chatIcons {
           display: flex;
           gap: 10px;
         }
   
-        .messages {
+        .messages_box {
           background-color: #ddddf7;
           padding: 10px;
           height: calc(100% - 160px);
@@ -129,6 +165,25 @@
               color: gray;
               font-weight: 300;
   
+            }
+
+            .message_item {
+              display: flex;
+              gap: 20; 
+              
+              .messageInfo_item {
+                .avt_img {
+                  width: 40px;
+                  height: 40px;
+                }
+  
+                .avt_img {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  object-fit: cover;
+              }
+            } 
             }
             .messageContent {
               max-width: 80%;
@@ -173,6 +228,13 @@
     height: calc(100% - 160px);
     overflow: scroll;
   }
+}
+
+img.avt_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 }
         
 

@@ -3,8 +3,9 @@ import Message from "./Message";
 
 const Messages = () => {
     return (
-        <div className="message_show">
+        <div className="messages_box">
             <Message />
+            
         </div>
     )
 }
