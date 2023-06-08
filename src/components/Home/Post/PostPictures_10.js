@@ -13,22 +13,30 @@ export default function PostPictures_10({ imgSrc }) {
             <img
               key={index}
               className="img_post_more_picture"
-              style={index > 1 ? { width: "183.333px", height: "275px" } : {}}
+              style={index > 1 ? { width: "183.333px", height: "200px" } : {}}
               src={img}
               alt=""
             />
           ))}
 
-          {imgSrc && imgSrc.length >= 5 &&  (
+          {imgSrc && imgSrc.length >= 5 && (
             <div className="the_last_pic_group">
               <img
                 className="img_post_more_picture"
-                style={{ width: "183.333px", height: "275px"}}
+                style={{
+                  width: "183.333px",
+                  height: "200px",
+                  opacity: "0.5",
+                  border: "1.5px solid #5C5C60",
+                }}
                 src={imgSrc[4]}
                 alt=""
               />
-              {imgSrc.length > 5 ? <div className="number_pictures">+{imgSrc.length - 5} </div> : ""}
-              
+              {imgSrc.length > 5 ? (
+                <div className="number_pictures">+{imgSrc.length - 5} </div>
+              ) : (
+                ""
+              )}
             </div>
           )}
         </div>

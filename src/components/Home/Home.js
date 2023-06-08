@@ -284,21 +284,13 @@ function Home() {
                     </Link>
                   ));
                 } else if (post.images?.length === 2) {
-                  return (
-                    <PostPictures_2 imgSrc={post.images} />
-                  );
+                  return <PostPictures_2 imgSrc={post.images} />;
                 } else if (post.images?.length === 3) {
-                  return (
-                    <PostPictures_3 imgSrc={post.images} />
-                  )
+                  return <PostPictures_3 imgSrc={post.images} />;
                 } else if (post.images?.length === 4) {
-                  return (
-                    <PostPictures_4 imgSrc={post.images} />
-                  )
+                  return <PostPictures_4 imgSrc={post.images} />;
                 } else if (post.images?.length >= 5) {
-                  return (
-                    <PostPictures_10 imgSrc={post.images} />
-                  )
+                  return <PostPictures_10 imgSrc={post.images} />;
                 }
               })()}
 
@@ -366,7 +358,7 @@ function Home() {
       <div className="body_top_item3">
         <img
           className="body_top_item3_img_ads"
-          src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1570626134360-FQODKCRQHC9ZEJCRNHN0/chup-anh-profile-cong-ty-kpmg-3.jpg?format=1000w"
+          src="https://media.istockphoto.com/id/1281405891/vi/vec-to/th%E1%BB%B1c-%C4%91%C6%A1n-th%E1%BB%A9c-%C4%83n-nhanh-hand-doodle-phong-c%C3%A1ch-v%E1%BA%BD-tay-v%E1%BB%9Bi-%C4%91%E1%BB%93-%C4%83n-v%E1%BA%B7t.jpg?s=612x612&w=0&k=20&c=1fTa1ZbgVFfdFtwWzc3jmumB3tWzxJJ0anyPLCBSlcQ="
           alt=""
         />
         <Link to="./login" className="body_top_item3_detail_ads">
@@ -376,8 +368,8 @@ function Home() {
             alt=""
           />
           <div>
-            <h5 className="home_name_company">Công ty Thức Bùi</h5>
-            <p>Công nghệ thông tin</p>
+            <h5 className="home_name_company">Công ty TNHH BoBo</h5>
+            <p>Thức ăn nhanh</p>
           </div>
         </Link>
         <div className="suport">
