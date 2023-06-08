@@ -664,10 +664,11 @@ button:hover {
 .newfeed_input_cmt {
     display: flex;
     margin-bottom: 20px;
+    justify-content: center;
 }
 
 .newfeed_input_cmt_detail {
-    width: 900px;
+    width: 500px;
     margin-left: 10px;
     border: none;
     background-color: #e0dddd;
