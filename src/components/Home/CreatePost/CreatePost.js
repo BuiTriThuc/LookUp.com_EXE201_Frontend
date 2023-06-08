@@ -9,8 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, createPost } from "../../actions/postActions";
 import { useNavigate } from "react-router-dom";
 import { CREATE_POST_RESET } from "../../contants/postContants";
-import toast, { Toaster } from 'react-hot-toast';
-import io, { Socket } from 'socket.io-client';
+import toast, { Toaster } from "react-hot-toast";
+import io, { Socket } from "socket.io-client";
 
 function CreatePost() {
   const dispatch = useDispatch();
@@ -26,13 +26,11 @@ function CreatePost() {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:8001');
+    const newSocket = io("http://localhost:8001");
     setSocket(newSocket);
-  }, [setSocket])
+  }, [setSocket]);
 
   useEffect(() => {
-    
-
     if (error) {
       dispatch(clearErrors());
     }
@@ -45,34 +43,42 @@ function CreatePost() {
   const createPostHandler = (e) => {
     e.preventDefault();
 
-    const myForm = new FormData();
+    const postData = {
+      content: content,
+      images: images
+    };
+  
 
-    myForm.set("content", content);
-    images.forEach((image) => {
-      myForm.append("images", image)
-    });
+    dispatch(createPost(postData));
 
-    dispatch(createPost(myForm));
-
-    socket.emit('postCreate', { myForm });
+    socket.emit("postCreate", { postData });
   };
 
   const createPostsImagesChange = (e) => {
     const files = Array.from(e.target.files);
+    const imageData = [];
 
-    setImages([]);
-
-    files.forEach((file) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          setImages((old) => [...old, reader.result]);
-        }
-      };
-
-      reader.readAsDataURL(file);
+    const promises = files.map((file) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          resolve(event.target.result);
+        };
+        reader.readAsDataURL(file);
+      });
     });
+
+    Promise.all(promises)
+      .then((results) => {
+        results.forEach((result) => {
+          imageData.push(result);
+        });
+
+        setImages(imageData);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -134,15 +140,16 @@ function CreatePost() {
                 onChange={(e) => setContent(e.target.value)}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3">
               <Form.Label>Hình ảnh</Form.Label>
-              <Form.Control 
-                type="file" 
-                name="images" 
+              <Form.Control
+                type="file"
+                name="images"
                 accept="image/*"
                 onChange={createPostsImagesChange}
-                multiple 
-                autoFocus />
+                multiple
+                autoFocus
+              />
             </Form.Group>
           </Modal.Body>
           <Modal.Footer>

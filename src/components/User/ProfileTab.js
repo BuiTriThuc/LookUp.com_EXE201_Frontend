@@ -286,7 +286,7 @@ export default function BasicTabs() {
                     />
 
                     <div className="post_title">
-                      <h5 className="home_name_company">{post.user.name}</h5>
+                      <h5 className="home_name_company">{post.user?.name}</h5>
                       <p>Được tài trợ</p>{" "}
                     </div>
                   </Link>

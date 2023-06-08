@@ -55,9 +55,9 @@ const ScrollList = () => {
     (state) => state.postDetail
   );
   const { user } = useSelector((state) => state.user);
-  const { postComment, success: addSuccess } = useSelector((state) => state.addComment);
-
-  
+  const { postComment, success: addSuccess } = useSelector(
+    (state) => state.addComment
+  );
 
   const [open, setOpen] = React.useState(false);
   const [socket, setSocket] = useState();
@@ -68,7 +68,6 @@ const ScrollList = () => {
   useEffect(() => {
     const newSocket = io("http://localhost:8001");
     setSocket(newSocket);
-  
 
     return () => {
       newSocket.disconnect(); // Clean up the socket connection when the component unmounts
@@ -122,7 +121,7 @@ const ScrollList = () => {
     const formData = new FormData();
 
     formData.set("content", content);
-    dispatch(createComment(user._id, postDetail._id, content))
+    dispatch(createComment(user._id, postDetail._id, content));
   };
 
   useEffect(() => {
@@ -131,13 +130,13 @@ const ScrollList = () => {
     }
 
     if (addSuccess) {
-      setContent("")
+      setContent("");
     }
 
     if (socket) {
       socket.on("addComment", () => {
-        dispatch(getPostDetail(postDetail._id))
-      })
+        dispatch(getPostDetail(postDetail._id));
+      });
     }
   }, [dispatch, error, postDetail, socket]);
 
@@ -172,14 +171,15 @@ const ScrollList = () => {
             <ReadMore text={postDetail?.content} />
           </div>
 
-          {postDetail?.images?.map((image) => (
-            <img
-              onClick={handleOpenPic}
-              className="img_post"
-              src={image}
-              alt=""
-            />
-          ))}
+          {postDetail?.images?.length === 1 &&
+            postDetail?.images?.map((image) => (
+              <img
+                onClick={handleOpenPic}
+                className="img_post"
+                src={image}
+                alt=""
+              />
+            ))}
 
           <Modal open={openPic} onClose={handleClosePic}>
             <Box className="modal_img_post">
@@ -227,9 +227,7 @@ const ScrollList = () => {
                 </div>
               </div>
 
-
               {postDetail.comments?.map((comment) => (
-
                 <div className="newfeed_list_cmt">
                   <img
                     className="newfeed_avt_cmt"

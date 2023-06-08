@@ -6,3 +6,11 @@
 .postpic_4_img_post_4 {
     width: 275px;
 }
+.postpicture_group_four_picture {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_post_four_picture {
+    width: 275px;
+}

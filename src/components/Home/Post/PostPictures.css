@@ -56,3 +56,27 @@
     margin-top: 20px;
     padding-bottom: 10px;
 }
+.img_post_two_picture {
+    width: 100%;
+    object-fit: contain;
+    height: 260px;
+}
+
+.postpicture_group_three_picture {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.img_post_three_picture {
+    width: 50%;
+}
+
+.postpicture_group_more_picture {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_post_more_picture {
+    width: 50%;
+}

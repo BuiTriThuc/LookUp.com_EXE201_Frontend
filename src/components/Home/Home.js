@@ -39,7 +39,7 @@ const ReadMore = ({ text }) => {
 
   return (
     <div>
-      {text.length > 200 ? (
+      {text?.length > 200 ? (
         expanded ? (
           <div>{text}</div>
         ) : (
@@ -114,7 +114,7 @@ function Home() {
   }, [dispatch, error, socket]);
 
   useEffect(() => {
-    if (isAuthenticated && posts.length > 0) {
+    if (isAuthenticated && posts?.length > 0) {
       const likedPostsData = posts.filter((post) =>
         post.likes?.includes(user._id)
       );
@@ -270,17 +270,41 @@ function Home() {
                 <ReadMore text={post.content} />
               </div>
 
-              {post.images.map((image) => (
-                <Link to="/viewimage">
-                  {" "}
-                  <img
-                    onClick={handleOpenPic}
-                    className="img_post"
-                    src={image}
-                    alt=""
-                  />
-                </Link>
-              ))}
+              {/* {post.images.map((image) => (
+                
+              ))} */}
+
+              {(() => {
+                if (post.images?.length === 1) {
+                  return post.images.map((image) => (
+                    <Link to="/viewimage">
+                      {" "}
+                      <img
+                        onClick={handleOpenPic}
+                        className="img_post"
+                        src={image}
+                        alt=""
+                      />
+                    </Link>
+                  ));
+                } else if (post.images?.length === 2) {
+                  return (
+                    <PostPictures_2 imgSrc={post.images} />
+                  );
+                } else if (post.images?.length === 3) {
+                  return (
+                    <PostPictures_3 imgSrc={post.images} />
+                  )
+                } else if (post.images?.length === 4) {
+                  return (
+                    <PostPictures_4 imgSrc={post.images} />
+                  )
+                } else if (post.images?.length >= 5) {
+                  return (
+                    <PostPictures_10 imgSrc={post.images} />
+                  )
+                }
+              })()}
 
               <Modal open={openPic} onClose={handleClosePic}>
                 <Box className="modal_img_post">
@@ -300,10 +324,10 @@ function Home() {
                   <div className="total_like">
                     <p>
                       {" "}
-                      <AiFillHeart /> {post.likes.length}
+                      <AiFillHeart /> {post.likes?.length}
                     </p>
                   </div>
-                  <p>{post.comments.length} Bình luận</p>
+                  <p>{post.comments?.length} Bình luận</p>
                 </div>
                 <div className="act_post">
                   <div className="act_post_item_scroll">
