@@ -1,11 +1,16 @@
-function Chatbox() {
+import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import './Chatbot.css';
+
+const Chatbox = () => {
   return (
-    <div>
-      <div>
-        <h1>This is chat box layout</h1>
+    <div className="home">
+      <div className="container">
+        <Sidebar />
+        <Chat />
       </div>
     </div>
-  );
+  )
 }
 
 export default Chatbox;
