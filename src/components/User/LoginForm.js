@@ -7,8 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 import { clearErrors } from "../reducers/userReducers";
-import GoogleButton from 'react-google-button'
-
+import GoogleButton from "react-google-button";
 
 export default function LoginForm() {
   const {
@@ -57,11 +56,11 @@ export default function LoginForm() {
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    dispatch(login(loginEmail, loginPassword))
+    dispatch(login(loginEmail, loginPassword));
     // handleValidation();
   };
 
-  console.log('Check co vao login ko: ', location.pathname);
+  console.log("Check co vao login ko: ", location.pathname);
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
@@ -71,19 +70,20 @@ export default function LoginForm() {
     }
 
     if (isAuthenticated === true) {
-      navigate(redirect)
+      navigate(redirect);
     }
-  }, [dispatch, error, isAuthenticated, navigate, redirect])
+  }, [dispatch, error, isAuthenticated, navigate, redirect]);
   return (
     <section>
       <div className="register">
         <div className="col-1">
           <h2 className="text-center">Welcome Back</h2>
 
-          <GoogleButton className="btn_google"
-                onClick={() => { 
-                  console.log('Google button clicked') 
-          }}
+          <GoogleButton
+            className="btn_google"
+            onClick={() => {
+              console.log("Google button clicked");
+            }}
           />
 
           <form id="form" className="flex flex-col" onSubmit={loginSubmit}>
@@ -111,11 +111,13 @@ export default function LoginForm() {
             <small id="passworderror" className="text-danger form-text">
               {passwordError}
             </small>
-        
-              <input type="submit" value="Login" className="btn" />
+
+            <input type="submit" value="Login" className="btn" />
 
             <div className="striped">
-              <p className="striped-line text-center">-----------------------------</p>
+              <p className="striped-line text-center">
+                -----------------------------
+              </p>
             </div>
             <div className="d-flex justify-content-between mx-4 mb-4">
               <MDBCheckbox
@@ -125,11 +127,15 @@ export default function LoginForm() {
                 label="Remember me"
               />
               <br />
-              <Link to="/resetpassword"><p>Forgot password?</p></Link>
+              <Link to="/forgotpassword">
+                <p>Forgot password?</p>
+              </Link>
             </div>
           </form>
           <p className="text-center">Bạn chưa có tài khoản?</p>
-          <Link to="/register" ><p className="text-center">Đăng ký</p></Link>
+          <Link to="/register">
+            <p className="text-center">Đăng ký</p>
+          </Link>
         </div>
         <div className="col-2">
           <img src={bgImg} alt="" />

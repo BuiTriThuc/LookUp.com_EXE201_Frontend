@@ -6,3 +6,15 @@
     display: flex;
     justify-content: space-between;
 }
+
+.submit_cmt {
+    margin-left: -30px;
+    margin-top: 4px;
+    background-color: #E0DDDD !important;
+}
+
+.submit_cmt_icon {
+    cursor: pointer;
+    color: #242526 !important;
+
+}

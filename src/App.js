@@ -22,6 +22,8 @@ import { useSelector } from "react-redux";
 import { loadUser } from "./components/actions/userActions";
 import PremiumMonth from "./components/Premium/PremiumMonth";
 import ViewImages from "./components/Home/ViewImages/ViewImages";
+import ForgotPassword from "./components/InformationRegister/ForgotPassword";
+import OTP from "./components/InformationRegister/OTP";
 
 function App() {
   useEffect(() => {
@@ -43,12 +45,14 @@ function App() {
             <Route path="/resetpassword" element={<NewPassword />} />
             <Route path="/resetpasswordsuccess" element={<Profile />} />
             <Route path="/help" element={<Help />} />
-            
+
             <Route path="/premium" element={<Premium />} />
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
             <Route path="/viewimage" element={<ViewImages />} />
+            <Route path="/forgotpassword" element={<ForgotPassword />} />
+            <Route path="/otp" element={<OTP />} />
             <Route path="/*" element={<NotFound />} />
 
             <Route
@@ -56,7 +60,7 @@ function App() {
             >
               <Route exact path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
-            </Route>  
+            </Route>
           </Routes>
           <Footer />
         </Fragment>
