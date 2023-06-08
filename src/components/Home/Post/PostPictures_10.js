@@ -19,7 +19,7 @@ export default function PostPictures_10({ imgSrc }) {
             />
           ))}
 
-          {imgSrc && imgSrc.length > 5 &&  (
+          {imgSrc && imgSrc.length >= 5 &&  (
             <div className="the_last_pic_group">
               <img
                 className="img_post_more_picture"
@@ -27,7 +27,8 @@ export default function PostPictures_10({ imgSrc }) {
                 src={imgSrc[4]}
                 alt=""
               />
-              <div className="number_pictures">+{imgSrc.length - 5} </div>
+              {imgSrc.length > 5 ? <div className="number_pictures">+{imgSrc.length - 5} </div> : ""}
+              
             </div>
           )}
         </div>
