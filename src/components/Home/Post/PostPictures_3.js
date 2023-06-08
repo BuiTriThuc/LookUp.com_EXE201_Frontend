@@ -10,7 +10,15 @@ export default function PostPictures_3({ imgSrc }) {
           {imgSrc?.map((img, index) => (
             <img
               className="img_post_three_picture"
-              style={index === 2 ? { width: "100%", height: "275px" } : {}}
+              style={
+                index === 2
+                  ? {
+                      width: "100%",
+                      height: "200px",
+                      border: "1.5px solid #5C5C60",
+                    }
+                  : {}
+              }
               src={img}
               alt=""
               key={index}
