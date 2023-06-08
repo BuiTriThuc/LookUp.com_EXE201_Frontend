@@ -24,6 +24,7 @@ import PremiumMonth from "./components/Premium/PremiumMonth";
 import ViewImages from "./components/Home/ViewImages/ViewImages";
 import ForgotPassword from "./components/InformationRegister/ForgotPassword";
 import OTP from "./components/InformationRegister/OTP";
+import EditProfile from "./components/User/EditProfile/EditProfile";
 
 function App() {
   useEffect(() => {
@@ -60,6 +61,7 @@ function App() {
             >
               <Route exact path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/editprofile" element={<EditProfile />} />
             </Route>
           </Routes>
           <Footer />

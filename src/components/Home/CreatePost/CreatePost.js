@@ -45,9 +45,8 @@ function CreatePost() {
 
     const postData = {
       content: content,
-      images: images
+      images: images,
     };
-  
 
     dispatch(createPost(postData));
 
@@ -92,29 +91,45 @@ function CreatePost() {
         ></input>
         <div className="create_post_icon">
           <div onClick={handleShow} className="create_post_icon_detail">
-            <p>
+            <p className="icon_create_post_top">
               {" "}
               <MdOutlinePhotoCamera
-                style={{ width: "20px", height: "20px", color: "blue" }}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  color: "blue",
+                  marginRight: "3px",
+                }}
               />{" "}
               Hình ảnh{" "}
             </p>
           </div>
           <div onClick={handleShow} className="create_post_icon_detail">
-            <p>
+            <p className="icon_create_post_top">
               {" "}
               <MdPhotoCameraFront
-                style={{ width: "20px", height: "20px", color: "green" }}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  color: "green",
+                  marginRight: "3px",
+                }}
               />{" "}
               Video
             </p>
           </div>
           <div onClick={handleShow} className="create_post_icon_detail">
-            <p>
+            <p className="icon_create_post_top">
               {" "}
               <CgDetailsMore
-                style={{ width: "20px", height: "20px", color: "red" }}
-              />{" "}
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  color: "red",
+                  marginRight: "3px",
+                }}
+              />
+              {"    "}
               Bài viết
             </p>
           </div>

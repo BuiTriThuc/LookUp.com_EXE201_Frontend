@@ -358,7 +358,7 @@ function Home() {
       <div className="body_top_item3">
         <img
           className="body_top_item3_img_ads"
-          src="https://media.istockphoto.com/id/1281405891/vi/vec-to/th%E1%BB%B1c-%C4%91%C6%A1n-th%E1%BB%A9c-%C4%83n-nhanh-hand-doodle-phong-c%C3%A1ch-v%E1%BA%BD-tay-v%E1%BB%9Bi-%C4%91%E1%BB%93-%C4%83n-v%E1%BA%B7t.jpg?s=612x612&w=0&k=20&c=1fTa1ZbgVFfdFtwWzc3jmumB3tWzxJJ0anyPLCBSlcQ="
+          src="https://media.doanhnhantrevietnam.vn/files/content/2022/03/22/doanh-nhan-tre-vietnam-mua-dich-thuc-an-nhanh-len-ngoi-hinh-anh-2-1051.jpg"
           alt=""
         />
         <Link to="./login" className="body_top_item3_detail_ads">
@@ -368,7 +368,7 @@ function Home() {
             alt=""
           />
           <div>
-            <h5 className="home_name_company">Công ty TNHH BoBo</h5>
+            <h5 className="home_name_company">Công ty TNHH Thịnh</h5>
             <p>Thức ăn nhanh</p>
           </div>
         </Link>
@@ -397,7 +397,7 @@ function Home() {
             </Link>
           </div>
         </div>
-        <Link to="/" style={{ marginLeft: 90, marginTop: -25 }}>
+        <Link to="/" style={{ marginLeft: 90, marginTop: "-53px" }}>
           LookUp.com
         </Link>
       </div>
