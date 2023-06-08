@@ -23,6 +23,10 @@ import {
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
 import { addComment } from "./../reducers/postReducers";
+import PostPictures_2 from "./Post/PostPictures_2";
+import PostPictures_3 from "./Post/PostPictures_3";
+import PostPictures_4 from "./Post/PostPictures_4";
+import PostPictures_10 from "./Post/PostPictures_10";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -139,7 +143,7 @@ const ScrollList = () => {
         dispatch(getPostDetail(postDetail._id));
       });
     }
-  }, [dispatch, error, postDetail, socket]);
+  }, [dispatch, error, postDetail, socket, addSuccess]);
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -172,15 +176,29 @@ const ScrollList = () => {
             <ReadMore text={postDetail?.content} />
           </div>
 
-          {postDetail?.images?.length === 1 &&
-            postDetail?.images?.map((image) => (
-              <img
-                onClick={handleOpenPic}
-                className="img_post"
-                src={image}
-                alt=""
-              />
-            ))}
+          {(() => {
+            if (postDetail?.images?.length === 1) {
+              return postDetail.images.map((image) => (
+                <Link to="/viewimage">
+                  {" "}
+                  <img
+                    onClick={handleOpenPic}
+                    className="img_post"
+                    src={image}
+                    alt=""
+                  />
+                </Link>
+              ));
+            } else if (postDetail?.images?.length === 2) {
+              return <PostPictures_2 imgSrc={postDetail.images} />;
+            } else if (postDetail?.images?.length === 3) {
+              return <PostPictures_3 imgSrc={postDetail.images} />;
+            } else if (postDetail?.images?.length === 4) {
+              return <PostPictures_4 imgSrc={postDetail.images} />;
+            } else if (postDetail?.images?.length >= 5) {
+              return <PostPictures_10 imgSrc={postDetail.images} />;
+            }
+          })()}
 
           <Modal open={openPic} onClose={handleClosePic}>
             <Box className="modal_img_post">
