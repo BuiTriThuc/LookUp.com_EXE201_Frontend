@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./PostPictures.css";
 
 export default function PostPictures_10({ imgSrc }) {
-  const displayImages = imgSrc?.slice(0, 5);
+  const displayImages = imgSrc?.slice(0, 4);
 
   return (
     <div>
@@ -19,11 +19,12 @@ export default function PostPictures_10({ imgSrc }) {
             />
           ))}
 
-          {imgSrc && imgSrc.length > 5 && (
+          {imgSrc && imgSrc.length > 5 &&  (
             <div className="the_last_pic_group">
               <img
                 className="img_post_more_picture"
-                src={imgSrc[displayImages.length]}
+                style={{ width: "183.333px", height: "275px"}}
+                src={imgSrc[4]}
                 alt=""
               />
               <div className="number_pictures">+{imgSrc.length - 5} </div>

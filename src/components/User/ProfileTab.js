@@ -296,14 +296,29 @@ export default function BasicTabs() {
                     <ReadMore text={post.content} />
                   </div>
 
-                  {post.images.map((image) => (
-                    <img
-                      onClick={handleOpenPic}
-                      className="img_post"
-                      src={image}
-                      alt=""
-                    />
-                  ))}
+                  {(() => {
+                    if (post.images?.length === 1) {
+                      return post.images.map((image) => (
+                        <Link to="/viewimage">
+                          {" "}
+                          <img
+                            onClick={handleOpenPic}
+                            className="img_post"
+                            src={image}
+                            alt=""
+                          />
+                        </Link>
+                      ));
+                    } else if (post.images?.length === 2) {
+                      return <PostPictures_2 imgSrc={post.images} />;
+                    } else if (post.images?.length === 3) {
+                      return <PostPictures_3 imgSrc={post.images} />;
+                    } else if (post.images?.length === 4) {
+                      return <PostPictures_4 imgSrc={post.images} />;
+                    } else if (post.images?.length >= 5) {
+                      return <PostPictures_10 imgSrc={post.images} />;
+                    }
+                  })()}
 
                   <Modal open={openPic} onClose={handleClosePic}>
                     <Box className="modal_img_post">
@@ -355,10 +370,6 @@ export default function BasicTabs() {
                   </div>
                 </div>
               ))}
-            <PostPictures_10 />
-            <PostPictures_2 />
-            <PostPictures_3 />
-            <PostPictures_4 />
           </div>
           <div className="profile_right">
             <div className="profile_right_top">

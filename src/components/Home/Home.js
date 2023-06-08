@@ -270,10 +270,6 @@ function Home() {
                 <ReadMore text={post.content} />
               </div>
 
-              {/* {post.images.map((image) => (
-                
-              ))} */}
-
               {(() => {
                 if (post.images?.length === 1) {
                   return post.images.map((image) => (
@@ -366,10 +362,6 @@ function Home() {
               </div>
             </div>
           ))}
-        <PostPictures_10 />
-        <PostPictures_2 />
-        <PostPictures_3 />
-        <PostPictures_4 />
       </div>
       <div className="body_top_item3">
         <img
