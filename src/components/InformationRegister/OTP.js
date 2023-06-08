@@ -1,23 +1,24 @@
 import { Link } from "react-router-dom";
 
-function ForgotPassword() {
+function OTP() {
   return (
     <section className="section-center">
       <form>
-        <h4>Đặt lại mật khẩu</h4>
+        <h4>Nhập mã OTP</h4>
         <div>
           <input
             type="email"
             className="form-input"
-            placeholder="Nhập Địa chỉ Email của bạn"
+            placeholder="Nhập mã OTP gồm 6 số"
           />
         </div>
         <br />
         <div className="text-center d-grid gap-2 ">
-          <Link to="/otp">
+          <Link to="/resetpassword">
+            {" "}
             <button type="button" className="btn btn-primary ">
               Đặt lại mật khẩu
-            </button>
+            </button>{" "}
           </Link>
         </div>
         <br />
@@ -26,4 +27,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default OTP;
