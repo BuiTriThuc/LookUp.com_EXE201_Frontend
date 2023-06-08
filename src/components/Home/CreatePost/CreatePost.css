@@ -8,6 +8,12 @@
     padding-left: 10px;
 }
 
+.icon_create_post_top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .create_post_icon {
     display: flex;
     align-items: center;
