@@ -2,7 +2,6 @@ import React, { useRef, useEffect } from "react";
 import "./scroll.css";
 import "./Home.css";
 import { IoMdSend } from "react-icons/io";
-
 import { Link, useParams } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
@@ -274,17 +273,7 @@ const ScrollList = () => {
                     onChange={(e) => setContent(e.target.value)}
                   />
                 </form>
-                <form onSubmit={addCommentSubmit}>
-                  <button className="submit_cmt">
-                    <IoMdSend
-                      className="submit_cmt_icon"
-                      name="content"
-                      type="text"
-                      value={content}
-                      onChange={(e) => setContent(e.target.value)}
-                    />
-                  </button>
-                </form>
+                
               </div>
             </div>
           </div>

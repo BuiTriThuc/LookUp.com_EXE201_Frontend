@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PostPictures_3.css";
 
-export default function PostPictures_3({ imgSrc }) {
+export default function PostPictures_3({ imgSrc, postId }) {
   return (
     <div>
-      <Link to="/viewimage">
+      <Link to={`/viewImage/${postId}`}>
         <div className="postpicture_group_three_picture">
           {imgSrc?.map((img, index) => (
             <img

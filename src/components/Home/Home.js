@@ -273,7 +273,7 @@ function Home() {
               {(() => {
                 if (post.images?.length === 1) {
                   return post.images.map((image) => (
-                    <Link to="/viewimage">
+                    <Link to={`/viewImage/${post._id}`}>
                       {" "}
                       <img
                         onClick={handleOpenPic}
@@ -285,35 +285,22 @@ function Home() {
                   ));
                 } else if (post.images?.length === 2) {
                   return (
-                    <PostPictures_2 imgSrc={post.images} />
+                    <PostPictures_2 imgSrc={post.images} postId={post._id} />
                   );
                 } else if (post.images?.length === 3) {
                   return (
-                    <PostPictures_3 imgSrc={post.images} />
+                    <PostPictures_3 imgSrc={post.images} postId={post._id} />
                   )
                 } else if (post.images?.length === 4) {
                   return (
-                    <PostPictures_4 imgSrc={post.images} />
+                    <PostPictures_4 imgSrc={post.images} postId={post._id} />
                   )
                 } else if (post.images?.length >= 5) {
                   return (
-                    <PostPictures_10 imgSrc={post.images} />
+                    <PostPictures_10 imgSrc={post.images} postId={post._id} />
                   )
                 }
               })()}
-
-              <Modal open={openPic} onClose={handleClosePic}>
-                <Box className="modal_img_post">
-                  {post.images.map((image) => (
-                    <img
-                      onClick={handleOpenPic}
-                      className="img_post_modal"
-                      src={image}
-                      alt=""
-                    />
-                  ))}
-                </Box>
-              </Modal>
 
               <div>
                 <div className="total_like_cmt">

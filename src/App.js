@@ -50,7 +50,7 @@ function App() {
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
-            <Route path="/viewimage" element={<ViewImages />} />
+            
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/otp" element={<OTP />} />
             <Route path="/*" element={<NotFound />} />
@@ -60,6 +60,7 @@ function App() {
             >
               <Route exact path="/" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/viewImage/:id" element={<ViewImages />} />
             </Route>
           </Routes>
           <Footer />

@@ -11,7 +11,15 @@ import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
-import { clearErrors, getPost, getPostDetail } from "../actions/postActions";
+import {
+  clearErrors,
+  createComment,
+  dislikePost,
+  getPost,
+  getPostDetail,
+  likePost,
+} from "../actions/postActions";
+import io, { Socket } from "socket.io-client";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -36,20 +44,6 @@ const ReadMore = ({ text }) => {
     </div>
   );
 };
-// Animation Like button333333
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
-
-  const handleClick = () => {
-    setLiked(!liked);
-  };
-  return (
-    <button onClick={handleClick} className={liked ? "liked" : "like"}>
-      <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
-      <div className="item_act_post"> {liked ? "Yêu thích" : "Yêu thích"}</div>
-    </button>
-  );
-};
 
 const ScrollListCmt = () => {
   const listRef = useRef(null);
@@ -58,18 +52,87 @@ const ScrollListCmt = () => {
   const { loading, success, postDetail, error } = useSelector(
     (state) => state.postDetail
   );
+  const { postComment, success: addSuccess } = useSelector(
+    (state) => state.addComment
+  );
+  const { user } = useSelector((state) => state.user);
+  const [socket, setSocket] = useState();
+
+  useEffect(() => {
+    const newSocket = io("http://localhost:8001");
+    setSocket(newSocket);
+
+    return () => {
+      newSocket.disconnect(); // Clean up the socket connection when the component unmounts
+    };
+  }, [setSocket, postDetail, dispatch]);
 
   console.log(postDetail);
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [likedPost, setLikedPost] = useState([]);
+  const [liked, setLiked] = useState(false);
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    if (postDetail?.likes?.includes(user._id)) {
+      setLikedPost(postDetail);
+    }
+  }, [postDetail, user]);
+
+  const LikeButton = ({ postId }) => {
+    const handleClick = () => {
+      if (likedPost === postDetail) {
+        dislikePostSubmit(postId, user._id);
+      } else {
+        likePostSubmit(postId, user._id);
+      }
+    };
+    return (
+      <button
+        onClick={handleClick}
+        className={likedPost === postDetail ? "liked" : "like"}
+      >
+        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
+      </button>
+    );
+  };
+
+  const likePostSubmit = (postId, userId) => {
+    dispatch(likePost(postId, userId));
+  };
+
+  const dislikePostSubmit = (postId, userId) => {
+    dispatch(dislikePost(postId, userId));
+  };
+
+  const addCommentSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+
+    formData.set("content", content);
+    dispatch(createComment(user._id, postDetail._id, content));
+  };
+
 
   useEffect(() => {
     if (error) {
       dispatch(clearErrors());
     }
-  }, [dispatch, error]);
+
+    if (addSuccess) {
+      setContent("");
+    }
+
+    if (socket) {
+      socket.on("addComment", () => {
+        dispatch(getPostDetail(postDetail._id));
+      });
+    }
+  }, [dispatch, error, postDetail, socket, addSuccess]);
 
   const longText =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
@@ -106,10 +169,10 @@ const ScrollListCmt = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> 1.2k
+                  <AiFillHeart /> {postDetail?.likes?.length}
                 </p>
               </div>
-              <p>5 Bình luận</p>
+              <p>{postDetail?.comments?.length} Bình luận</p>
             </div>
             <div className="act_post">
               <div className="act_post_item_scroll">
@@ -131,86 +194,34 @@ const ScrollListCmt = () => {
                 </div>
               </div>
 
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>alo cmt đê aloasdsadsa</p>
+              {postDetail?.comments?.map((comment) => (
+                <div className="newfeed_list_cmt">
+                  <img
+                    className="newfeed_avt_cmt"
+                    src="https://www.w3schools.com/howto/img_avatar2.png"
+                    alt=""
+                  />
+                  <div className="newfeed_cmt_content">
+                    <h5>{comment.author.name}</h5>
+                    <p>{comment.content}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>Provide a valid, navigable address as the href value</p>
-                </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>
-                    ine 458:11: The href attribute requires a valid value to be
-                    accessible. Provide a valid, navigable address as the href
-                    value. If you cannot provide a valid href, but still need
-                    the element to resemble a link, use a button and change it
-                    with appropriate styles. Learn more:
-                  </p>
-                </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>
-                    ine 458:11: The href attribute requires a valid value to be
-                    accessible. Provide a valid, navigable address as the href
-                    value. If you cannot provide a valid href, but still need
-                    the element to resemble a link, use a button and change it
-                    with appropriate styles. Learn more:
-                  </p>
-                </div>
-              </div>
-              <div className="newfeed_list_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
-                  alt=""
-                />
-                <div className="newfeed_cmt_content">
-                  <h5>Công ty Thức</h5>
-                  <p>
-                    ine 458:11: The href attribute requires a valid value to be
-                    accessible. Provide a valid, navigable address as the href
-                    value. If you cannot provide a valid href, but still need
-                    the element to resemble a link, use a button and change it
-                    with appropriate styles. Learn more:
-                  </p>
-                </div>
-              </div>
+              ))}
+
               <div className="newfeed_input_cmt">
                 <img
                   className="newfeed_avt_cmt"
                   src="https://www.w3schools.com/howto/img_avatar2.png"
                   alt=""
                 />
-                <input className="newfeed_input_cmt_detail" type="text" />
+                <form onSubmit={addCommentSubmit}>
+                  <input
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
+                    className="newfeed_input_cmt_detail"
+                    type="text"
+                  />
+                </form>
               </div>
             </div>
           </div>

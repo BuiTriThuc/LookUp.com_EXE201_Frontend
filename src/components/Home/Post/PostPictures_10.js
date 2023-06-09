@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./PostPictures.css";
 
-export default function PostPictures_10({ imgSrc }) {
+export default function PostPictures_10({ imgSrc, postId }) {
   const displayImages = imgSrc?.slice(0, 4);
 
   return (
     <div>
-      <Link to="/viewimage">
+      <Link to={`/viewImage/${postId}`}>
         <div className="postpicture_group_more_picture">
           {displayImages?.map((img, index) => (
             <img
