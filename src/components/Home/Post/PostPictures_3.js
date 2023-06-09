@@ -15,7 +15,7 @@ export default function PostPictures3({ imgSrc, postId }) {
                   ? {
                       width: "100%",
                       height: "200px",
-                      border: "1.5px solid #5C5C60",
+                      paddingRight: "2px",
                     }
                   : {}
               }

@@ -1,9 +1,6 @@
-import {
-  AiFillLike,
-  AiOutlineHeart,
-  AiFillHeart,
-  AiOutlineLike,
-} from "react-icons/ai";
+import { AiOutlineHeart, AiFillLike } from "react-icons/ai";
+import { BiLike } from "react-icons/bi";
+
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
 import { Link } from "react-router-dom";
@@ -135,7 +132,7 @@ function Home() {
         onClick={handleClick}
         className={likedPost?.includes(postId) ? "liked" : "like"}
       >
-        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <BiLike className="item_like_cmt_send" icon={BiLike} />
         <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
       </button>
     );
@@ -307,10 +304,15 @@ function Home() {
               <div>
                 <div className="total_like_cmt">
                   <div className="total_like">
-                    <p>
+                    <p className="total_like_icon_post">
                       {" "}
-                      <AiFillHeart
-                        style={{ color: "red", width: "15px", height: "15px" }}
+                      <AiFillLike
+                        style={{
+                          color: "blue",
+                          width: "20px",
+                          height: "20px",
+                          marginRight: "2px",
+                        }}
                       />{" "}
                       {post.likes?.length}
                     </p>
