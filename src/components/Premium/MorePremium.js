@@ -48,6 +48,7 @@ export default function MorePremium() {
           <p className="morepremium_free_month">
             Miễn phí 01 tháng trong năm đầu tiên!
           </p>
+          <div className="bottom_line_premium"></div>
           <h3 className="morepremium_price">259.000 vnđ / tháng</h3>
           <Link to="/premiummonth">
             {" "}
@@ -80,6 +81,8 @@ export default function MorePremium() {
           <p className="morepremium_free_month">
             Miễn phí 03 tháng trong năm đầu tiên!
           </p>
+          <div className="bottom_line_premium"></div>
+
           <h3 className="morepremium_price">2.249.000 vnđ / năm*</h3>
           <Link to="/premiumyear">
             {" "}

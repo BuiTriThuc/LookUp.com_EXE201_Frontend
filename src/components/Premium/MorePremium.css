@@ -106,7 +106,12 @@
     margin-left: -150px;
     font-size: 20px;
     margin-top: 10px;
-    border-bottom: 0.3px solid black;
+}
+
+.bottom_line_premium {
+    background-color: #CACACA;
+    width: 100%;
+    height: 0.5px;
 }
 
 .morepremium_btn_regis {

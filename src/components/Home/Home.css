@@ -17,6 +17,8 @@ p {
 .post_detail_home {
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 8px;
+    margin-top: -13px;
 }
 
 .body_left {
@@ -72,7 +74,7 @@ p {
 }
 
 .body_top_item1_welcome {
-    padding-left: 10px;
+    padding-left: 19px;
     padding-right: 10px;
     font-weight: bold;
     font-family: sans-serif;
@@ -85,6 +87,7 @@ p {
     color: #073F82;
     text-decoration: none;
     font-family: sans-serif;
+    margin-left: -32px;
 
 }
 
@@ -232,10 +235,10 @@ h3 {
 }
 
 .title_event_top {
-    font-weight: bold;
     font-family: sans-serif;
     margin-left: 14px;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .title_event {
@@ -245,7 +248,12 @@ h3 {
 }
 
 .envent_detail_more {
+    font-size: 14px;
+    margin-top: 5px;
+    color: black;
+    text-decoration: underline;
     display: flex;
+    font-weight: lighter;
     align-items: center;
     justify-content: center;
     font-family: sans-serif;
@@ -276,8 +284,15 @@ h6 {
     line-height: 1.2;
 }
 
+.title_event_day {
+    margin-top: 5px;
+    margin-left: 14px;
+    font-size: 15px;
+}
+
+
 .img_event {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 236px;
     height: 68px;
 }

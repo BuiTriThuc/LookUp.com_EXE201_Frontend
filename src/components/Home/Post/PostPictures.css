@@ -43,6 +43,7 @@
 }
 
 .the_last_pic_group {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,6 +87,6 @@
 .img_post_more_picture {
     width: 50%;
     height: 200px;
-    border: 1.5px solid #242526;
-
+    padding-bottom: 2px;
+    padding-right: 2px;
 }

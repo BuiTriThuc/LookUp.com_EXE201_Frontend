@@ -13,7 +13,15 @@ export default function PostPictures10({ imgSrc, postId }) {
             <img
               key={index}
               className="img_post_more_picture"
-              style={index > 1 ? { width: "183.333px", height: "200px" } : {}}
+              style={
+                index > 1
+                  ? {
+                      width: "183.333px",
+                      height: "200px",
+                      paddingRight: "2px",
+                    }
+                  : {}
+              }
               src={img}
               alt=""
             />
@@ -26,8 +34,6 @@ export default function PostPictures10({ imgSrc, postId }) {
                 style={{
                   width: "183.333px",
                   height: "200px",
-                  opacity: "0.5",
-                  border: "1.5px solid #5C5C60",
                 }}
                 src={imgSrc[4]}
                 alt=""
