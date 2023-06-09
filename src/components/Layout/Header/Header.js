@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HeaderPage from "../../../images/HeaderPage.png";
 import "./Header.css";
 import { AiFillHome } from "react-icons/ai";
@@ -9,6 +9,9 @@ import { useSelector } from "react-redux";
 
 function Header() {
   const { isAuthenticated } = useSelector((state) => state.user);
+  const location = useLocation();
+
+  const shouldHideHeaderBody = location.pathname === "/profile";
 
   return (
     <div>
@@ -37,13 +40,18 @@ function Header() {
       ) : (
         ""
       )}
-      <div className="header_body">
-        <img className="header_img" src={HeaderPage} alt="" />
-        <h3 className="header_title">
-          Khám phá và kết nối với các doanh nghiệp <br /> địa phương trong khu
-          vực của bạn
-        </h3>
-      </div>
+
+      {!shouldHideHeaderBody ? (
+        <div className="header_body">
+          <img className="header_img" src={HeaderPage} alt="" />
+          <h3 className="header_title">
+            Khám phá và kết nối với các doanh nghiệp <br /> địa phương trong khu
+            vực của bạn
+          </h3>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }

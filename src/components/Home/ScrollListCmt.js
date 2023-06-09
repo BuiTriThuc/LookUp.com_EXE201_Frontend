@@ -151,7 +151,7 @@ const ScrollListCmt = () => {
           <Link to="/login" className="post_detail">
             <img
               className="img_company"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+              src={postDetail?.user?.image}
               alt=""
             />
             <div to="/login" className="post_title">
@@ -198,7 +198,7 @@ const ScrollListCmt = () => {
                 <div className="newfeed_list_cmt">
                   <img
                     className="newfeed_avt_cmt"
-                    src="https://www.w3schools.com/howto/img_avatar2.png"
+                    src={comment.author.image}
                     alt=""
                   />
                   <div className="newfeed_cmt_content">
@@ -211,7 +211,7 @@ const ScrollListCmt = () => {
               <div className="newfeed_input_cmt">
                 <img
                   className="newfeed_avt_cmt"
-                  src="https://www.w3schools.com/howto/img_avatar2.png"
+                  src={user?.image}
                   alt=""
                 />
                 <form onSubmit={addCommentSubmit}>

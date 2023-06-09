@@ -281,7 +281,7 @@ export default function BasicTabs() {
                   <Link to="/profile" className="post_detail">
                     <img
                       className="img_company"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu1rHFVKfQUJJELrxv_GkP___edS_EoiDjg8W_9NFH0Q&s"
+                      src={post.user?.image}
                       alt=""
                     />
 
