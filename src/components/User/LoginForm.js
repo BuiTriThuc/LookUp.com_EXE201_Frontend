@@ -77,7 +77,9 @@ export default function LoginForm() {
     <section>
       <div className="register">
         <div className="col-1">
-          <h2 className="text-center">Welcome Back</h2>
+          <h2 style={{ fontWeight: "bold" }} className="text-center">
+            Chào mừng trở lại
+          </h2>
 
           <GoogleButton
             className="btn_google"
@@ -93,7 +95,7 @@ export default function LoginForm() {
               id="EmailInput"
               name="EmailInput"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder="Email của bạn"
               value={loginEmail}
               onChange={(event) => setLoginEmail(event.target.value)}
             />
@@ -104,14 +106,27 @@ export default function LoginForm() {
               type="password"
               className="form-control"
               id="exampleInputPassword1"
-              placeholder="Password"
+              placeholder="Mật khẩu của bạn"
               value={loginPassword}
               onChange={(event) => setLoginPassword(event.target.value)}
             />
             <small id="passworderror" className="text-danger form-text">
               {passwordError}
             </small>
+            <div className="d-flex justify-content-between mx-4 mb-4">
+              <MDBCheckbox
+                // style={{ paddingLeft: "0rem !important" }}
 
+                name="flexCheck"
+                value=""
+                id="flexCheckDefault"
+                label="Giữ tôi đăng nhập"
+              />
+              <br />
+              <Link to="/forgotpassword">
+                <p>Quên mật khẩu?</p>
+              </Link>
+            </div>
             <input type="submit" value="Login" className="btn" />
 
             <div className="striped">
@@ -119,23 +134,13 @@ export default function LoginForm() {
                 -----------------------------
               </p>
             </div>
-            <div className="d-flex justify-content-between mx-4 mb-4">
-              <MDBCheckbox
-                name="flexCheck"
-                value=""
-                id="flexCheckDefault"
-                label="Remember me"
-              />
-              <br />
-              <Link to="/forgotpassword">
-                <p>Forgot password?</p>
-              </Link>
-            </div>
           </form>
-          <p className="text-center">Bạn chưa có tài khoản?</p>
-          <Link to="/register">
-            <p className="text-center">Đăng ký</p>
-          </Link>
+          <p className="no_account_regis">
+            Bạn chưa có tài khoản?{" "}
+            <Link to="/register">
+              <p className="loginform_regis">Đăng ký</p>
+            </Link>
+          </p>
         </div>
         <div className="col-2">
           <img src={bgImg} alt="" />

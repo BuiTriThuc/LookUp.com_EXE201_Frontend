@@ -2,6 +2,12 @@
     font-family: "Arial", sans-serif !important;
 }
 
+.total_like_icon_post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 p {
     margin-bottom: 0px !important;
 }
@@ -393,10 +399,9 @@ button.like {
     font-size: 20px;
 }
 
-
 button.liked {
     /* background-color: #ff5252; */
-    color: red;
+    color: blue;
     display: flex;
     align-items: center;
     justify-content: center;

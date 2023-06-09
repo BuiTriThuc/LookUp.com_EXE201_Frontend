@@ -13,6 +13,20 @@
 //   text-align: center;
 // }
 
+.form-check {
+  display: block;
+  min-height: 1.5rem;
+  padding-left: 0em !important;
+  margin-bottom: 0.125rem;
+}
+.loginform_regis {
+  margin-left: 30px;
+}
+
+.no_account_regis {
+  display: flex;
+  justify-content: center;
+}
 .logingg {
   width: 200px;
   height: 70px;
