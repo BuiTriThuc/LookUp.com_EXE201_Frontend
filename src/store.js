@@ -1,9 +1,5 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { configureStore, createReducer } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { persistStore, persistReducer } from "redux-persist";
-import storage from "redux-persist/lib/storage";
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
 
 import {
   addCommentReducer,
@@ -15,7 +11,7 @@ import {
   postsReducer,
   
 } from "./components/reducers/postReducers";
-import { userReducer } from "./components/reducers/userReducers";
+import { getUserDetailReducer, profileReducer, userReducer } from "./components/reducers/userReducers";
 
 const rootReducer = combineReducers({
   posts: postsReducer,
@@ -25,7 +21,9 @@ const rootReducer = combineReducers({
   postDetail: getPostDetailReducer,
   postLike: likePostReducer,
   postDislike: dislikePostReducer,
-  addComment: addCommentReducer
+  addComment: addCommentReducer,
+  profile: profileReducer,
+  getUserDetail: getUserDetailReducer,
 });
 
 const store = configureStore({

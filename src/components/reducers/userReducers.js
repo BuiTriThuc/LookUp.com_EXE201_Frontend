@@ -10,6 +10,13 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
+  UPDATE_USER_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAIL,
+  UPDATE_USER_RESET,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
   CLEAR_ERROR,
 } from "../contants/userContants";
 
@@ -77,6 +84,62 @@ export const userReducer = (
       return state;
   }
 };
+
+export const profileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_USER_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      }
+    
+    case UPDATE_USER_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        isUpdated: action.payload
+      }
+    
+    case UPDATE_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    case UPDATE_USER_RESET:
+      return {
+        ...state,
+        isUpdated: false,
+      }
+    default:
+      return state;
+  }
+}
+
+export const getUserDetailReducer = (state = { userDetail: {} }, action) => {
+  switch (action.type) {
+    case GET_USER_REQUEST:
+      return {
+        loading: true,
+        userDetail: {}
+      }
+
+    case GET_USER_SUCCESS:
+      return {
+        loading: false,
+        userDetail: action.payload
+      }
+    
+    case GET_USER_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload
+      }
+    default:
+      return state;
+  }
+}
 
 //Clearing errors
 export const clearErrors = () => async (dispatch) => {

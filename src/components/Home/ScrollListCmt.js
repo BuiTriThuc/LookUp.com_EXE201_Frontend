@@ -220,6 +220,7 @@ const ScrollListCmt = () => {
                     onChange={(e) => setContent(e.target.value)}
                     className="newfeed_input_cmt_detail"
                     type="text"
+                    required
                   />
                 </form>
               </div>

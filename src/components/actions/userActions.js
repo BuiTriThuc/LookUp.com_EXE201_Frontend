@@ -11,6 +11,12 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAIL,
+  UPDATE_USER_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAIL,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
+  GET_USER_FAIL,
   CLEAR_ERROR,
 } from "../contants/userContants";
 
@@ -66,6 +72,32 @@ export const logoutUser = () => async (dispatch) => {
 
   } catch (error) {
     dispatch({ type: LOGOUT_FAIL, payload: error.response.data.message });
+  }
+};
+
+export const updateUser = (userId, userData) => async (dispatch) => {
+  try {
+    dispatch({ type: UPDATE_USER_REQUEST });
+
+    const config = { headers: {"Content-Type": "application/json" } };
+
+    const { data } = await axios.put(`/user/${userId}`, userData, config)
+
+    dispatch({ type: UPDATE_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: UPDATE_USER_FAIL, payload: error.response.data.message })
+  }
+}
+
+export const getUserDetail = (userId) => async (dispatch) => {
+  try {
+    dispatch({ type: GET_USER_REQUEST });
+
+    const { data } = await axios.get(`/user/${userId}`);
+
+    dispatch({ type: GET_USER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_USER_FAIL, payload: error.response.data.message })
   }
 }
 
