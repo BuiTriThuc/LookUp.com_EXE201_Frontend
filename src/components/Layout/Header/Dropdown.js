@@ -19,7 +19,7 @@ function Dropdown() {
         <button>
           <img
             className="header_img_dropdown"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXp3DxP80ArpRzsB0XWBG9Ow5GeuefbLrUHw&usqp=CAU"
+            src={user?.image}
             alt=""
           />
         </button>
@@ -30,7 +30,7 @@ function Dropdown() {
               <img
                 id="circle-avatar"
                 className="text-center mx-auto mb-4"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXp3DxP80ArpRzsB0XWBG9Ow5GeuefbLrUHw&usqp=CAU"
+                src={user?.image}
                 alt=""
               />
             </div>

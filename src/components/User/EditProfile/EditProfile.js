@@ -38,6 +38,7 @@ export default function EditProfile() {
   const [categoryBusiness, setCategoryBusiness] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [ward, setWard] = useState("");
+  const [selectedImages, setSelectedImages] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -53,13 +54,6 @@ export default function EditProfile() {
         notifyUpdateSuccess();
       });
     }
-
-    // if (userDetail !== null) {
-    //   setName(userDetail.name);
-    //   setCategoryBusiness(userDetail.categoryBusiness);
-    //   setPhoneNumber(userDetail.phoneNumber);
-    //   setWard(userDetail.ward);
-    // }
   }, [user, isUpdated, navigate, dispatch, socket, userDetail]);
 
   const updateUserSubmitHandler = (e) => {
@@ -70,6 +64,7 @@ export default function EditProfile() {
       categoryBusiness: categoryBusiness,
       phoneNumber: phoneNumber,
       ward: ward,
+      image: selectedImages, 
     };
     dispatch(updateUser(user._id, userData));
   };
@@ -86,7 +81,7 @@ export default function EditProfile() {
     <div className="ads">
       <div className="editProfile_all">
         <div className="editProfile_top">
-          <EditProfileModal />
+          <EditProfileModal onImageSelected={setSelectedImages} />
         </div>
         <div className="editProfile_center">
           <form

@@ -16,7 +16,7 @@ function Profile() {
           />
           <img
             className="img_avt"
-            src="https://employer.jobsgo.vn/uploads/media/img/202004/human_resource_3635714430_avatar.png"
+            src={user?.image}
             alt=""
           />
         </div>
