@@ -182,10 +182,12 @@ function Home() {
           </div>
           <div className="date_time_event">
             <p className="title_event">Lễ Vinh danh doanh nghiệp</p>
-            <h6 className="title_event">Ngày 10 tháng 7 năm 2023</h6>
+            <h6 className="title_event_day">Ngày 10 tháng 7 năm 2023</h6>
           </div>
-          <div className="envent_detail_more">
-            <Link to="/login">Tìm hiểu thêm</Link>
+          <div>
+            <Link className="envent_detail_more" to="/login">
+              Tìm hiểu thêm
+            </Link>
           </div>
 
           <div className="event_detail">
@@ -197,10 +199,12 @@ function Home() {
           </div>
           <div className="date_time_event">
             <p className="title_event">Ngày hội startup</p>
-            <p className="title_event">Ngày 23 tháng 9 năm 2023</p>
+            <p className="title_event_day">Ngày 23 tháng 9 năm 2023</p>
           </div>
-          <div className="envent_detail_more">
-            <Link to="/login">Tìm hiểu thêm</Link>
+          <div>
+            <Link className="envent_detail_more" to="/login">
+              Tìm hiểu thêm
+            </Link>
           </div>
           <div className="event_detail">
             <img
@@ -211,10 +215,12 @@ function Home() {
           </div>
           <div className="date_time_event">
             <p className="title_event">Ngày vàng khuyến mãi</p>
-            <p className="title_event">Ngày 26 tháng 7 năm 2023</p>
+            <p className="title_event_day">Ngày 26 tháng 7 năm 2023</p>
           </div>
-          <div className="envent_detail_more">
-            <Link to="/login">Tìm hiểu thêm</Link>
+          <div>
+            <Link className="envent_detail_more" to="/login">
+              Tìm hiểu thêm
+            </Link>
           </div>
         </div>
       </div>
@@ -226,7 +232,7 @@ function Home() {
             placeholder="Bạn đang cần tìm đối tác?"
           />
 
-          <Link to="/login" className="search_icon">
+          <Link to="/search" className="search_icon">
             <BsSearch className="search_Home" /> <p> Tìm kiếm</p>
           </Link>
         </div>
@@ -254,12 +260,8 @@ function Home() {
         {posts &&
           posts.map((post) => (
             <div className="body_top_item5" key={post._id}>
-              <Link to="/login" className="post_detail">
-                <img
-                  className="img_company"
-                  src={post.user?.image}
-                  alt=""
-                />
+              <Link to="/profile" className="post_detail">
+                <img className="img_company" src={post.user?.image} alt="" />
                 <div to="/login" className="post_title">
                   <h5 className="home_name_company">{post.user?.name}</h5>
                   <p>Được tài trợ</p>{" "}
@@ -290,15 +292,15 @@ function Home() {
                 } else if (post.images?.length === 3) {
                   return (
                     <PostPictures3 imgSrc={post.images} postId={post._id} />
-                  )
+                  );
                 } else if (post.images?.length === 4) {
                   return (
                     <PostPictures4 imgSrc={post.images} postId={post._id} />
-                  )
+                  );
                 } else if (post.images?.length >= 5) {
                   return (
                     <PostPictures10 imgSrc={post.images} postId={post._id} />
-                  )
+                  );
                 }
               })()}
 
