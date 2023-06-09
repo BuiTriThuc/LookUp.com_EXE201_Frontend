@@ -25,10 +25,10 @@ import {
 import ScrollList from "./ScrollList";
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
-import PostPictures_10 from "./Post/PostPictures_10";
-import PostPictures_2 from "./Post/PostPictures_2";
-import PostPictures_3 from "./Post/PostPictures_3";
-import PostPictures_4 from "./Post/PostPictures_4";
+import PostPictures10 from "./Post/PostPictures_10";
+import PostPictures2 from "./Post/PostPictures_2";
+import PostPictures3 from "./Post/PostPictures_3";
+import PostPictures4 from "./Post/PostPictures_4";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -285,19 +285,19 @@ function Home() {
                   ));
                 } else if (post.images?.length === 2) {
                   return (
-                    <PostPictures_2 imgSrc={post.images} postId={post._id} />
+                    <PostPictures2 imgSrc={post.images} postId={post._id} />
                   );
                 } else if (post.images?.length === 3) {
                   return (
-                    <PostPictures_3 imgSrc={post.images} postId={post._id} />
+                    <PostPictures3 imgSrc={post.images} postId={post._id} />
                   )
                 } else if (post.images?.length === 4) {
                   return (
-                    <PostPictures_4 imgSrc={post.images} postId={post._id} />
+                    <PostPictures4 imgSrc={post.images} postId={post._id} />
                   )
                 } else if (post.images?.length >= 5) {
                   return (
-                    <PostPictures_10 imgSrc={post.images} postId={post._id} />
+                    <PostPictures10 imgSrc={post.images} postId={post._id} />
                   )
                 }
               })()}
@@ -307,7 +307,10 @@ function Home() {
                   <div className="total_like">
                     <p>
                       {" "}
-                      <AiFillHeart /> {post.likes?.length}
+                      <AiFillHeart
+                        style={{ color: "red", width: "15px", height: "15px" }}
+                      />{" "}
+                      {post.likes?.length}
                     </p>
                   </div>
                   <p>{post.comments?.length} Bình luận</p>
@@ -353,7 +356,7 @@ function Home() {
       <div className="body_top_item3">
         <img
           className="body_top_item3_img_ads"
-          src="https://images.squarespace-cdn.com/content/v1/53883795e4b016c956b8d243/1570626134360-FQODKCRQHC9ZEJCRNHN0/chup-anh-profile-cong-ty-kpmg-3.jpg?format=1000w"
+          src="https://media.doanhnhantrevietnam.vn/files/content/2022/03/22/doanh-nhan-tre-vietnam-mua-dich-thuc-an-nhanh-len-ngoi-hinh-anh-2-1051.jpg"
           alt=""
         />
         <Link to="./login" className="body_top_item3_detail_ads">
@@ -363,8 +366,8 @@ function Home() {
             alt=""
           />
           <div>
-            <h5 className="home_name_company">Công ty Thức Bùi</h5>
-            <p>Công nghệ thông tin</p>
+            <h5 className="home_name_company">Công ty TNHH Thịnh</h5>
+            <p>Thức ăn nhanh</p>
           </div>
         </Link>
         <div className="suport">
@@ -392,7 +395,7 @@ function Home() {
             </Link>
           </div>
         </div>
-        <Link to="/" style={{ marginLeft: 90, marginTop: -25 }}>
+        <Link to="/" style={{ marginLeft: 90, marginTop: "-53px" }}>
           LookUp.com
         </Link>
       </div>

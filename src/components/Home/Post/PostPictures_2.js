@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import "./PostPictures.css";
 
-export default function PostPictures_2({ imgSrc, postId }) {
+export default function PostPictures2({ imgSrc, postId }) {
   return (
     <Fragment>
       {imgSrc?.map((img) => (

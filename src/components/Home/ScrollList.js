@@ -22,10 +22,10 @@ import {
 import io, { Socket } from "socket.io-client";
 import toast, { Toaster } from "react-hot-toast";
 import { addComment } from "./../reducers/postReducers";
-import PostPictures_2 from "./Post/PostPictures_2";
-import PostPictures_3 from "./Post/PostPictures_3";
-import PostPictures_4 from "./Post/PostPictures_4";
-import PostPictures_10 from "./Post/PostPictures_10";
+import PostPictures2 from "./Post/PostPictures_2";
+import PostPictures3 from "./Post/PostPictures_3";
+import PostPictures4 from "./Post/PostPictures_4";
+import PostPictures10 from "./Post/PostPictures_10";
 
 const ReadMore = ({ text }) => {
   const [expanded, setExpanded] = useState(false);
@@ -189,13 +189,13 @@ const ScrollList = () => {
                 </Link>
               ));
             } else if (postDetail?.images?.length === 2) {
-              return <PostPictures_2 imgSrc={postDetail.images} />;
+              return <PostPictures2 imgSrc={postDetail.images} />;
             } else if (postDetail?.images?.length === 3) {
-              return <PostPictures_3 imgSrc={postDetail.images} />;
+              return <PostPictures3 imgSrc={postDetail.images} />;
             } else if (postDetail?.images?.length === 4) {
-              return <PostPictures_4 imgSrc={postDetail.images} />;
+              return <PostPictures4 imgSrc={postDetail.images} />;
             } else if (postDetail?.images?.length >= 5) {
-              return <PostPictures_10 imgSrc={postDetail.images} />;
+              return <PostPictures10 imgSrc={postDetail.images} />;
             }
           })()}
 

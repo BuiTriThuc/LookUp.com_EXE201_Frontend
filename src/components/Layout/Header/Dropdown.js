@@ -6,13 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../actions/userActions";
 
 function Dropdown() {
-
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
 
   const logout = () => {
     dispatch(logoutUser());
-  }
+  };
 
   return (
     <div className="text-end">
@@ -62,20 +61,20 @@ function Dropdown() {
               <Link to="/profile">
                 {" "}
                 <button className="list-group-item list-group-item-action px-4">
-                  <small>Profile</small>
+                  <small>Trang cá nhân</small>
                 </button>{" "}
               </Link>
-              <Link>
+              <Link to="./editprofile">
                 {" "}
                 <button className="list-group-item list-group-item-action px-4">
-                  <small>Chưa biết để gì</small>
+                  <small>Chỉnh sửa trang cá nhân</small>
                 </button>
               </Link>
 
               <Link>
                 {" "}
                 <button className="list-group-item list-group-item-action px-4">
-                  <small>Language</small>
+                  <small>Ngôn Ngữ</small>
                 </button>
               </Link>
             </div>
