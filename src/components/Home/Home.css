@@ -675,3 +675,9 @@ button:hover {
     border-radius: 20px;
     padding-left: 10px;
 }
+
+.center_post_scroll {
+    overflow-y: scroll;
+    /* Enable vertical scrolling */
+    height: 100vh;
+}
