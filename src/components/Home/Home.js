@@ -312,7 +312,10 @@ function Home() {
                   <div className="total_like">
                     <p>
                       {" "}
-                      <AiFillHeart /> {post.likes?.length}
+                      <AiFillHeart
+                        style={{ color: "red", width: "15px", height: "15px" }}
+                      />{" "}
+                      {post.likes?.length}
                     </p>
                   </div>
                   <p>{post.comments?.length} Bình luận</p>
