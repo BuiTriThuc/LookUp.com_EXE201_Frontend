@@ -9,6 +9,7 @@
 .postpicture_group_four_picture {
     display: flex;
     flex-wrap: wrap;
+    gap: 1px;
 }
 
 .img_post_four_picture {
