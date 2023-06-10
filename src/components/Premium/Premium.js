@@ -1,6 +1,8 @@
 import { BsPatchCheck, BsSearch, BsShare } from "react-icons/bs";
 import { IoEyeOutline } from "react-icons/io5";
 import { HiOutlineLockClosed } from "react-icons/hi";
+import { AiOutlineCheck } from "react-icons/ai";
+
 import "./Premium.css";
 import { Link } from "react-router-dom";
 function Premium() {
@@ -12,6 +14,24 @@ function Premium() {
           <h3 className="premium_title_top">
             Đăng ký ngay để trải nghiệm gói Premium miễn <br></br>phí trong
             tháng đầu tiên!
+            <div className="morepremium_benefit_premium">
+              <p>
+                {" "}
+                <AiOutlineCheck /> Tăng khả năng hiển thị
+              </p>
+              <p>
+                {" "}
+                <AiOutlineCheck /> Tìm kiếm nâng cao
+              </p>
+              <p>
+                {" "}
+                <AiOutlineCheck /> Nhiều cơ hội tiếp thị hơn
+              </p>
+              <p>
+                {" "}
+                <AiOutlineCheck /> Truy cập nội dung độc quyền
+              </p>
+            </div>
           </h3>
         </div>
         <div className="premium_btn">
