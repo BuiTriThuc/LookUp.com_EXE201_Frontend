@@ -260,7 +260,7 @@ function Home() {
               <Link to="/profile" className="post_detail">
                 <img className="img_company" src={post.user?.image} alt="" />
                 <div to="/login" className="post_title">
-                  <h5 className="home_name_company">{post.user?.name}</h5>
+                  <h5 className="home_name_company" style={{ fontWeight: "bold" }}>{post.user?.name}</h5>
                   <p>Được tài trợ</p>{" "}
                 </div>
               </Link>

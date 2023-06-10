@@ -8,14 +8,11 @@ import { TbSend } from "react-icons/tb";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import "./Home.css";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,
   createComment,
   dislikePost,
-  getPost,
   getPostDetail,
   likePost,
 } from "../actions/postActions";
@@ -177,11 +174,11 @@ const ScrollListCmt = () => {
             <div className="act_post">
               <div className="act_post_item_scroll">
                 <div className="item_act">
-                  <LikeButton className="item_like_cmt_send" />
+                  <LikeButton className="item_like_cmt_send" postId={postDetail?._id} />
                 </div>
                 <div className="item_act">
                   <button onClick={handleOpen} className="item_act_post">
-                    <FaRegComment className="item_like_cmt_send" /> Bình luận
+                    <FaRegComment className="item_like_cmt_send"  /> Bình luận
                   </button>
                 </div>
 

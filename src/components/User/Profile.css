@@ -8,35 +8,35 @@
 
 .img_des {
     display: flex;
-    width: 1120px;
+    width: 1220px;
     height: 380px;
-    background-color: #F3F3F3;
+    background-color: #fff;
     border-radius: 20px;
 }
 
 .profile_des {
-    margin-top: 191px;
+    margin-top: 175px;
     margin-left: 20px;
 }
 
 .img_bg {
     position: absolute;
-    width: 1120px;
+    width: 1220px;
     height: 186px;
 }
 
 .img_avt {
     position: relative;
-    width: 80px;
-    height: 80px;
-    border-radius: 100px;
+    width: 100px;
+        height: 100px;
+        border-radius: 100%;
     margin-left: 40px;
-    margin-top: 160px;
+    margin-top: 180px;
 }
 
 .action {
     display: flex;
-    margin-left: 801px;
+    margin-left: 750px;
     margin-top: -58px;
     margin-right: 50px;
 

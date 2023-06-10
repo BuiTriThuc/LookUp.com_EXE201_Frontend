@@ -22,7 +22,7 @@ function Profile() {
         </div>
         <div className="profile_des">
           <div>
-            <h3>{user?.name}</h3>
+            <h3 style={{ fontWeight: "bold"}}>{user?.name}</h3>
             <p>{user.categoryBusiness}</p>
             <p>{user.city}</p>
             <Link>500 Lượt theo dõi </Link>

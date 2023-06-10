@@ -39,6 +39,7 @@ export default function EditProfile() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [ward, setWard] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
+  const [image, setImage] = useState([])
 
   useEffect(() => {
     if (user) {

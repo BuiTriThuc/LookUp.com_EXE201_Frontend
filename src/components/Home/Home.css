@@ -327,6 +327,7 @@ h6 {
 
 .home_name_company:hover {
     border-bottom: 1px solid black;
+    font-weight: bold;
 }
 
 p {

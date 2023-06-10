@@ -4,13 +4,14 @@ import { GrNext } from "react-icons/gr";
 import { MdOutlineArrowBackIosNew } from "react-icons/md";
 import { SlClose } from "react-icons/sl";
 import ScrollListCmt from "../ScrollListCmt";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, getPostDetail } from "../../actions/postActions";
 
 const ViewImages = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const location = useLocation();
   const { error, postDetail } = useSelector((state) => state.postDetail);
   const pictureUrls = postDetail?.images;
 

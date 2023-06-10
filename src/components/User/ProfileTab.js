@@ -13,6 +13,7 @@ import {
   clearErrors,
   dislikePost,
   getPost,
+  getPostDetail,
   getPostProfile,
   likePost,
 } from "../actions/postActions";
@@ -40,10 +41,10 @@ import {
   Radio,
   RadioGroup,
 } from "@mui/material";
-import PostPictures_10 from "../Home/Post/PostPictures_10";
-import PostPictures_2 from "../Home/Post/PostPictures_2";
-import PostPictures_3 from "../Home/Post/PostPictures_3";
-import PostPictures_4 from "../Home/Post/PostPictures_4";
+import PostPictures10 from "../Home/Post/PostPictures_10";
+import PostPictures2 from "../Home/Post/PostPictures_2";
+import PostPictures3 from "../Home/Post/PostPictures_3";
+import PostPictures4 from "../Home/Post/PostPictures_4";
 import CreatePost from "../Home/CreatePost/CreatePost";
 
 const style = {
@@ -152,7 +153,10 @@ export default function BasicTabs() {
   }, [setSocket]);
 
   const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
+  const handleOpen = (id) => {
+    setOpen(true);
+    dispatch(getPostDetail(id));
+  };
   const handleClose = () => setOpen(false);
 
   const [openPic, setOpenPic] = React.useState(false);
@@ -286,7 +290,7 @@ export default function BasicTabs() {
                     />
 
                     <div className="post_title">
-                      <h5 className="home_name_company">{post.user?.name}</h5>
+                      <h5 className="home_name_company" style={{ fontWeight: "bold"}}>{post.user?.name}</h5>
                       <p>Được tài trợ</p>{" "}
                     </div>
                   </Link>
@@ -299,10 +303,9 @@ export default function BasicTabs() {
                   {(() => {
                     if (post.images?.length === 1) {
                       return post.images.map((image) => (
-                        <Link to="/viewimage">
+                        <Link to={`/viewImage/${post._id}`}>
                           {" "}
                           <img
-                            onClick={handleOpenPic}
                             className="img_post"
                             src={image}
                             alt=""
@@ -310,23 +313,17 @@ export default function BasicTabs() {
                         </Link>
                       ));
                     } else if (post.images?.length === 2) {
-                      return <PostPictures_2 imgSrc={post.images} />;
+                      return <PostPictures2 imgSrc={post.images} postId={post._id} />;
                     } else if (post.images?.length === 3) {
-                      return <PostPictures_3 imgSrc={post.images} />;
+                      return <PostPictures3 imgSrc={post.images} postId={post._id} />;
                     } else if (post.images?.length === 4) {
-                      return <PostPictures_4 imgSrc={post.images} />;
+                      return <PostPictures4 imgSrc={post.images} postId={post._id} />;
                     } else if (post.images?.length >= 5) {
-                      return <PostPictures_10 imgSrc={post.images} />;
+                      return <PostPictures10 imgSrc={post.images} postId={post._id} />;
                     }
                   })()}
 
-                  <Modal open={openPic} onClose={handleClosePic}>
-                    <Box className="modal_img_post">
-                      {post.images.map((image) => (
-                        <img className="img_post_modal" src={image} alt="" />
-                      ))}
-                    </Box>
-                  </Modal>
+        
 
                   <div>
                     <div className="total_like_cmt">
@@ -346,7 +343,7 @@ export default function BasicTabs() {
                         />
                       </div>
                       <div className="item_act">
-                        <button onClick={handleOpen} className="item_act_post">
+                        <button onClick={() => handleOpen(post._id)} className="item_act_post">
                           <FaRegComment className="item_like_cmt_send" /> Bình
                           luận
                         </button>
