@@ -61,10 +61,9 @@
 
 .img_post_two_picture {
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
     height: 250px;
-    border: 1.5px solid #242526;
-
+    border-bottom: 2px solid white;
 }
 
 .postpicture_group_three_picture {

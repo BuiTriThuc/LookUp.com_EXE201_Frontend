@@ -252,23 +252,89 @@ export default function BasicTabs() {
             </p>
 
             <div className="profile_tab_post_left_contact">
-              <h4>Thông tin liên hệ</h4>
-              <MdPublic />
-              <Link> www.website.com</Link>
-              <p>
+              <h4
+                style={{
+                  marginTop: "10px",
+                  paddingBottom: "10px",
+                  fontWeight: "bold",
+                }}
+              >
+                Thông tin liên hệ
+              </h4>
+              <p style={{ padding: "1px" }}>
+                {" "}
+                <MdPublic />
+                <Link> www.website.com</Link>
+              </p>
+
+              <p style={{ padding: "1px" }}>
                 <BiPhone /> {user.phoneNumber}
               </p>
-              <p>
+              <p style={{ padding: "1px" }}>
                 <MdOutlineEmail /> {user.email}
               </p>
             </div>
             <div className="profile_tab_post_left_premium">
               <h6>
-                <AiOutlineCheckCircle /> Trải nghiệm tính năng cao cấp với gói
-                premim miễn phí
+                <AiOutlineCheckCircle style={{ color: "#C67700" }} /> Trải
+                nghiệm tính năng cao cấp với gói premim miễn phí
               </h6>
             </div>
+            <div className="profiletab_letf_img_all">
+              <div style={{ display: "flex", justifyContent: "space-around" }}>
+                <h6>Hình ảnh</h6>
+                <Link to="#">Tất cả ảnh</Link>
+              </div>
+              <div className="profiletab_letf_img_all_item">
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686450047/yx1tnqev1snqdgnsmlcq.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331846/zoefeyripe0t5nrwzcff.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331846/mxppfh3zqgas4476mujs.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331408/xvrpefba8jr40ore5ruc.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331413/avzomz0qikhsczpjsexh.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331407/qv9pcqquev8cvdxgkiej.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686331287/q4pc6qeevvisk1ex9iom.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686237145/taewzxaq3wfymd7iabtz.jpg"
+                  alt=""
+                />
+                <img
+                  className="profiletab_letf_img_all_item_img"
+                  src="http://res.cloudinary.com/dakfojmaz/image/upload/v1686237146/mbaaq4lidjmiencss0nj.jpg"
+                  alt=""
+                />
+              </div>
+            </div>
           </div>
+
           <div className="profile_tab_post_center">
             <div className="profile_tab_post_center_filter_post">
               <p>Bài viết</p>
@@ -290,7 +356,12 @@ export default function BasicTabs() {
                     />
 
                     <div className="post_title">
-                      <h5 className="home_name_company" style={{ fontWeight: "bold"}}>{post.user?.name}</h5>
+                      <h5
+                        className="home_name_company"
+                        style={{ fontWeight: "bold" }}
+                      >
+                        {post.user?.name}
+                      </h5>
                       <p>Được tài trợ</p>{" "}
                     </div>
                   </Link>
@@ -305,26 +376,30 @@ export default function BasicTabs() {
                       return post.images.map((image) => (
                         <Link to={`/viewImage/${post._id}`}>
                           {" "}
-                          <img
-                            className="img_post"
-                            src={image}
-                            alt=""
-                          />
+                          <img className="img_post" src={image} alt="" />
                         </Link>
                       ));
                     } else if (post.images?.length === 2) {
-                      return <PostPictures2 imgSrc={post.images} postId={post._id} />;
+                      return (
+                        <PostPictures2 imgSrc={post.images} postId={post._id} />
+                      );
                     } else if (post.images?.length === 3) {
-                      return <PostPictures3 imgSrc={post.images} postId={post._id} />;
+                      return (
+                        <PostPictures3 imgSrc={post.images} postId={post._id} />
+                      );
                     } else if (post.images?.length === 4) {
-                      return <PostPictures4 imgSrc={post.images} postId={post._id} />;
+                      return (
+                        <PostPictures4 imgSrc={post.images} postId={post._id} />
+                      );
                     } else if (post.images?.length >= 5) {
-                      return <PostPictures10 imgSrc={post.images} postId={post._id} />;
+                      return (
+                        <PostPictures10
+                          imgSrc={post.images}
+                          postId={post._id}
+                        />
+                      );
                     }
                   })()}
-
-        
-
                   <div>
                     <div className="total_like_cmt">
                       <div className="total_like">
@@ -343,7 +418,10 @@ export default function BasicTabs() {
                         />
                       </div>
                       <div className="item_act">
-                        <button onClick={() => handleOpen(post._id)} className="item_act_post">
+                        <button
+                          onClick={() => handleOpen(post._id)}
+                          className="item_act_post"
+                        >
                           <FaRegComment className="item_like_cmt_send" /> Bình
                           luận
                         </button>
@@ -400,11 +478,20 @@ export default function BasicTabs() {
                   <p>Marketing đúng hướng</p>
                 </div>
               </div>
-              <Link className="profile_product_viewmore">Xem thêm</Link>
+              <Link className="profile_product_viewmore">Xem thêm...</Link>
             </div>
 
             <div className="profile_right_center">
-              <h5>Mọi người cũng tìm kiếm</h5>
+              <h5
+                style={{
+                  marginLeft: "10px",
+                  paddingBottom: "10px",
+                  fontWeight: "bold",
+                  paddingTop: "20px",
+                }}
+              >
+                Mọi người cũng tìm kiếm
+              </h5>
               <div>
                 <div className="newfeed_right_ads_profile">
                   <div className="newfeed_company">
@@ -415,7 +502,9 @@ export default function BasicTabs() {
                     />
                     <div className="newfeed_detail_company">
                       <p>Công ty TNHH Đại Phong</p>
-                      <h6>May mặc</h6>
+                      <h6 style={{ opacity: "0.8", fontSize: "14px" }}>
+                        May mặc
+                      </h6>
                     </div>
                   </div>
                   <div className="newfeed_act_company">
@@ -435,7 +524,9 @@ export default function BasicTabs() {
                     />
                     <div className="newfeed_detail_company">
                       <p>Doanh Nghiệp Duy</p>
-                      <h6>Nông Sản</h6>
+                      <h6 style={{ opacity: "0.8", fontSize: "14px" }}>
+                        Nông Sản
+                      </h6>
                     </div>
                   </div>
                   <div className="newfeed_act_company">
@@ -455,10 +546,17 @@ export default function BasicTabs() {
                     />
                     <div className="newfeed_detail_company">
                       <p>Công ty Thái Thiện</p>
-                      <h6>Máy móc</h6>
+                      <h6 style={{ opacity: "0.8", fontSize: "14px" }}>
+                        Máy móc
+                      </h6>
                     </div>
                   </div>
-                  <div className="newfeed_act_company">
+                  <div
+                    style={{
+                      paddingBottom: "20px",
+                    }}
+                    className="newfeed_act_company"
+                  >
                     <div className="newfeed_icon_action1">
                       <AiOutlinePlusCircle />
                       <h6 className="newfeed_action_right">Theo dõi</h6>
@@ -467,29 +565,36 @@ export default function BasicTabs() {
                       <h6 className="newfeed_action_right">Tìm hiểu thêm</h6>
                     </div>
                   </div>
+                  <div className="boderbottomcompany"></div>
+                  <Link className="profile_product_viewmore">Xem thêm...</Link>
                 </div>
               </div>
-              <div className="profile_right_bottom">
-                <div>
+            </div>
+            <div className="profile_right_bottom">
+              <div>
+                <img
+                  className="profile_right_bottom_img_ads"
+                  src={xemaydien}
+                  alt=""
+                />
+                <div className="profile_right_bottom_ads_detail">
                   <img
-                    className="profile_right_bottom_img_ads"
-                    src={xemaydien}
+                    className="newfeed_left_avt_img_right"
+                    src={avt_company}
                     alt=""
                   />
-                  <div className="profile_right_bottom_ads_detail">
-                    <img
-                      className="newfeed_left_avt_img_right"
-                      src={avt_company}
-                      alt=""
-                    />
-                    <div className="profile_ads_detail_company">
-                      <h6>Công ty Bùi Trí Thức</h6>
-                      <p>Phương tiện</p>
-                      <p>Được tài trợ</p>
-                      <Link className="profile_right_bottom_ads_senmess">
+                  <div className="profile_ads_detail_company">
+                    <h6>Công ty Bùi Trí Thức</h6>
+                    <p style={{ fontSize: "13px", opacity: "0.8" }}>
+                      Phương tiện
+                    </p>
+                    <p style={{ fontSize: "13px" }}>Được tài trợ</p>
+                    <Link>
+                      <button className="profile_right_bottom_ads_senmess">
+                        {" "}
                         Gửi tin nhắn!
-                      </Link>
-                    </div>
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
