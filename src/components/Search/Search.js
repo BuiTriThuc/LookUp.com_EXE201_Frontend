@@ -4,57 +4,88 @@ import avt_company from "../../images/avt_company.jpg";
 import company_1 from "../../images/company_1.jpg";
 import company_2 from "../../images/company_2.jpg";
 import company_3 from "../../images/company_3.jpg";
+import { Link } from "react-router-dom";
 function Search() {
   return (
     <div className="search_layout">
-      {/* <div className="search_center">
-        <div className="search_partner">
-          <input
-            className="body_top_search"
-            type="text"
-            placeholder="Bạn đang cần tìm đối tác?"
-          />
-          <button className="search_icon">
-            <BsSearch />
-            <p>Tìm kiếm</p>
-          </button>
-        </div>
-      </div> */}
       <div className="search_center_field">
-        <h4>Bộ lọc</h4>
-        <div>
-          <select
-            class="form-select form-select-sm mb-3"
-            id="city"
-            aria-label=".form-select-sm"
-          >
-            <option value="" selected>
-              Chọn tỉnh thành
-            </option>
-          </select>
-
-          <select
-            class="form-select form-select-sm mb-3"
-            id="district"
-            aria-label=".form-select-sm"
-          >
-            <option value="" selected>
-              Chọn quận huyện
-            </option>
-          </select>
-
-          <select
-            class="form-select form-select-sm"
-            id="ward"
-            aria-label=".form-select-sm"
-          >
-            <option value="" selected>
-              Chọn phường xã
-            </option>
-          </select>
+        <h4 style={{ fontWeight: "bold", padding: "20px" }}>Bộ lọc</h4>
+        <div className="select_search_layout">
+          <div>
+            {" "}
+            <label style={{ fontWeight: "bold" }} for="">
+              Khu Vực
+            </label>
+            <select
+              style={{
+                marginLeft: "100px",
+                width: "170px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
+              <optgroup label="">
+                <option value="">Tỉnh</option>
+              </optgroup>
+            </select>
+            <select name="" id="">
+              <optgroup label=" ">
+                <option value="">Thành phố</option>
+              </optgroup>
+            </select>
+            <select name="" id="">
+              <optgroup label=" ">
+                <option value="">Quận huyện</option>
+              </optgroup>
+            </select>{" "}
+          </div>
+          <div>
+            {" "}
+            <label style={{ fontWeight: "bold" }} for="">
+              Doanh nghiệp
+            </label>
+            <select
+              style={{
+                marginLeft: "100px",
+                width: "170px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
+              <optgroup label="">
+                <option value="">Tỉnh</option>
+              </optgroup>
+            </select>
+            <select name="" id="">
+              <optgroup label=" ">
+                <option value="">Thành phố</option>
+              </optgroup>
+            </select>
+            <select name="" id="">
+              <optgroup label=" ">
+                <option value="">Quận huyện</option>
+              </optgroup>
+            </select>{" "}
+          </div>
         </div>
       </div>
-      <div>
+      {/* 
+      <div className="text_center_search">
+        <Link
+          style={{
+            textDecoration: "underline",
+            color: "black",
+            fontSize: "15px",
+            opacity: "0.7",
+          }}
+        >
+          {" "}
+          Xem thêm...
+        </Link>
         <h3 className="title_search_center">
           Doanh nghiệp có sản phẩm được yêu thích
         </h3>
@@ -79,7 +110,16 @@ function Search() {
               huyện Gia Viễn cách nhà máy số 1: 500m
             </p>
             <div>
-              <a href="">Gửi tin nhắn</a>
+              <button
+                style={{
+                  backgroundColor: "#2187FF",
+                  backgroundColor: "#2187FF",
+                  color: "white",
+                  fontSize: "15px",
+                }}
+              >
+                Gửi tin nhắn
+              </button>
             </div>
           </div>
         </div>
@@ -123,7 +163,16 @@ function Search() {
               MOTORS,
             </p>
             <div>
-              <a href="">Gửi tin nhắn</a>
+              <button
+                style={{
+                  backgroundColor: "#2187FF",
+                  color: "white",
+                  fontSize: "15px",
+                  borderRadius: "5px !important",
+                }}
+              >
+                Gửi tin nhắn
+              </button>
             </div>
           </div>
         </div>
@@ -146,8 +195,19 @@ function Search() {
           />
         </div>
       </div>
-      <div>
-        <h3 className="title_search_center">Có thể bạn quan tâm</h3>
+      <div className="text_center_search">
+        <Link
+          style={{
+            textDecoration: "underline",
+            color: "black",
+            fontSize: "15px",
+            opacity: "0.7",
+          }}
+        >
+          {" "}
+          Xem thêm...
+        </Link>
+        <h3 className="title_search_center">Bạn có thể quan tâm</h3>
       </div>
       <div className="search_suggest_company">
         <div>
@@ -169,9 +229,16 @@ function Search() {
               Người sáng lập là ông Trần Bá Dương, hiện là Chủ tịch Hội đồng
               Quản trị THACO.
             </p>
-            <div>
-              <a href="">Gửi tin nhắn</a>
-            </div>
+            <button
+              style={{
+                backgroundColor: "#2187FF",
+                backgroundColor: "#2187FF",
+                color: "white",
+                fontSize: "15px",
+              }}
+            >
+              Gửi tin nhắn
+            </button>
           </div>
         </div>
 
@@ -214,7 +281,16 @@ function Search() {
               Liên Doanh
             </p>
             <div>
-              <a href="">Gửi tin nhắn</a>
+              <button
+                style={{
+                  backgroundColor: "#2187FF",
+                  backgroundColor: "#2187FF",
+                  color: "white",
+                  fontSize: "15px",
+                }}
+              >
+                Gửi tin nhắn
+              </button>
             </div>
           </div>
         </div>
@@ -237,6 +313,16 @@ function Search() {
           />
         </div>
       </div>
+      <Link
+        style={{
+          color: "black",
+          opacity: "0.8",
+          fontSize: "15px",
+          textDecoration: "underline",
+        }}
+      >
+        Xem thêm...
+      </Link> */}
     </div>
   );
 }

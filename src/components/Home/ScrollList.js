@@ -1,15 +1,14 @@
 import React, { useRef, useEffect } from "react";
 import "./scroll.css";
 import "./Home.css";
-import { IoMdSend } from "react-icons/io";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { BiLike } from "react-icons/bi";
+import { AiFillLike } from "react-icons/ai";
 import "./Home.css";
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
+
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearErrors,
@@ -104,7 +103,7 @@ const ScrollList = () => {
         onClick={handleClick}
         className={likedPost === postDetail ? "liked" : "like"}
       >
-        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <BiLike className="item_like_cmt_send" icon={BiLike} />
         <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
       </button>
     );
@@ -160,11 +159,7 @@ const ScrollList = () => {
       >
         <div className="body_top_item5">
           <Link to="/login" className="post_detail">
-            <img
-              className="img_company"
-              src={postDetail?.user?.image}
-              alt=""
-            />
+            <img className="img_company" src={postDetail?.user?.image} alt="" />
             <div to="/login" className="post_title">
               <h5 className="home_name_company">{postDetail?.user?.name}</h5>
               <p>Được tài trợ</p>{" "}
@@ -204,7 +199,12 @@ const ScrollList = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> {postDetail?.likes?.length}
+                  <AiFillLike
+                    style={{
+                      color: "#0066FF",
+                    }}
+                  />{" "}
+                  {postDetail?.likes?.length}
                 </p>
               </div>
               <p>{postDetail?.comments?.length} Bình luận</p>
@@ -246,11 +246,7 @@ const ScrollList = () => {
                 </div>
               ))}
               <div className="newfeed_input_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src={user?.image}
-                  alt=""
-                />
+                <img className="newfeed_avt_cmt" src={user?.image} alt="" />
                 <form onSubmit={addCommentSubmit}>
                   <input
                     className="newfeed_input_cmt_detail"
@@ -261,7 +257,6 @@ const ScrollList = () => {
                     required
                   />
                 </form>
-                
               </div>
             </div>
           </div>

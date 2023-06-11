@@ -245,40 +245,42 @@ export default function BasicTabs() {
       >
         <div className="profile_tab_post">
           <div className="profile_tab_post_left">
-            <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
-            <p className="profile_tab_post_left_detail_des">
-              Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành phố
-              Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
-            </p>
+            <div className="profile_tab_post_left_top">
+              {" "}
+              <h4 className="profile_tab_post_left_detail_title">Mô tả ngắn</h4>
+              <p className="profile_tab_post_left_detail_des">
+                Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành
+                phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
+              </p>
+              <div className="profile_tab_post_left_contact">
+                <h4
+                  style={{
+                    marginTop: "10px",
+                    paddingBottom: "10px",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Thông tin liên hệ
+                </h4>
+                <p style={{ padding: "1px" }}>
+                  {" "}
+                  <MdPublic />
+                  <Link> www.website.com</Link>
+                </p>
 
-            <div className="profile_tab_post_left_contact">
-              <h4
-                style={{
-                  marginTop: "10px",
-                  paddingBottom: "10px",
-                  fontWeight: "bold",
-                }}
-              >
-                Thông tin liên hệ
-              </h4>
-              <p style={{ padding: "1px" }}>
-                {" "}
-                <MdPublic />
-                <Link> www.website.com</Link>
-              </p>
-
-              <p style={{ padding: "1px" }}>
-                <BiPhone /> {user.phoneNumber}
-              </p>
-              <p style={{ padding: "1px" }}>
-                <MdOutlineEmail /> {user.email}
-              </p>
-            </div>
-            <div className="profile_tab_post_left_premium">
-              <h6>
-                <AiOutlineCheckCircle style={{ color: "#C67700" }} /> Trải
-                nghiệm tính năng cao cấp với gói premim miễn phí
-              </h6>
+                <p style={{ padding: "1px" }}>
+                  <BiPhone /> {user.phoneNumber}
+                </p>
+                <p style={{ padding: "1px" }}>
+                  <MdOutlineEmail /> {user.email}
+                </p>
+              </div>
+              <div className="profile_tab_post_left_premium">
+                <h6>
+                  <AiOutlineCheckCircle style={{ color: "#C67700" }} /> Trải
+                  nghiệm tính năng cao cấp với gói premim miễn phí
+                </h6>
+              </div>{" "}
             </div>
             <div className="profiletab_letf_img_all">
               <div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -446,6 +448,7 @@ export default function BasicTabs() {
                 </div>
               ))}
           </div>
+
           <div className="profile_right">
             <div className="profile_right_top">
               <h6 className="profile_right_top_title">Sản phẩm nổi bật</h6>
