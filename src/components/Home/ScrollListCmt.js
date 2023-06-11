@@ -1,11 +1,12 @@
 import React, { useRef, useEffect } from "react";
 import "./scroll.css";
 import "./Home.css";
+import { BiLike } from "react-icons/bi";
 
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiFillLike } from "react-icons/ai";
 import "./Home.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -92,7 +93,7 @@ const ScrollListCmt = () => {
         onClick={handleClick}
         className={likedPost === postDetail ? "liked" : "like"}
       >
-        <AiOutlineHeart className="item_like_cmt_send" icon={AiOutlineHeart} />
+        <BiLike className="item_like_cmt_send" icon={BiLike} />
         <div className="item_act_post">{liked ? "Yêu thích" : "Yêu thích"}</div>
       </button>
     );
@@ -113,7 +114,6 @@ const ScrollListCmt = () => {
     formData.set("content", content);
     dispatch(createComment(user._id, postDetail._id, content));
   };
-
 
   useEffect(() => {
     if (error) {
@@ -146,11 +146,7 @@ const ScrollListCmt = () => {
       >
         <div className="body_top_item5">
           <Link to="/login" className="post_detail">
-            <img
-              className="img_company"
-              src={postDetail?.user?.image}
-              alt=""
-            />
+            <img className="img_company" src={postDetail?.user?.image} alt="" />
             <div to="/login" className="post_title">
               <h5 className="home_name_company">{postDetail?.user?.name}</h5>
               <p>Được tài trợ</p>{" "}
@@ -166,7 +162,8 @@ const ScrollListCmt = () => {
               <div className="total_like">
                 <p>
                   {" "}
-                  <AiFillHeart /> {postDetail?.likes?.length}
+                  <AiFillLike style={{ color: "#0066FF" }} />{" "}
+                  {postDetail?.likes?.length}
                 </p>
               </div>
               <p>{postDetail?.comments?.length} Bình luận</p>
@@ -174,11 +171,14 @@ const ScrollListCmt = () => {
             <div className="act_post">
               <div className="act_post_item_scroll">
                 <div className="item_act">
-                  <LikeButton className="item_like_cmt_send" postId={postDetail?._id} />
+                  <LikeButton
+                    className="item_like_cmt_send"
+                    postId={postDetail?._id}
+                  />
                 </div>
                 <div className="item_act">
                   <button onClick={handleOpen} className="item_act_post">
-                    <FaRegComment className="item_like_cmt_send"  /> Bình luận
+                    <FaRegComment className="item_like_cmt_send" /> Bình luận
                   </button>
                 </div>
 
@@ -206,11 +206,7 @@ const ScrollListCmt = () => {
               ))}
 
               <div className="newfeed_input_cmt">
-                <img
-                  className="newfeed_avt_cmt"
-                  src={user?.image}
-                  alt=""
-                />
+                <img className="newfeed_avt_cmt" src={user?.image} alt="" />
                 <form onSubmit={addCommentSubmit}>
                   <input
                     value={content}

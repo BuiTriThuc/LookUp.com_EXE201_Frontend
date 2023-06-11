@@ -3,8 +3,24 @@
     flex-direction: column;
     background-color: #F3F3F3;
     align-items: center;
+    justify-content: center;
 }
 
+.text_center_search {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.select_search_layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
 
 .search_center_field {
     width: 1120px;
@@ -12,12 +28,12 @@
     background-color: #fff;
     border-radius: 20px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
 .search_suggest_company {
-    width: 1120px;
     height: 218px;
     background-color: #fff;
     border-radius: 20px;
@@ -40,7 +56,8 @@
 }
 
 .title_search_center {
-    padding: 30px;
+    font-weight: bold;
+    padding-bottom: 30px;
 }
 
 .search_title_company {

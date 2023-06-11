@@ -14,7 +14,6 @@ export default function PostPictures4({ imgSrc, postId }) {
               alt=""
               style={{
                 height: "200px",
-                paddingRight: "2px",
                 paddingTop: "2px",
               }}
             />
