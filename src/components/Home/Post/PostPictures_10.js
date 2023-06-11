@@ -34,6 +34,7 @@ export default function PostPictures10({ imgSrc, postId }) {
                 style={{
                   width: "183.333px",
                   height: "200px",
+                  opacity: "0.5",
                 }}
                 src={imgSrc[4]}
                 alt=""
