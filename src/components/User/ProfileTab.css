@@ -4,7 +4,6 @@
 
 .profile_tab_post_left {
     width: 265px;
-    height: 352px;
     background-color: #ffff;
     border-radius: 20px;
     padding-top: 10px;
@@ -182,6 +181,7 @@
     border-radius: 5px !important;
     font-size: 14px;
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .profile_right_bottom_ads_senmess:hover {

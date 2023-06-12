@@ -147,7 +147,13 @@ const ScrollListCmt = () => {
           marginBottom: "20px",
         }}
       >
-        <div className="body_top_item5">
+        <div
+          style={{
+            width: "551px",
+            backgroundColor: "white",
+            marginTop: "20px",
+          }}
+        >
           <Link to="/login" className="post_detail">
             <img className="img_company" src={postDetail?.user?.image} alt="" />
             <div to="/login" className="post_title">

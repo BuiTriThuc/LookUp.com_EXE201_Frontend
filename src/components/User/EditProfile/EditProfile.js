@@ -39,7 +39,7 @@ export default function EditProfile() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [ward, setWard] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
-  const [image, setImage] = useState([])
+  const [image, setImage] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -65,7 +65,7 @@ export default function EditProfile() {
       categoryBusiness: categoryBusiness,
       phoneNumber: phoneNumber,
       ward: ward,
-      image: selectedImages, 
+      image: selectedImages,
     };
     dispatch(updateUser(user._id, userData));
   };
@@ -117,15 +117,19 @@ export default function EditProfile() {
               onChange={(e) => setWard(e.target.value)}
               type="text"
             />
+            <div>Mô tả ngắn</div>
+            <input className="editprofile_input" type="text" />
             <div className="editprofile_button">
               <Link to="/">
                 {" "}
                 <button className="editprofile_button_cancel">Thoát</button>
               </Link>
-
-              <button className="editprofile_button_save" type="submit">
-                Lưu
-              </button>
+              <Link to="/profile">
+                {" "}
+                <button className="editprofile_button_save" type="submit">
+                  Lưu
+                </button>{" "}
+              </Link>
             </div>
           </form>
         </div>

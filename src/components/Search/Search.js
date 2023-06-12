@@ -1,24 +1,32 @@
-import { BsSearch } from "react-icons/bs";
-import "./Search.css";
-import avt_company from "../../images/avt_company.jpg";
-import company_1 from "../../images/company_1.jpg";
-import company_2 from "../../images/company_2.jpg";
-import company_3 from "../../images/company_3.jpg";
 import { Link } from "react-router-dom";
+import { FiSearch } from "react-icons/fi";
+
+import "./Search.css";
 function Search() {
   return (
     <div className="search_layout">
       <div className="search_center_field">
-        <h4 style={{ fontWeight: "bold", padding: "20px" }}>Bộ lọc</h4>
+        <h4
+          style={{
+            fontWeight: "bold",
+            padding: "20px",
+            fontSize: "30px",
+            paddingBottom: "20px",
+          }}
+        >
+          Bộ lọc
+        </h4>
         <div className="select_search_layout">
-          <div>
+          <div style={{ marginBottom: "30px" }}>
             {" "}
             <label style={{ fontWeight: "bold" }} for="">
               Khu Vực
             </label>
             <select
               style={{
-                marginLeft: "100px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "101px",
                 width: "170px",
                 height: "35px",
                 borderRadius: "20px",
@@ -30,25 +38,92 @@ function Search() {
                 <option value="">Tỉnh</option>
               </optgroup>
             </select>
-            <select name="" id="">
+            <select
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "20px",
+                width: "256px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
               <optgroup label=" ">
                 <option value="">Thành phố</option>
               </optgroup>
             </select>
-            <select name="" id="">
+            <select
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "20px",
+                width: "256px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
               <optgroup label=" ">
                 <option value="">Quận huyện</option>
               </optgroup>
             </select>{" "}
           </div>
-          <div>
+          <div style={{ marginBottom: "30px" }}>
+            {" "}
+            <label style={{ fontWeight: "bold" }} for="">
+              Lĩnh vực
+            </label>
+            <select
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "100px",
+                width: "265px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
+              <optgroup label="">
+                <option value="">Ngành</option>
+              </optgroup>
+            </select>
+            <input
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "20px",
+                width: "438px",
+                height: "35px",
+                borderRadius: "20px",
+                position: "relative",
+                border: "0.2px solid black",
+              }}
+              placeholder="Tìm kiếm"
+              type="text"
+            />
+            <FiSearch
+              style={{
+                position: "absolute",
+                marginLeft: "-25px",
+                marginTop: "10px",
+              }}
+            />
+          </div>
+          <div style={{ marginBottom: "30px" }}>
             {" "}
             <label style={{ fontWeight: "bold" }} for="">
               Doanh nghiệp
             </label>
             <select
               style={{
-                marginLeft: "100px",
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "61px",
                 width: "170px",
                 height: "35px",
                 borderRadius: "20px",
@@ -57,23 +132,89 @@ function Search() {
               id=""
             >
               <optgroup label="">
-                <option value="">Tỉnh</option>
+                <option value="">Quy mô</option>
               </optgroup>
             </select>
-            <select name="" id="">
+            <select
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "20px",
+                width: "256px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
               <optgroup label=" ">
-                <option value="">Thành phố</option>
+                <option value="">Loại hình</option>
               </optgroup>
             </select>
-            <select name="" id="">
-              <optgroup label=" ">
-                <option value="">Quận huyện</option>
+          </div>
+          <div style={{ marginBottom: "30px" }}>
+            {" "}
+            <label style={{ fontWeight: "bold" }} for="">
+              Sản phẩm
+            </label>
+            <input
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "92px",
+                width: "445px",
+                height: "35px",
+                borderRadius: "20px",
+                border: "0.2px solid black",
+                position: "relative",
+              }}
+              placeholder="Tìm kiếm"
+              type="text"
+            />
+            <FiSearch
+              style={{
+                position: "absolute",
+                marginLeft: "-25px",
+                marginTop: "10px",
+              }}
+            />
+          </div>
+          <div style={{ marginBottom: "30px" }}>
+            {" "}
+            <label style={{ fontWeight: "bold" }} for="">
+              Ngôn ngữ
+            </label>
+            <select
+              style={{
+                paddingLeft: "10px",
+                paddingRight: "10px",
+                marginLeft: "92px",
+                width: "170px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name=""
+              id=""
+            >
+              <optgroup label="">
+                <option value="">Ngành</option>
               </optgroup>
-            </select>{" "}
+            </select>
           </div>
         </div>
+        <button
+          style={{
+            backgroundColor: "#2187FF",
+            width: "200px",
+            height: "40px",
+            color: "white",
+            borderRadius: "175px !important",
+          }}
+        >
+          Áp dụng
+        </button>
       </div>
-      {/* 
+
       <div className="text_center_search">
         <Link
           style={{
@@ -322,7 +463,7 @@ function Search() {
         }}
       >
         Xem thêm...
-      </Link> */}
+      </Link>
     </div>
   );
 }

@@ -40,8 +40,13 @@ const ViewImages = () => {
   return (
     <div className="viewimages_main">
       <Link to="/">
-        <button className="viewimage_btn_backhome">
-          <SlClose />
+        <button
+          style={{
+            backgroundColor: "transparent",
+          }}
+          className="viewimage_btn_backhome"
+        >
+          <SlClose style={{ width: "25px", height: "25px" }} />
         </button>
       </Link>
       <div className="viewimages">
@@ -52,7 +57,9 @@ const ViewImages = () => {
               onClick={handlePreviousPicture}
               disabled={currentPictureIndex === 0}
             >
-              <MdOutlineArrowBackIosNew />
+              <MdOutlineArrowBackIosNew
+                style={{ width: "25px", height: "25px" }}
+              />
             </button>
           )}
           <img
@@ -67,7 +74,7 @@ const ViewImages = () => {
               onClick={handleNextPicture}
               disabled={currentPictureIndex === pictureUrls?.length - 1}
             >
-              <GrNext />
+              <GrNext style={{ width: "25px", height: "25px" }} />
             </button>
           )}
         </div>
