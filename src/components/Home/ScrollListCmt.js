@@ -25,22 +25,25 @@ const ReadMore = ({ text }) => {
     setExpanded(!expanded);
   };
 
-  return (
-    <div>
-      {text?.length > 200 ? (
-        expanded ? (
-          <div>{text}</div>
-        ) : (
+  const renderContent = () => {
+    if (text?.length > 200) {
+      if (expanded) {
+        return <div dangerouslySetInnerHTML={{ __html: text }} />;
+      } else {
+        const truncatedText = `${text.slice(0, 200)}...`;
+        return (
           <div>
-            {text?.slice(0, 200)}...{" "}
+            <p dangerouslySetInnerHTML={{ __html: truncatedText }} />
             <button onClick={toggleReadMore}>Read More</button>
           </div>
-        )
-      ) : (
-        <div>{text}</div>
-      )}
-    </div>
-  );
+        );
+      }
+    } else {
+      return <div dangerouslySetInnerHTML={{ __html: text }} />;
+    }
+  };
+
+  return <div>{renderContent()}</div>;
 };
 
 const ScrollListCmt = () => {
@@ -154,7 +157,7 @@ const ScrollListCmt = () => {
           </Link>
           <div className="post_detail_home">
             {" "}
-            <ReadMore text={postDetail?.content} />
+            <ReadMore text={postDetail?.content?.replace(/<br \/>/g, "<br>")} />
           </div>
 
           <div>
