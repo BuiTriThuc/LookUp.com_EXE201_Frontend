@@ -13,20 +13,38 @@
     justify-content: center;
 }
 
-.btn_back_image_item {}
+.btn_back_image_item {
+    background-color: #E6E6E6;
+    opacity: 0.5;
+}
 
-.btn_next_image_item {}
+.btn_back_image_item {
+    opacity: 1;
+}
+
+.btn_next_image_item {
+    background-color: #E6E6E6;
+    opacity: 0.5;
+
+}
+
+.btn_next_image_item:hover {
+    opacity: 1;
+}
 
 .viewimage_btn_backhome {
-    background-color: #E6E6E6;
     display: flex;
     align-items: center;
-    width: 30px;
-    height: 30px;
     position: absolute;
+    margin-left: 40px;
+    margin-top: 25px;
+    opacity: 0.3;
 }
 
 .viewimage_btn_backhome:hover {
-    background-color: #ffffff;
-    cursor: pointer;
+    opacity: 1;
+    background-color: #4E4F50;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
 }

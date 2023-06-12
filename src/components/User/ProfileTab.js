@@ -251,6 +251,20 @@ export default function BasicTabs() {
               <p className="profile_tab_post_left_detail_des">
                 Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành
                 phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
+                <Link>
+                  <button
+                    style={{
+                      width: "232px",
+                      height: "32px",
+                      backgroundColor: "#F3F3F3",
+                      marginTop: "10px",
+                      marginBottom: "10px",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Chỉnh sửa
+                  </button>
+                </Link>
               </p>
               <div className="profile_tab_post_left_contact">
                 <h4
@@ -273,6 +287,20 @@ export default function BasicTabs() {
                 </p>
                 <p style={{ padding: "1px" }}>
                   <MdOutlineEmail /> {user.email}
+                  <Link>
+                    <button
+                      style={{
+                        width: "232px",
+                        height: "32px",
+                        backgroundColor: "#F3F3F3",
+                        marginTop: "10px",
+                        marginBottom: "10px",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Chỉnh sửa
+                    </button>
+                  </Link>
                 </p>
               </div>
               <div className="profile_tab_post_left_premium">
@@ -283,8 +311,14 @@ export default function BasicTabs() {
               </div>{" "}
             </div>
             <div className="profiletab_letf_img_all">
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
-                <h6>Hình ảnh</h6>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "15px 10px 10px 10px",
+                }}
+              >
+                <h6 style={{ fontWeight: "bold" }}>Hình ảnh</h6>
                 <Link to="#">Tất cả ảnh</Link>
               </div>
               <div className="profiletab_letf_img_all_item">
@@ -512,7 +546,7 @@ export default function BasicTabs() {
                   </div>
                   <div className="newfeed_act_company">
                     <div className="newfeed_icon_action1">
-                      <AiOutlinePlusCircle />
+                      <AiOutlinePlusCircle style={{ marginLeft: "3px" }} />
                       <h6 className="newfeed_action_right">Theo dõi</h6>
                     </div>
                     <div className="newfeed_icon_action">
