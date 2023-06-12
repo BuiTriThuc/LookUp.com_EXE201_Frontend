@@ -170,36 +170,16 @@
             .message_item {
               display: flex;
               gap: 20; 
-              
-              .messageInfo_item {
-                .avt_img {
-                  width: 40px;
-                  height: 40px;
-                }
-  
-                .avt_img {
-                  width: 40px;
-                  height: 40px;
-                  border-radius: 50%;
-                  object-fit: cover;
-              }
-            } 
+              flex-direction: column;
+               
             }
             .messageContent {
               max-width: 80%;
               display: flex;
-              flex-direction: column;
               gap: 10px;
-  
             }
   
-            &.owner {
-              flex-direction: row-reverse;
-  
-              .messageContent {
-                align-items: flex-end;
-              }
-            }
+            
           }
         }
   
@@ -236,5 +216,46 @@ img.avt_img {
   border-radius: 50%;
   object-fit: cover;
 }
-        
+  
+
+.messageInfo_item {
+  display: flex;
+  margin-right: 10px;   
+}
+
+.time_mess {
+  flex-direction: column;
+}
+
+.message_item{
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  padding-left: 10px;
+}
+
+.messageInfo_item {
+  color: gray;
+  font-weight: 300;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.content_mess {
+  background-color: white;
+  max-width: 80%;
+  padding: 10px 20px;
+  border-radius: 0px 10px 10px 10px;
+  margin-right: 10px;
+}
+
+
+.message_reverse {
+  flex-direction: row-reverse;
+}
+
+.messageContent_reverse {
+  align-items: flex-end;
+}
 
