@@ -44,7 +44,7 @@ function CreatePost() {
     e.preventDefault();
 
     const postData = {
-      content: content,
+      content: content.replace(/\n/g, "<br />"),
       images: images,
     };
 
