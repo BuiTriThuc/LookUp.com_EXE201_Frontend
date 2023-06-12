@@ -37,17 +37,24 @@ export default function PremiumYear() {
             </p>
           </div>
           <div className="premium_bottom_payment">
-            <div className="premium_bottom_payment_paypel">
-              <h3>
-                <BsPaypal /> Paypal <AiOutlineArrowRight className="arrow" />
-              </h3>
-            </div>
+            <Link to="/payment">
+              {" "}
+              <div className="premium_bottom_payment_paypel">
+                <h3>
+                  <BsPaypal /> Paypal <AiOutlineArrowRight className="arrow" />
+                </h3>
+              </div>{" "}
+            </Link>
+
             <div className="line"> </div>
-            <div className="premium_bottom_payment_visa">
-              <h3>Thẻ tín dụng hoặc thẻ ghi nợ</h3>
-              <FaCcVisa /> <FaCcMastercard />{" "}
-              <AiOutlineArrowRight className="arrow" />
-            </div>
+            <Link to="/payment">
+              {" "}
+              <div className="premium_bottom_payment_visa">
+                <h3>Thẻ tín dụng hoặc thẻ ghi nợ</h3>
+                <FaCcVisa /> <FaCcMastercard />{" "}
+                <AiOutlineArrowRight className="arrow" />
+              </div>{" "}
+            </Link>
           </div>
         </div>
       </div>

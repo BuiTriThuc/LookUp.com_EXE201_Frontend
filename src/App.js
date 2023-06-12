@@ -25,6 +25,7 @@ import ViewImages from "./components/Home/ViewImages/ViewImages";
 import ForgotPassword from "./components/InformationRegister/ForgotPassword";
 import OTP from "./components/InformationRegister/OTP";
 import EditProfile from "./components/User/EditProfile/EditProfile";
+import Payment from "./components/Payment/Payment";
 
 function App() {
   useEffect(() => {
@@ -51,7 +52,8 @@ function App() {
             <Route path="/premiumyear" element={<PremiumYear />} />
             <Route path="/morepremium" element={<MorePremium />} />
             <Route path="/premiummonth" element={<PremiumMonth />} />
-            
+            <Route path="/payment" element={<Payment />} />
+
             <Route path="/forgotpassword" element={<ForgotPassword />} />
             <Route path="/otp" element={<OTP />} />
             <Route path="/*" element={<NotFound />} />

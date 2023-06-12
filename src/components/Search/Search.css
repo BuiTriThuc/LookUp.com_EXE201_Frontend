@@ -15,11 +15,8 @@
 
 .select_search_layout {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
     flex-direction: column;
-
-
 }
 
 .search_center_field {
