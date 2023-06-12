@@ -632,8 +632,9 @@ button:hover {
 
 .newfeed_icon_action1 {
     display: flex;
-    width: 74px;
-    height: 18px;
+    width: 85px;
+    height: 20px;
+    justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 20px;
     margin-right: 10px;
@@ -644,8 +645,8 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 84px;
-    height: 18px;
+    width: 90px;
+    height: 20px;
     border: 1px solid black;
     border-radius: 20px;
 
@@ -663,6 +664,8 @@ button:hover {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 
 .newfeed_avt_cmt {
@@ -686,6 +689,7 @@ button:hover {
     display: flex;
     margin-bottom: 20px;
     justify-content: center;
+    margin-top: 20px;
 }
 
 .newfeed_input_cmt_detail {
