@@ -37,7 +37,7 @@ export default function EditProfile() {
   const [name, setName] = useState("");
   const [categoryBusiness, setCategoryBusiness] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [ward, setWard] = useState("");
+  const [address, setAddress] = useState("");
   const [selectedImages, setSelectedImages] = useState([]);
   const [image, setImage] = useState([]);
 
@@ -46,7 +46,7 @@ export default function EditProfile() {
       setName(user.name);
       setCategoryBusiness(user.categoryBusiness);
       setPhoneNumber(user.phoneNumber);
-      setWard(user.ward);
+      setAddress(user.address);
     }
 
     if (socket) {
@@ -64,7 +64,7 @@ export default function EditProfile() {
       name: name,
       categoryBusiness: categoryBusiness,
       phoneNumber: phoneNumber,
-      ward: ward,
+      address: address,
       image: selectedImages,
     };
     dispatch(updateUser(user._id, userData));
@@ -75,7 +75,7 @@ export default function EditProfile() {
       setName(userDetail.name);
       setCategoryBusiness(userDetail.categoryBusiness);
       setPhoneNumber(userDetail.phoneNumber);
-      setWard(userDetail.ward);
+      setAddress(userDetail.address);
     }
   }, [userDetail]);
   return (
@@ -113,8 +113,8 @@ export default function EditProfile() {
             <div>Địa chỉ</div>
             <input
               className="editprofile_input"
-              value={ward}
-              onChange={(e) => setWard(e.target.value)}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
               type="text"
             />
             <div>Mô tả ngắn</div>

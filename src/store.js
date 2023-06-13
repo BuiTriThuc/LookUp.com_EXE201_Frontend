@@ -12,6 +12,7 @@ import {
   
 } from "./components/reducers/postReducers";
 import { getUserDetailReducer, profileReducer, userReducer } from "./components/reducers/userReducers";
+import { provideReducer } from "./components/reducers/provideReducers";
 
 const rootReducer = combineReducers({
   posts: postsReducer,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   addComment: addCommentReducer,
   profile: profileReducer,
   getUserDetail: getUserDetailReducer,
+  getProvide: provideReducer,
 });
 
 const store = configureStore({

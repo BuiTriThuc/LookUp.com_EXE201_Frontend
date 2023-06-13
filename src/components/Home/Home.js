@@ -115,8 +115,8 @@ function Home() {
 
   useEffect(() => {
     if (isAuthenticated && posts?.length > 0) {
-      const likedPostsData = posts.filter((post) =>
-        post.likes?.includes(user._id)
+      const likedPostsData = posts?.filter((post) =>
+        post.likes?.includes(user?._id)
       );
       setLikedPost(likedPostsData.map((post) => post._id));
     }

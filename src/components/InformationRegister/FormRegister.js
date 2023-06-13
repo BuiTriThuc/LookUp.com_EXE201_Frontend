@@ -5,12 +5,16 @@ import { Link, useNavigate } from "react-router-dom";
 import flagVN from "../assets/vietnam.png";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, register } from "../actions/userActions";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
+import { getDistrict, getProvide, getWard } from "../actions/provideAction";
 
 const FormRegister = ({ addItem }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated, error } = useSelector((state) => state.user)
+  const { isAuthenticated, error } = useSelector((state) => state.user);
+  const { provides, districts, wards } = useSelector(
+    (state) => state.getProvide
+  );
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,12 +31,12 @@ const FormRegister = ({ addItem }) => {
   const notifySuccess = () => {
     toast.success("Register success", {
       duration: 3000,
-      position: "top-center"
-    })
+      position: "top-center",
+    });
     setTimeout(() => {
-      navigate("/")
-    }, 3000)
-  }
+      navigate("/");
+    }, 3000);
+  };
 
   const registerSubmit = (e) => {
     e.preventDefault();
@@ -49,18 +53,48 @@ const FormRegister = ({ addItem }) => {
     formData.set("district", district);
     formData.set("ward", ward);
     formData.set("address", address);
-    dispatch(register(formData)); 
-  }
+    dispatch(register(formData));
+  };
 
   useEffect(() => {
     if (error) {
-      clearErrors(error)
+      clearErrors(error);
     }
 
     if (isAuthenticated) {
-      notifySuccess()
+      notifySuccess();
     }
-  }, [error, notifySuccess, isAuthenticated])
+  }, [error, notifySuccess, isAuthenticated]);
+
+  useEffect(() => {
+    dispatch(getProvide());
+  }, [dispatch]);
+
+  const handleOnChangeProvide = (e) => {
+    const selectedCode = Number(e.target.value);
+    const selectedProvide = provides.find(
+      (provide) => provide.code === selectedCode
+    );
+    if (selectedProvide) {
+      setCity(selectedProvide.name);
+    }
+    dispatch(getDistrict(selectedCode));
+    
+  };
+
+  const handleOnChangeDistrict = (e) => {
+    const selectedCode = Number(e.target.value);
+    const selectedDistrict = districts.find(
+      (district) => district.code === selectedCode
+    );
+    if (selectedDistrict) {
+      setDistrict(selectedDistrict.name);
+    }
+    dispatch(getWard(selectedCode));
+  };
+
+  console.log("check district", district);
+  console.log("Check ward", ward);
 
   return (
     <section className="section-center">
@@ -80,13 +114,11 @@ const FormRegister = ({ addItem }) => {
         <div>
           <input
             type="password"
-            id="pass"
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Mật khẩu"
             className="form-input"
-            minlength="8"
             required
           />
         </div>
@@ -94,13 +126,11 @@ const FormRegister = ({ addItem }) => {
         <div>
           <input
             type="password"
-            id="pass"
             name="confirmPassword"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Xác nhận Mật khẩu"
             className="form-input"
-            minlength={6}
             required
           />
         </div>
@@ -131,33 +161,64 @@ const FormRegister = ({ addItem }) => {
         <br />
         <div className="row">
           <div className="col-12">
-            <input 
+            <input
               type="text"
               name="address"
               value={address}
-              onChange={(e) => setAddress(e.target.value)} 
-              className="form-input" 
-              placeholder="Số nhà, tên đường" />
+              onChange={(e) => setAddress(e.target.value)}
+              className="form-input"
+              placeholder="Số nhà, tên đường"
+            />
           </div>
         </div>
         <br />
         <div className="row">
           <div className="col-4">
-            <select id="inputState" class="form-control" name="city" onChange={(e) => setCity(e.target.value)}>
+            <select
+              class="form-control"
+              name="city"
+              onChange={handleOnChangeProvide}
+            >
               <option selected>Tỉnh</option>
-              <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+              {provides &&
+                provides.length > 0 &&
+                provides.map((provide) => (
+                  <option key={provide.code} value={provide.code}>
+                    {provide.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="col-4">
-            <select id="inputState" class="form-control" name="district" onChange={(e) => setDistrict(e.target.value)}>
+            <select
+              class="form-control"
+              name="district"
+              onChange={handleOnChangeDistrict}
+            >
               <option selected>Quận, huyện</option>
-              <option value="Quan 3">Quan 3</option>
+              {districts &&
+                districts.length > 0 &&
+                districts.map((dis) => (
+                  <option key={dis.code} value={dis.code}>
+                    {dis.name}
+                  </option>
+                ))}
             </select>
           </div>
           <div className="col-4">
-            <select id="inputState" class="form-control" name="ward" onChange={(e) => setWard(e.target.value)}>
+            <select
+              class="form-control"
+              name="ward"
+              onChange={(e) => setWard(e.target.value)}
+            >
               <option selected>Phường, xã</option>
-              <option value="Phuong 2">Phuong 2</option>
+              {wards &&
+                wards.length > 0 &&
+                wards.map((war) => (
+                  <option key={war.code} value={war.name}>
+                    {war.name}
+                  </option>
+                ))}
             </select>
           </div>
         </div>
@@ -166,7 +227,7 @@ const FormRegister = ({ addItem }) => {
         <br />
         <div className="row">
           <div className="col-4">
-            <select id="inputState" className="form-control">
+            <select className="form-control">
               <option selected>
                 <img src={flagVN} alt="" />
                 +84
@@ -189,7 +250,6 @@ const FormRegister = ({ addItem }) => {
         <div class="form-group">
           <textarea
             class="form-control"
-            id="exampleFormControlTextarea1"
             placeholder="Mô tả doanh nghiệp"
             name="description"
             value={description}

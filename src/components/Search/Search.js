@@ -2,7 +2,47 @@ import { Link } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 
 import "./Search.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { getDistrict, getProvide, getWard } from "../actions/provideAction";
 function Search() {
+  const dispatch = useDispatch();
+  const { provides, districts, wards } = useSelector(
+    (state) => state.getProvide
+  );
+
+  const [city, setCity] = useState("");
+  const [district, setDistrict] = useState("");
+  const [ward, setWard] = useState("");
+
+  useEffect(() => {
+    dispatch(getProvide());
+  }, [dispatch]);
+
+  const handleOnChangeProvide = (e) => {
+    const selectedCode = Number(e.target.value);
+    const selectedProvide = provides.find(
+      (provide) => provide.code === selectedCode
+    );
+    if (selectedProvide) {
+      setCity(selectedProvide.name);
+    }
+    dispatch(getDistrict(selectedCode));
+    
+  };
+
+  const handleOnChangeDistrict = (e) => {
+    const selectedCode = Number(e.target.value);
+    const selectedDistrict = districts.find(
+      (district) => district.code === selectedCode
+    );
+    if (selectedDistrict) {
+      setDistrict(selectedDistrict.name);
+    }
+    dispatch(getWard(selectedCode));
+  };
+
+  
   return (
     <div className="search_layout">
       <div className="search_center_field">
@@ -31,11 +71,32 @@ function Search() {
                 height: "35px",
                 borderRadius: "20px",
               }}
-              name=""
-              id=""
+              name="city"
+              onChange={handleOnChangeProvide}
             >
               <optgroup label="">
-                <option value="">Tỉnh</option>
+                <option value="">Tỉnh, Thành phố</option>
+                {provides && provides.length > 0 && provides.map((provide) => (
+                  <option key={provide.code} value={provide.code}>{provide.name}</option>
+                ))}
+              </optgroup>
+            </select>
+            <select
+              style={{
+                paddingLeft: "10px",
+                marginLeft: "20px",
+                width: "256px",
+                height: "35px",
+                borderRadius: "20px",
+              }}
+              name="district"
+              onChange={handleOnChangeDistrict}
+            >
+              <optgroup label=" ">
+                <option value="">Quận, huyện</option>
+                {districts && districts.length > 0 && districts.map((dis) => (
+                  <option value={dis.code} key={dis.code}>{dis.name}</option>
+                ))}
               </optgroup>
             </select>
             <select
@@ -47,27 +108,14 @@ function Search() {
                 height: "35px",
                 borderRadius: "20px",
               }}
-              name=""
-              id=""
+              name="ward"
+              onChange={(e) => setWard(e.target.value)}
             >
               <optgroup label=" ">
-                <option value="">Thành phố</option>
-              </optgroup>
-            </select>
-            <select
-              style={{
-                paddingLeft: "10px",
-                paddingRight: "10px",
-                marginLeft: "20px",
-                width: "256px",
-                height: "35px",
-                borderRadius: "20px",
-              }}
-              name=""
-              id=""
-            >
-              <optgroup label=" ">
-                <option value="">Quận huyện</option>
+                <option value="">Phường, xã</option>
+                {wards && wards.length > 0 && wards.map((war) => (
+                   <option value={war.name} key={war.code}>{war.name}</option>
+                ))}
               </optgroup>
             </select>{" "}
           </div>
