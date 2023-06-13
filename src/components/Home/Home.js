@@ -176,7 +176,7 @@ function Home() {
           <div className="event_detail">
             <img
               className="img_event"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF1MWV61opat6RSVZcenC0GDQA1PTRw_OrZw&usqp=CAU"
+              src="https://cdnmedia.baotintuc.vn/Upload/DMDnZyELa7xUDTdLsa19w/files/2022/11/1611/lien-doan-ld-161122.jpg"
               alt=""
             />
           </div>
@@ -185,7 +185,10 @@ function Home() {
             <h6 className="title_event_day">Ngày 10 tháng 7 năm 2023</h6>
           </div>
           <div>
-            <Link className="envent_detail_more" to="/login">
+            <Link
+              className="envent_detail_more"
+              to="https://baotintuc.vn/xa-hoi/vinh-danh-doanh-nghiep-tieu-bieu-vi-nguoi-lao-dong-20221116174259025.htm"
+            >
               Tìm hiểu thêm
             </Link>
           </div>
@@ -202,7 +205,10 @@ function Home() {
             <p className="title_event_day">Ngày 23 tháng 9 năm 2023</p>
           </div>
           <div>
-            <Link className="envent_detail_more" to="/login">
+            <Link
+              className="envent_detail_more"
+              to="https://congthuong.vn/ngay-hoi-khoi-nghiep-vietnam-startup-day-2022-thuc-day-he-sinh-thai-khoi-nghiep-218100.html"
+            >
               Tìm hiểu thêm
             </Link>
           </div>
@@ -218,7 +224,10 @@ function Home() {
             <p className="title_event_day">Ngày 26 tháng 7 năm 2023</p>
           </div>
           <div>
-            <Link className="envent_detail_more" to="/login">
+            <Link
+              className="envent_detail_more"
+              to="https://www.dienmayxanh.com/khuyen-mai/ngay-vang-thang-dep-11-11-giam-cuc-soc-den-49-1129548"
+            >
               Tìm hiểu thêm
             </Link>
           </div>

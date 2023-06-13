@@ -5,6 +5,11 @@
 
 }
 
+.payment_name {
+    margin-top: 0px !important;
+    color: black;
+}
+
 .premiumyear_top_title {
     font-weight: bold;
     font-size: 30px;
@@ -106,23 +111,21 @@
 
 .premium_bottom_payment_paypel {
     margin-left: 20px;
-    margin-top: 30px;
+
 
 
 }
 
-.arrow {
-    margin-left: 600px;
-}
+
 
 .line {
     width: 899px;
     height: 1px;
     background-color: black;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .premium_bottom_payment_visa {
     margin-left: 20px;
-    margin-top: 20px;
+
 }

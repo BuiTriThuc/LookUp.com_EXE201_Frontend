@@ -119,6 +119,10 @@ export default function EditProfile() {
             />
             <div>Mô tả ngắn</div>
             <input className="editprofile_input" type="text" />
+            <div>Website</div>
+            <input className="editprofile_input" type="text" />
+            <div>Email</div>
+            <input className="editprofile_input" type="text" />
             <div className="editprofile_button">
               <Link to="/">
                 {" "}
