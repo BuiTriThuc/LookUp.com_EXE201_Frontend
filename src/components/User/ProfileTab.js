@@ -255,7 +255,7 @@ export default function BasicTabs() {
               <p className="profile_tab_post_left_detail_des">
                 Công ty TNHH LookUp thành lập vào 10-8-2001 tọa lạc tại thành
                 phố Hồ Chí Minh. Công ty chuyên sản xuất, sửa chữa về phần mềm
-                <Link>
+                <Link to="/editprofile">
                   <button
                     style={{
                       width: "232px",
@@ -291,7 +291,7 @@ export default function BasicTabs() {
                 </p>
                 <p style={{ padding: "1px" }}>
                   <MdOutlineEmail /> {user.email}
-                  <Link>
+                  <Link to="/editprofile">
                     <button
                       style={{
                         width: "232px",
