@@ -39,7 +39,11 @@ function Premium() {
             {" "}
             Tìm hiểu thêm
           </Link>
-          <Link to="/morepremium" className="premium_regis">
+          <Link
+            style={{ color: "white" }}
+            to="/morepremium"
+            className="premium_regis"
+          >
             {" "}
             Đăng ký ngay
           </Link>

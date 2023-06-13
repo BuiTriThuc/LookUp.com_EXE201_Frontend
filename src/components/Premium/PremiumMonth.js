@@ -1,10 +1,13 @@
 import React from "react";
 import "./PremiumYear.css";
-import { BsPaypal } from "react-icons/bs";
-import { FaCcMastercard, FaCcVisa } from "react-icons/fa";
+
+import paypalIcon from "../../images/paypalIcon.png";
+import momoIcon from "../../images/momoIcon.png";
+import masterCard from "../../images/masterCard.jpg";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import "./PremiumMonth.css";
+import { padding } from "@mui/system";
 
 export default function PremiumMonth() {
   return (
@@ -41,9 +44,50 @@ export default function PremiumMonth() {
             <Link to="/payment">
               {" "}
               <div className="premium_bottom_payment_paypel">
-                <h3>
-                  <BsPaypal /> Paypal <AiOutlineArrowRight className="arrow" />
+                <h3 className="payment_name">
+                  Ví Momo{" "}
+                  <AiOutlineArrowRight
+                    style={{
+                      color: "black",
+                      marginLeft: "600px",
+                      marginTop: "20px",
+                      position: "absolute",
+                    }}
+                  />
                 </h3>
+                <img
+                  style={{
+                    width: "30px",
+                    height: "30px",
+                    position: "relative",
+                  }}
+                  src={momoIcon}
+                  alt=""
+                />{" "}
+              </div>{" "}
+            </Link>
+            <div className="line"> </div>
+
+            <Link to="/payment">
+              {" "}
+              <div className="premium_bottom_payment_paypel">
+                <h3 className="payment_name">
+                  Paypal{" "}
+                  <AiOutlineArrowRight
+                    style={{
+                      color: "black",
+
+                      marginLeft: "618px",
+                      marginTop: "20px",
+                      position: "absolute",
+                    }}
+                  />
+                </h3>
+                <img
+                  style={{ width: "120px", height: "30px" }}
+                  src={paypalIcon}
+                  alt=""
+                />{" "}
               </div>{" "}
             </Link>
 
@@ -51,9 +95,22 @@ export default function PremiumMonth() {
             <Link to="/payment">
               {" "}
               <div className="premium_bottom_payment_visa">
-                <h3>Thẻ tín dụng hoặc thẻ ghi nợ</h3>
-                <FaCcVisa /> <FaCcMastercard />{" "}
-                <AiOutlineArrowRight className="arrow" />
+                <h3 className="payment_name">Thẻ tín dụng hoặc thẻ ghi nợ</h3>
+                <img
+                  style={{ width: "50px", height: "30px" }}
+                  src={masterCard}
+                  alt=""
+                />
+                <AiOutlineArrowRight
+                  style={{
+                    color: "black",
+
+                    width: "20px",
+                    height: "20px",
+                    marginLeft: "627px",
+                    position: "absolute",
+                  }}
+                />
               </div>{" "}
             </Link>
           </div>
