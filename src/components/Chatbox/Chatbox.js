@@ -1,16 +1,11 @@
-import Sidebar from "./Sidebar";
-import Chat from "./Chat";
 import './Chatbot.css';
-import Input from "./Input";
-
+import Nav  from "../Chatbox/nav/Nav";
+import ChatBody from "../Chatbox/chatBody/ChatBody";
 const Chatbox = () => {
   return (
-    <div className="home_chat">
-      <div className="container_chat">
-        <Sidebar />
-        <Chat />
-        
-      </div>
+    <div className="__main">
+      <Nav />
+      <ChatBody />
     </div>
   )
 }
