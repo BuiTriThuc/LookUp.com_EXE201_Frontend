@@ -337,6 +337,7 @@ p {
 .img_post {
     width: 550px;
     height: 261px;
+    object-fit: contain;
 }
 
 .total_like_cmt {

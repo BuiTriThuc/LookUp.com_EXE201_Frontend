@@ -9,9 +9,7 @@ import LoginForm from "./components/User/LoginForm";
 import { Fragment, useEffect } from "react";
 import Search from "./components/Search/Search";
 import FormRegister from "./components/InformationRegister/FormRegister";
-import Chatbox from "./components/Chatbox/Chatbox";
 import Profile from "./components/User/Profile";
-import { StyledEngineProvider } from "@mui/material/styles";
 import NewPassword from "./components/InformationRegister/NewPassword";
 import Help from "./components/Layout/help";
 import Premium from "./components/Premium/Premium";
@@ -26,6 +24,7 @@ import ForgotPassword from "./components/InformationRegister/ForgotPassword";
 import OTP from "./components/InformationRegister/OTP";
 import EditProfile from "./components/User/EditProfile/EditProfile";
 import Payment from "./components/Payment/Payment";
+import Chatbox from "./components/chatbot/Chatbox";
 
 function App() {
   useEffect(() => {
@@ -40,13 +39,14 @@ function App() {
         <Fragment>
           <Header />
           <Routes>
-            <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/register" element={<FormRegister />} />
+            <Route path="/chatbox" element={<Chatbox />} />
             <Route path="/login" element={<LoginForm />} />
             <Route path="/search" element={<Search />} />
             <Route path="/resetpassword" element={<NewPassword />} />
             <Route path="/resetpasswordsuccess" element={<Profile />} />
             <Route path="/help" element={<Help />} />
+            <Route path="/help2" element={<Help />} />
 
             <Route path="/premium" element={<Premium />} />
             <Route path="/premiumyear" element={<PremiumYear />} />

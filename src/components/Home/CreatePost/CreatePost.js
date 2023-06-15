@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, createPost } from "../../actions/postActions";
 import { useNavigate } from "react-router-dom";
 import { CREATE_POST_RESET } from "../../contants/postContants";
-import toast, { Toaster } from "react-hot-toast";
+
 import io, { Socket } from "socket.io-client";
 
 function CreatePost() {
