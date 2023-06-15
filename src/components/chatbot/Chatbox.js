@@ -7,7 +7,7 @@ export default function Chatbox() {
   const BOT_IMG = "../assets/bot.png";
   const PERSON_IMG = "../assets/user.png";
   const BOT_NAME = "LookUp";
-  const PERSON_NAME = "Coderider";
+  const PERSON_NAME = "User";
   const prompts = [["hi", "hey", "hello", "good morning", "good afternoon"]];
   const replies = [["Hello!", "Hi!", "Hey!", "Hi there!", "Howdy"]];
   const alternative = [
@@ -123,13 +123,15 @@ export default function Chatbox() {
         <section className="msger">
           <header className="msger-header">
             <div className="msger-header-title">
-              <img src={logo} alt="" srcSet="" /> <p> LookUp</p>
+              <img style={{ marginRight: "3px" }} src={logo} alt="" srcSet="" />{" "}
+              <p> LookUp</p>
             </div>
           </header>
           <div
             style={{
               height: "580px",
               overflowY: "scroll",
+              overflowX: "hidden !important",
               overflow: "scroll",
             }}
           >
@@ -152,7 +154,7 @@ export default function Chatbox() {
                   </div>
                 </div>
               </div>
-              <div class="msg right-msg">
+              {/* <div class="msg right-msg">
                 <div
                   class="msg-img"
                   style={{
@@ -161,19 +163,18 @@ export default function Chatbox() {
                 ></div>
                 <div class="msg-bubble">
                   <div class="msg-info">
-                    <div class="msg-info-name">Coderider</div>
+                    <div class="msg-info-name">User</div>
                     <div class="msg-info-time">12:46</div>
                   </div>
 
-                  <div class="msg-text">
-                    You can change your name in JS section!
-                  </div>
+                  <div class="msg-text"></div>
                 </div>
-              </div>
+              </div> */}
             </main>
           </div>
           <form className="msger-inputarea">
             <input
+              style={{ color: "white" }}
               type="text"
               className="msger-input"
               placeholder="Enter your message..."

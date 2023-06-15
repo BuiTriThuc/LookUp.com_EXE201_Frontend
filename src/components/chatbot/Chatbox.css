@@ -3,8 +3,8 @@
 :root {
     --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     --msger-bg: #fff;
-    --left-msg-bg: linear-gradient(to right, #f895b9, #f44183);
-    --right-msg-bg: #ececec;
+    --left-msg-bg: #343541;
+    --right-msg-bg: #E6E6E6;
 }
 
 .layout.rtl .sidebar.collapsed .menu>ul>.menu-item.sub-menu>.sub-menu-list {
@@ -171,10 +171,10 @@ a {
 }
 
 .msger-send-btn {
-    margin-left: 10px;
+    margin-bottom: 7px;
     background: transparent;
     color: #fff;
-    font-size: 1.5rem;
+
     cursor: pointer;
 }
 
