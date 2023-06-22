@@ -26,6 +26,7 @@ import PostPictures10 from "./Post/PostPictures_10";
 import PostPictures2 from "./Post/PostPictures_2";
 import PostPictures3 from "./Post/PostPictures_3";
 import PostPictures4 from "./Post/PostPictures_4";
+import ThreeDotMenu from "./threeDotMenu/ThreeDotMenu";
 
 // ReadMore Text
 const ReadMore = ({ text }) => {
@@ -269,20 +270,25 @@ function Home() {
         {posts &&
           posts.map((post) => (
             <div className="body_top_item5" key={post._id}>
-              <Link to="/profile" className="post_detail">
-                <img className="img_company" src={post.user?.image} alt="" />
-                <div to="/login" className="post_title">
-                  <h5
-                    className="home_name_company"
-                    style={{ fontWeight: "bold", fontSize: "16px" }}
-                  >
-                    {post.user?.name}
-                  </h5>
-                  <p style={{ fontSize: "13px", opacity: "0.9" }}>
-                    Được tài trợ
-                  </p>{" "}
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <Link to="/profile" className="post_detail">
+                  <img className="img_company" src={post.user?.image} alt="" />
+                  <div to="/login" className="post_title">
+                    <h5
+                      className="home_name_company"
+                      style={{ fontWeight: "bold", fontSize: "16px" }}
+                    >
+                      {post.user?.name}
+                    </h5>
+                    <p style={{ fontSize: "13px", opacity: "0.9" }}>
+                      Được tài trợ
+                    </p>{" "}
+                  </div>
+                </Link>
+                <div>
+                  <ThreeDotMenu />
                 </div>
-              </Link>
+              </div>
               <div className="post_detail_home">
                 {" "}
                 <ReadMore text={post.content.replace(/<br \/>/g, "<br>")} />
