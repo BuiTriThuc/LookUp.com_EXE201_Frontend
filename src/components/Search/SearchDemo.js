@@ -5,7 +5,7 @@ import "./Search.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getDistrict, getProvide, getWard } from "../actions/provideAction";
-function Search() {
+function SearchDemo() {
   const dispatch = useDispatch();
   const { provides, districts, wards } = useSelector(
     (state) => state.getProvide
@@ -255,11 +255,8 @@ function Search() {
             </select>
           </div>
         </div>
-        {/* <Link to="/searchdemo">
+        <Link to="/">
           {" "}
-          
-        </Link> */}
-        <a href="/searchdemo">
           <button
             style={{
               backgroundColor: "#2187FF",
@@ -271,7 +268,7 @@ function Search() {
           >
             Áp dụng
           </button>{" "}
-        </a>
+        </Link>
       </div>
 
       <div className="text_center_search">
@@ -527,4 +524,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchDemo;

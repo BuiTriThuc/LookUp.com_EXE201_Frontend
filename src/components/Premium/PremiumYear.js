@@ -38,7 +38,7 @@ export default function PremiumYear() {
             </p>
           </div>
           <div className="premium_bottom_payment">
-            <Link to="/payment">
+            <Link to="/paymentYear">
               {" "}
               <div className="premium_bottom_payment_paypel">
                 <h3 className="payment_name">
