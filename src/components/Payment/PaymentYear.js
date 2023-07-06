@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Payment.module.css";
 import momo from "../../images/momo.jpg";
 
-const Payment = () => {
+const PaymentYear = () => {
   return (
     <>
       <div className={styles.row}>
@@ -20,12 +20,12 @@ const Payment = () => {
             <div className={styles.paymentItem}>
               <div className={styles.inforBill}>
                 <div className={styles.inforBillContent}>
-                  <h5>Gói Tháng</h5>
-                  <h5>259.000</h5>
+                  <h5>Gói năm</h5>
+                  <h5>2.249.000</h5>
                 </div>
                 <div className={styles.inforBillContent}>
                   <p>giá</p>
-                  <p>259.000</p>
+                  <p>2.249.000</p>
                 </div>
 
                 <div className={styles.inforBillContent}>
@@ -34,7 +34,7 @@ const Payment = () => {
                 </div>
                 <div className={styles.inforBillContent}>
                   <h5>Tổng cộng</h5>
-                  <h5 style={{ color: "#e63946" }}>259.000</h5>
+                  <h5 style={{ color: "#e63946" }}>2.249.000</h5>
                 </div>
               </div>
               <h5 style={{ marginBottom: "15px" }}>
@@ -66,4 +66,4 @@ const Payment = () => {
   );
 };
 
-export default Payment;
+export default PaymentYear;

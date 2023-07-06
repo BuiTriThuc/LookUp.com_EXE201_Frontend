@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import "./Profile.css";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { CiCirclePlus } from "react-icons/ci";
+import bg_profile from "../../images/bg_profile.png";
 
 import ProfileTab from "./ProfileTab";
 
@@ -12,11 +13,7 @@ function Profile() {
     <div className="profile">
       <div className="img_des">
         <div>
-          <img
-            className="img_bg"
-            src="https://vietnamarch.com.vn/wp-content/uploads/2020/07/background-co-dia-chi-cong-ty-1.jpg"
-            alt=""
-          />
+          <img className="img_bg" src={bg_profile} alt="" />
           <img className="img_avt" src={user?.image} alt="" />
         </div>
         <div className="profile_des">

@@ -1,11 +1,9 @@
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiLike } from "react-icons/bi";
-import { AiOutlineHeart, AiFillLike } from "react-icons/ai";
-
+import { AiFillLike } from "react-icons/ai";
 import "react-dropdown/style.css";
 import { FaRegComment } from "react-icons/fa";
 import { TbSend } from "react-icons/tb";
-import { AiFillHeart } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -47,6 +45,7 @@ import PostPictures2 from "../Home/Post/PostPictures_2";
 import PostPictures3 from "../Home/Post/PostPictures_3";
 import PostPictures4 from "../Home/Post/PostPictures_4";
 import CreatePost from "../Home/CreatePost/CreatePost";
+import ThreeDotMenu from "../Home/threeDotMenu/ThreeDotMenu";
 
 const style = {
   position: "absolute",
@@ -220,9 +219,6 @@ export default function BasicTabs() {
     dispatch(dislikePost(postId, userId));
   };
 
-  const longText =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum magna et risus commodo, vitae lacinia lectus sodales. In maximus sem et tristique aliquam. Nulla tincidunt massa ut dui eleifend, in viverra velit ultrices. Nam dictum facilisis nulla, id ullamcorper orci vulputate vel. Fusce aliquet magna eget felis finibus vestibulum. Suspendisse potenti. Mauris consectetur elit a turpis semper commodo. Phasellus non velit id mauris efficitur lacinia. Nulla facilisi. Nam eget aliquet felis. In maximus elementum purus id auctor. Nullam ut congue leo, vitae mattis felis.";
-
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -388,23 +384,31 @@ export default function BasicTabs() {
             {posts &&
               posts.map((post) => (
                 <div className="body_top_item5" key={post._id}>
-                  <Link to="/profile" className="post_detail">
-                    <img
-                      className="img_company"
-                      src={post.user?.image}
-                      alt=""
-                    />
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    {" "}
+                    <Link to="/profile" className="post_detail">
+                      <img
+                        className="img_company"
+                        src={post.user?.image}
+                        alt=""
+                      />
 
-                    <div className="post_title">
-                      <h5
-                        className="home_name_company"
-                        style={{ fontWeight: "bold" }}
-                      >
-                        {post.user?.name}
-                      </h5>
-                      <p>Được tài trợ</p>{" "}
-                    </div>
-                  </Link>
+                      <div className="post_title">
+                        <h5
+                          className="home_name_company"
+                          style={{ fontWeight: "bold" }}
+                        >
+                          {post.user?.name}
+                        </h5>
+                        <p>Được tài trợ</p>{" "}
+                      </div>
+                    </Link>
+                    <div>
+                      <ThreeDotMenu />
+                    </div>{" "}
+                  </div>
 
                   <div className="post_detail_home">
                     {" "}
