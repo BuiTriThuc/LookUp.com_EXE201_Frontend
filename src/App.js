@@ -29,11 +29,11 @@ import PaymentYear from "./components/Payment/PaymentYear";
 import SearchDemo from "./components/Search/SearchDemo";
 
 function App() {
-  // useEffect(() => {
-  //   store.dispatch(loadUser());
-  // }, []);
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
 
-  // const { isAuthenticated } = useSelector((state) => state.user);
+  const { isAuthenticated } = useSelector((state) => state.user);
 
   return (
     <div className="App">
@@ -62,14 +62,14 @@ function App() {
             <Route path="/otp" element={<OTP />} />
             <Route path="/*" element={<NotFound />} />
 
-            {/* <Route
+            <Route
               element={<ProtectedRoute isAuthenticated={isAuthenticated} />}
-            > */}
-            <Route exact path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/editprofile" element={<EditProfile />} />
-            <Route path="/viewImage/:id" element={<ViewImages />} />
-            {/* </Route> */}
+            >
+              <Route exact path="/" element={<Home />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/editprofile" element={<EditProfile />} />
+              <Route path="/viewImage/:id" element={<ViewImages />} />
+            </Route>
           </Routes>
           <Footer />
         </Fragment>
